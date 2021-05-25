@@ -26,8 +26,6 @@ L. Yang, A. Moubayed, I. Hamieh and A. Shami, "Tree-Based Intelligent Intrusion 
   booktitle={2019 IEEE Global Communications Conference (GLOBECOM)}, 
   title={Tree-Based Intelligent Intrusion Detection System in Internet of Vehicles}, 
   year={2019},
-  volume={},
-  number={},
   pages={1-6},
   doi={10.1109/GLOBECOM38437.2019.9013892}}
 ```
