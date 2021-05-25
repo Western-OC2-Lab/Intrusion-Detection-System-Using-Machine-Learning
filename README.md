@@ -17,7 +17,7 @@ Please feel free to contact us for any questions or cooperation opportunities. W
 * Google Scholar: [OC2 Lab](https://scholar.google.com.eg/citations?user=oiebNboAAAAJ&hl=en)
 
 ## Citation
-If you find this repository useful in your research, please cite this article as:  
+If you find this repository useful in your research, please cite one of the following two articles as:  
 
 L. Yang, A. Moubayed, I. Hamieh and A. Shami, "Tree-Based Intelligent Intrusion Detection System in Internet of Vehicles," 2019 IEEE Global Communications Conference (GLOBECOM), 2019, pp. 1-6, doi: 10.1109/GLOBECOM38437.2019.9013892.  
 ```
