@@ -1,11 +1,15 @@
 # Intrusion-Detection-System-Using-Machine-Learning
 
-This repository contains the code for the project "Intrusion Detection System Development for Autonomous/Connected Vehicles"
+This repository contains the code for the project "Intrusion Detection System Development for Autonomous/Connected Vehicles". In this project, two papers have been published:  
+* L. Yang, A. Moubayed, I. Hamieh and A. Shami, "Tree-Based Intelligent Intrusion Detection System in Internet of Vehicles," 2019 IEEE Global Communications Conference (GLOBECOM), 2019, pp. 1-6, doi: 10.1109/GLOBECOM38437.2019.9013892.  
+* L. Yang, A. Moubayed, and A. Shami, “MTH-IDS: A Multi-Tiered Hybrid Intrusion Detection System for Internet of Vehicles,” IEEE Internet of Things Journal, 2021.
 
 ## Implementation 
 ### Dataset 
 CICIDS2017 dataset, a popular network traffic dataset for intrusion detection problems
 * Publicly available at: https://www.unb.ca/cic/datasets/ids-2017.html  
+
+For the purpose of displaying the experimental results in the sample code, the sampled subsets of CICIDS2017 is used. The subsets are in the "data" folder.
 
 ### Code  
 
