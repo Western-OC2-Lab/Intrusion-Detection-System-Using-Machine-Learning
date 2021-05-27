@@ -23,9 +23,10 @@ For the purpose of displaying the experimental results in the sample code, the s
 * Stacking
 * K-means
 
-### Hyperparameter Optimization  
+### Hyperparameter Optimization Methods  
 * Bayesian Optimization with Gaussian Processes (BO-GP)
 * Bayesian Optimization with Tree-structured Parzen Estimator (BO-TPE)  
+
 If you are interested in hyperparameter tuning of machine learning algorithms, please see the code in the following link:  
 https://github.com/LiYangHart/Hyperparameter-Optimization-of-Machine-Learning-Algorithms
 
