@@ -9,7 +9,7 @@ This repository contains the code for the project "Intrusion Detection System De
 CICIDS2017 dataset, a popular network traffic dataset for intrusion detection problems
 * Publicly available at: https://www.unb.ca/cic/datasets/ids-2017.html  
 
-For the purpose of displaying the experimental results in the sample code, the sampled subsets of CICIDS2017 is used. The subsets are in the "data" folder.
+For the purpose of displaying the experimental results in Jupyter Notebook, the sampled subsets of CICIDS2017 is used in the sample code. The subsets are in the "data" folder.
 
 ### Code  
 * [Tree-based_IDS_GlobeCom19.ipynb](https://github.com/Western-OC2-Lab/Intrusion-Detection-System-Using-Machine-Learning/blob/main/Tree-based_IDS_GlobeCom19.ipynb): code for the paper "Tree-Based Intelligent Intrusion Detection System in Internet of Vehicles"  
