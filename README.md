@@ -62,11 +62,11 @@ L. Yang, A. Moubayed, I. Hamieh and A. Shami, "Tree-Based Intelligent Intrusion 
 
 L. Yang, A. Moubayed, and A. Shami, “MTH-IDS: A Multi-Tiered Hybrid Intrusion Detection System for Internet of Vehicles,” IEEE Internet of Things Journal, 2021, doi: 10.1109/JIOT.2021.3084796.
 ```
-@article{YANG20210525,
-title = "MTH-IDS: A Multi-Tiered Hybrid Intrusion Detection System for Internet of Vehicles",
-author = "Yang, Li and Moubayed, Abdallah and Shami, Abdallah",
-journal = "IEEE Internet of Things Journal",
-year = "2021",
-doi={10.1109/JIOT.2021.3084796}
-}
+@ARTICLE{9443234,
+  author={Yang, Li and Moubayed, Abdallah and Shami, Abdallah},
+  journal={IEEE Internet of Things Journal}, 
+  title={MTH-IDS: A Multi-Tiered Hybrid Intrusion Detection System for Internet of Vehicles}, 
+  year={2021},
+  pages={1-17},
+  doi={10.1109/JIOT.2021.3084796}}
 ```
