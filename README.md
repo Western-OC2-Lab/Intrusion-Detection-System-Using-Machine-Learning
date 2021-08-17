@@ -31,7 +31,7 @@ If you are interested in hyperparameter tuning of machine learning algorithms, p
 https://github.com/LiYangHart/Hyperparameter-Optimization-of-Machine-Learning-Algorithms
 
 ### Requirements & Libraries  
-* Python 3.5  
+* Python 3 
 * [scikit-learn](https://scikit-learn.org/stable/)  
 * [Xgboost](https://xgboost.readthedocs.io/en/latest/python/python_intro.html)
 * [FCBF](https://github.com/SantiagoEG/FCBF_module)
