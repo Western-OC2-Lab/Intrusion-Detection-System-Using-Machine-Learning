@@ -4,6 +4,13 @@ This repository contains the code for the project "Intrusion Detection System De
 * L. Yang, A. Moubayed, I. Hamieh and A. Shami, "[Tree-Based Intelligent Intrusion Detection System in Internet of Vehicles](https://arxiv.org/pdf/1910.08635.pdf)," 2019 IEEE Global Communications Conference (GLOBECOM), 2019, pp. 1-6, doi: 10.1109/GLOBECOM38437.2019.9013892.  
 * L. Yang, A. Moubayed, and A. Shami, “[MTH-IDS: A Multi-Tiered Hybrid Intrusion Detection System for Internet of Vehicles](https://arxiv.org/pdf/2105.13289.pdf),” IEEE Internet of Things Journal, 2021, doi: 10.1109/JIOT.2021.3084796.
 
+It proposed two **intrusion detection systems** by implementing many **machine learning** algorithms, including tree-based algorithms (**decision tree, random forest, XGBoost, etc.**), unsupervised learning algorithms (**k-means**), ensemble learning algorithms (**stacking**), and hyperparameter optimization techniques (**Bayesian optimization**)**.
+
+- Another **intrusion detection system development code** using **convolutional neural networks (CNNs)** and **transfer learning** techniques can be found in: [Intrusion-Detection-System-Using-CNN-and-Transfer-Learning](https://github.com/Western-OC2-Lab/Intrusion-Detection-System-Using-CNN-and-Transfer-Learning)
+
+- A comprehensive **hyperparameter optimization** tutorial code can be found in: [Hyperparameter-Optimization-of-Machine-Learning-Algorithms](https://github.com/LiYangHart/Hyperparameter-Optimization-of-Machine-Learning-Algorithms)
+
+
 ## Implementation 
 ### Dataset 
 CICIDS2017 dataset, a popular network traffic dataset for intrusion detection problems
