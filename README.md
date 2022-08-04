@@ -5,7 +5,7 @@ This repository contains the code for the project "Intrusion Detection System De
 * L. Yang, A. Moubayed, and A. Shami, “[MTH-IDS: A Multi-Tiered Hybrid Intrusion Detection System for Internet of Vehicles](https://arxiv.org/pdf/2105.13289.pdf),” IEEE Internet of Things Journal, vol. 9, no. 1, pp. 616-632, Jan.1, 2022, doi: 10.1109/JIOT.2021.3084796.
 * L. Yang, A. Shami, G. Stevens, and S. DeRusett, “LCCDE: A Decision-Based Ensemble Framework for Intrusion Detection in The Internet of Vehicles," in 2022 IEEE Global Communications Conference (GLOBECOM), 2022, pp. 1-6.
 
-It proposed three **intrusion detection systems** by implementing many **machine learning** algorithms, including tree-based algorithms (**decision tree, random forest, XGBoost, etc.**), unsupervised learning algorithms (**k-means**), ensemble learning algorithms (**stacking**), and hyperparameter optimization techniques (**Bayesian optimization**)**.
+It proposed three **intrusion detection systems** by implementing many **machine learning** algorithms, including tree-based algorithms (**decision tree, random forest, XGBoost, LightGBM, CatBoost etc.**), unsupervised learning algorithms (**k-means**), ensemble learning algorithms (**stacking, proposed LCCDE**), and hyperparameter optimization techniques (**Bayesian optimization**)**.
 
 - Another **intrusion detection system development code** using **convolutional neural networks (CNNs)** and **transfer learning** techniques can be found in: [Intrusion-Detection-System-Using-CNN-and-Transfer-Learning](https://github.com/Western-OC2-Lab/Intrusion-Detection-System-Using-CNN-and-Transfer-Learning)
 
@@ -31,6 +31,8 @@ CAN-intrusion dataset, a benchmark network security dataset for intra-vehicle in
 * Random forest (RF)
 * Extra trees (ET)
 * XGBoost  
+* LightGBM  
+* CatBoost  
 * Stacking
 * K-means
 
@@ -45,6 +47,8 @@ https://github.com/LiYangHart/Hyperparameter-Optimization-of-Machine-Learning-Al
 * Python 3 
 * [scikit-learn](https://scikit-learn.org/stable/)  
 * [Xgboost](https://xgboost.readthedocs.io/en/latest/python/python_intro.html)
+* [lightgbm](https://lightgbm.readthedocs.io/en/v3.3.2/Python-Intro.html)
+* [catboost](https://xgboost.readthedocs.io/en/latest/python/python_intro.html)
 * [FCBF](https://github.com/SantiagoEG/FCBF_module)
 * [scikit-optimize](https://github.com/scikit-optimize/scikit-optimize)  
 * [hyperopt](https://github.com/hyperopt/hyperopt)   
@@ -82,4 +86,15 @@ L. Yang, A. Moubayed, and A. Shami, “MTH-IDS: A Multi-Tiered Hybrid Intrusion 
   number={1},
   pages={616-632},
   doi={10.1109/JIOT.2021.3084796}}
+```
+
+L. Yang, A. Shami, G. Stevens, and S. DeRusett, “LCCDE: A Decision-Based Ensemble Framework for Intrusion Detection in The Internet of Vehicles," in 2022 IEEE Global Communications Conference (GLOBECOM), 2022, pp. 1-6.
+```
+@INPROCEEDINGS{lyanggc22,
+  author={Yang, Li and Shami, Abdallah and Stevens, Gary and DeRusett, Stephen},
+  booktitle={2022 IEEE Global Communications Conference (GLOBECOM)}, 
+  title={LCCDE: A Decision-Based Ensemble Framework for Intrusion Detection in The Internet of Vehicles}, 
+  year={2022},
+  pages={1-6},
+  }
 ```
