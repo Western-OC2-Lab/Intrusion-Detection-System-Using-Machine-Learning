@@ -59,7 +59,7 @@ If you are interested in hyperparameter tuning of machine learning algorithms, p
 https://github.com/LiYangHart/Hyperparameter-Optimization-of-Machine-Learning-Algorithms
 
 ### Requirements & Libraries  
-* Python 3 
+* Python 3.6+ 
 * [scikit-learn](https://scikit-learn.org/stable/)  
 * [Xgboost](https://xgboost.readthedocs.io/en/latest/python/python_intro.html)
 * [lightgbm](https://lightgbm.readthedocs.io/en/v3.3.2/Python-Intro.html)
@@ -67,6 +67,7 @@ https://github.com/LiYangHart/Hyperparameter-Optimization-of-Machine-Learning-Al
 * [FCBF](https://github.com/SantiagoEG/FCBF_module)
 * [scikit-optimize](https://github.com/scikit-optimize/scikit-optimize)  
 * [hyperopt](https://github.com/hyperopt/hyperopt)   
+* [River](https://riverml.xyz/dev/)  
 
 ## Contact-Info
 Please feel free to contact us for any questions or cooperation opportunities. We will be happy to help.
