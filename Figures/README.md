@@ -1,1 +1,1 @@
-The figures used in this GitHub repository
+# The figures used in this GitHub repository
