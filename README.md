@@ -1,6 +1,6 @@
 # Intrusion-Detection-System-Using-Machine-Learning
 
-This repository contains the code for the project "Intrusion Detection System Development for Autonomous / Connected Vehicles". The code and proposed Intrusion Detection System (IDSs) are general models that can be used in any IDS and anomaly detection applications. In this project, three papers have been published:  
+This repository contains the code for the project "IDS-ML: Intrusion Detection System Development Using Machine Learning". The code and proposed Intrusion Detection System (IDSs) are general models that can be used in any IDS and anomaly detection applications. In this project, three papers have been published:  
 * L. Yang, A. Moubayed, I. Hamieh and A. Shami, "[Tree-Based Intelligent Intrusion Detection System in Internet of Vehicles](https://arxiv.org/pdf/1910.08635.pdf)," in 2019 IEEE Global Communications Conference (GLOBECOM), 2019, pp. 1-6, doi: 10.1109/GLOBECOM38437.2019.9013892.  
 * L. Yang, A. Moubayed, and A. Shami, “[MTH-IDS: A Multi-Tiered Hybrid Intrusion Detection System for Internet of Vehicles](https://arxiv.org/pdf/2105.13289.pdf),” IEEE Internet of Things Journal, vol. 9, no. 1, pp. 616-632, Jan.1, 2022, doi: 10.1109/JIOT.2021.3084796.
 * L. Yang, A. Shami, G. Stevens, and S. DeRusett, “[LCCDE: A Decision-Based Ensemble Framework for Intrusion Detection in The Internet of Vehicles](https://arxiv.org/pdf/2208.03399.pdf)," in 2022 IEEE Global Communications Conference (GLOBECOM), 2022, pp. 1-6.
