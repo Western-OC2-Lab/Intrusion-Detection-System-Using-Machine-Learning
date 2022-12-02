@@ -5,7 +5,11 @@ This repository contains the code for the project "IDS-ML: Intrusion Detection S
 * L. Yang, A. Moubayed, and A. Shami, “[MTH-IDS: A Multi-Tiered Hybrid Intrusion Detection System for Internet of Vehicles](https://arxiv.org/pdf/2105.13289.pdf),” IEEE Internet of Things Journal, vol. 9, no. 1, pp. 616-632, Jan.1, 2022, doi: 10.1109/JIOT.2021.3084796.
 * L. Yang, A. Shami, G. Stevens, and S. DeRusett, “[LCCDE: A Decision-Based Ensemble Framework for Intrusion Detection in The Internet of Vehicles](https://arxiv.org/pdf/2208.03399.pdf)," in 2022 IEEE Global Communications Conference (GLOBECOM), 2022, pp. 1-6.
 
-It proposed three **intrusion detection systems** by implementing many **machine learning** algorithms, including tree-based algorithms (**decision tree, random forest, XGBoost, LightGBM, CatBoost etc.**), unsupervised learning algorithms (**k-means**), ensemble learning algorithms (**stacking, proposed LCCDE**), and hyperparameter optimization techniques (**Bayesian optimization**)**.
+
+The code introduction of this repository is publicly available at:  
+* L. Yang, and A. Shami, “[IDS-ML: An open source code for Intrusion Detection System development using Machine Learning](https://www.sciencedirect.com/science/article/pii/S2665963822001300)," Software Impacts, vol. 14, pp. 1-4, 2022, doi: 10.1016/j.simpa.2022.100446.
+
+This repository proposed three **intrusion detection systems** by implementing many **machine learning** algorithms, including tree-based algorithms (**decision tree, random forest, XGBoost, LightGBM, CatBoost etc.**), unsupervised learning algorithms (**k-means**), ensemble learning algorithms (**stacking, proposed LCCDE**), and hyperparameter optimization techniques (**Bayesian optimization**)**.
 
 - Another **intrusion detection system development code** using **convolutional neural networks (CNNs)** and **transfer learning** techniques can be found in: [Intrusion-Detection-System-Using-CNN-and-Transfer-Learning](https://github.com/Western-OC2-Lab/Intrusion-Detection-System-Using-CNN-and-Transfer-Learning)
 
