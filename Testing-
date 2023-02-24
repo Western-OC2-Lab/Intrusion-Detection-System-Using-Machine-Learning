@@ -1,0 +1,3 @@
+
+// Data Descriptions
+Data is divided into various files based on date. Each individual file is unbalanced, and it is up to the notebook creator to divide up the dataset into a balanced form for higher-quality predictions.
