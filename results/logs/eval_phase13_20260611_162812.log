@@ -1,0 +1,26 @@
+[2026-06-11 16:28:12] === sessão iniciada — log: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/results/logs/eval_phase13_20260611_162812.log ===
+[2026-06-11 16:28:12] /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/.venv/bin/python -m mth_ids_pipeline.phases.phase13_full_system_eval --intermediate-dir data/pipeline_can_intrusion_merged --work-dir data/pipeline_can_intrusion_merged/anomaly/global
+[2026-06-11 16:28:12] >> /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/.venv/bin/python -m mth_ids_pipeline.phases.phase13_full_system_eval --intermediate-dir data/pipeline_can_intrusion_merged --work-dir data/pipeline_can_intrusion_merged/anomaly/global
+Avaliação end-to-end: supervised=data/pipeline_can_intrusion_merged | anomaly=data/pipeline_can_intrusion_merged/anomaly/global
+Hold-out: test_size=0.3, random_state=0
+  [KPCA transform inferência] shape=(2969, 20)
+
+=== MTH-IDS end-to-end (hold-out) ===
+Accuracy: 0.988854
+F1 (weighted): 0.994223
+DR: 0.999857  FAR: 0.037050  F1 (binário): 0.992122
+Roteamento: {'n_test': 9959, 'n_stacking_normal': 2969, 'n_stacking_attack': 6990, 'anomaly_attack_detected': 109, 'anomaly_normal_confirmed': 2860}
+CM multi-classe:
+[[2859    0    0    1    0  109]
+ [   0 1762    0    0    0    0]
+ [   1    0 1471    0    0    0]
+ [   0    0    0 1791    0    0]
+ [   0    0    0    0 1965    0]
+ [   0    0    0    0    0    0]]
+CM binária:
+[[2859  110]
+ [   1 6989]]
+Relatório salvo em: data/pipeline_can_intrusion_merged/phase_reports/phase13_full_system_eval.json
+Figura salva: data/pipeline_can_intrusion_merged/figures/fig_multiclass_cm.png
+Figura salva: data/pipeline_can_intrusion_merged/figures/fig_binary_cm.png
+[2026-06-11 16:28:17] === sessão concluída ===

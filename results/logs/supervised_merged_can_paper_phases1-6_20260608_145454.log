@@ -1,0 +1,91 @@
+[2026-06-08 14:54:54] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_can_paper_phases1-6_20260608_145454.log ===
+[2026-06-08 14:54:54] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 14:54:54] protocolo: can_paper | ramo: supervised | perfil: merged
+[2026-06-08 14:54:54] fases: 1-6 (1, 2, 4, 6)
+[2026-06-08 14:54:54] -> [fase 1 - 1/4] Carregamento e pré-processamento ...
+[2026-06-08 14:54:54] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --input C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv --no-zscore
+Carregando dataset: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv
+Label
+RPM       4621702
+Gear      4443142
+Fuzzy     3838860
+DoS       3665771
+BENIGN     988871
+Name: count, dtype: int64
+Dataset carregado em 12.34s
+Shape original: (17558346, 11)
+Pré-processamento concluído. Shape final: (17558346, 11)
+Z-score adiado (artigo CAN: normalização após amostragem k-means).
+Salvando arquivo parquet...
+Arquivo salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\01_preprocessed.parquet
+Tempo de salvamento: 4.85s
+Tempo total do pipeline: 17.19s
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports\phase01_load_preprocess.json
+[2026-06-08 14:55:13] OK fase 1 concluida em 19.1s
+[2026-06-08 14:55:13] -> [fase 2 - 2/4] Amostragem k-means ...
+[2026-06-08 14:55:13] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --n-clusters 1000 --frac 0.1 --random-state 0 --sample-all-classes --zscore-after-sample
+Z-score aplicado após amostragem k-means (protocolo CAN artigo).
+Label
+4    461653
+3    444470
+2    383503
+1    366811
+0     99396
+Name: count, dtype: int64
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\02_sampled_kmeans.parquet shape=(1755833, 11)
+[2026-06-08 14:55:42] OK fase 2 concluida em 28.8s
+[2026-06-08 14:55:42] -> [fase 4 - 3/4] Engenharia de features (IG, FCBF) ...
+[2026-06-08 14:55:42] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --fcbf-k 20 --random-state 0 --test-size 0.3 --fcbf-scope train --scale-mode phase1 --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --ig-features CAN_ID,DATA_1,DATA_3,DATA_5
+IG fixo (artigo): ['CAN_ID', 'DATA_1', 'DATA_3', 'DATA_5']
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_train_after_fcbf.parquet (1229083, 5)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_test_after_fcbf.parquet (526750, 5)
+Preprocessores supervisionados salvos: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\models\supervised\manifest.json
+[2026-06-08 14:56:20] Sem SMOTE: parquets FCBF copiados para caminhos da fase 5 em C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 14:56:20] OK fase 4 concluida em 37.8s
+[2026-06-08 14:56:20] -> [fase 6 - 4/4] Modelos supervisionados + stacking ...
+[2026-06-08 14:56:20] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase06_supervised_models --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --no-plots --cv-folds 10 --meta-learner best-base --random-state 0 --hpo-on-validation
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+[2026-06-08 18:04:14] === sessão encerrada com erro: KeyboardInterrupt:  ===

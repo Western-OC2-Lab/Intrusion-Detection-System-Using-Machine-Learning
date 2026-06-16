@@ -1,0 +1,49 @@
+﻿{
+  "input_without_portscan": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\a01_without_portscan.parquet",
+  "input_portscan": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\a02_portscan_only.parquet",
+  "combined_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\a03_combined_normalized.parquet",
+  "kpca_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\a04_after_kpca.parquet",
+  "test_slice_meta": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\a06_test_slice.json",
+  "artifact_paths": {
+    "scaler": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\fitted_scaler.joblib",
+    "ig_features": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\fitted_ig_features.txt",
+    "fcbf": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\fitted_fcbf.joblib",
+    "kpca": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\fitted_kpca.joblib",
+    "partition": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\a06_test_slice.json"
+  },
+  "protocol": "fit_train_transform_test",
+  "feature_fit_scope": "train",
+  "zscore_scope": "combined",
+  "fcbf_k": 20,
+  "kpca_components": 20,
+  "kpca_kernel": "sigmoid",
+  "ig_cumulative": 0.9,
+  "optimize_ig": true,
+  "optimize_kpca": true,
+  "zero_day_samples": 0,
+  "benign_sample_n": 0,
+  "benign_available": 14493,
+  "benign_pairing_rule": "none_holdout_reserved",
+  "random_state": 0,
+  "train_shape": {
+    "rows": 21432,
+    "cols": 78
+  },
+  "test_shape": {
+    "rows": 0,
+    "cols": 78
+  },
+  "kpca_shape": {
+    "rows": 21432,
+    "cols": 20
+  },
+  "ig_feature_count": 44,
+  "kpca_hpo": {
+    "best_n_components": 20,
+    "best_kernel": "sigmoid",
+    "best_cv_accuracy": 0.9924411570602547
+  },
+  "fcbf_feature_count": 20,
+  "phase": "phase08_anomaly_features",
+  "timestamp": 1780837025
+}

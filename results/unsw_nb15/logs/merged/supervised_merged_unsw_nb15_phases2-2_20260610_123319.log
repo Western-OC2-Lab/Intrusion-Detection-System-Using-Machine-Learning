@@ -1,0 +1,22 @@
+[2026-06-10 12:33:19] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_unsw_nb15_phases2-2_20260610_123319.log ===
+[2026-06-10 12:33:19] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-10 12:33:19] protocolo: unsw_nb15 | ramo: supervised | perfil: merged
+[2026-06-10 12:33:19] fases: 2-2 (2)
+[2026-06-10 12:33:19] -> [fase 2 - 1/1] Amostragem k-means ...
+[2026-06-10 12:33:19] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --n-clusters 1000 --frac 0.008 --random-state 0 --sampling-stage 3,7:0.02 --sampling-stage 5,6,4,8:0.05
+Label
+3     44369
+7      4314
+0      2677
+5      2260
+1      1795
+9      1511
+6      1225
+4       795
+8       670
+2       534
+10      174
+Name: count, dtype: int64
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\02_sampled_kmeans.parquet shape=(60324, 44)
+[2026-06-10 12:33:31] OK fase 2 concluida em 12.3s
+[2026-06-10 12:33:31] === sessão concluída ===

@@ -1,0 +1,38 @@
+[2026-06-09 10:22:01] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_unsw_nb15_phases5-5_20260609_102201.log ===
+[2026-06-09 10:22:01] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-09 10:22:01] protocolo: unsw_nb15 | ramo: supervised | perfil: merged
+[2026-06-09 10:22:01] fases: 5-5 (5)
+[2026-06-09 10:22:01] -> [fase 5 - 1/1] SMOTE ...
+[2026-06-09 10:22:01] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase05_smote --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --random-state 0 --smote-strategy {"2": 1500, "4": 1500, "5": 1500, "6": 1500, "8": 1500, "10": 1500}
+Contagem de rótulos no conjunto de treino original:
+3     14196
+0      2142
+1      1436
+7      1374
+9      1209
+2       427
+5       294
+6       144
+10      139
+4       102
+8        90
+Name: count, dtype: int64
+Estratégia SMOTE (rótulo → alvo): {'2 (BruteForce)': 1500, '4 (Infiltration)': 1500, '5 (PortScan)': 1500, '6 (WebAttack)': 1500, '8 (?)': 1500, '10 (?)': 1500}
+Contagem de rótulos no conjunto de treino após SMOTE:
+3     14196
+0      2142
+5      1500
+2      1500
+10     1500
+8      1500
+4      1500
+6      1500
+1      1436
+7      1374
+9      1209
+Name: count, dtype: int64
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\05_train_after_smote.parquet shape=(29357, 21)
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\05_test_unchanged.parquet shape=(5389, 21)
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports\phase05_smote.json
+[2026-06-09 10:22:08] OK fase 5 concluida em 6.7s
+[2026-06-09 10:22:08] === sessão concluída ===

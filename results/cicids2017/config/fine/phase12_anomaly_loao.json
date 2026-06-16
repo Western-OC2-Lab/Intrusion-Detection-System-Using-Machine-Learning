@@ -1,0 +1,584 @@
+﻿{
+  "n_attacks": 14,
+  "n_attacks_completed": 14,
+  "n_attacks_in_dataset": 14,
+  "n_attacks_pending": 0,
+  "pending_attack_labels": [],
+  "attacks_planned_this_run": [
+    8,
+    9
+  ],
+  "attacks_succeeded_this_run": [
+    8,
+    9
+  ],
+  "attacks_failed_this_run": [],
+  "loao_phases": "7,8,9,10,11",
+  "benign_pairing": "paper_table_ix_1_to_1 (unless --benign-target)",
+  "mean_detection_rate": 0.8715688834679811,
+  "mean_false_alarm_rate": 0.1361479359364592,
+  "mean_f1": 0.8650890306138551,
+  "per_attack": [
+    {
+      "attack_label": 1,
+      "attack_name": "Bot",
+      "n_clusters": 21,
+      "zero_day_samples": 1966,
+      "benign_sampled": 1966,
+      "train_rows": 24825,
+      "test_rows": 3932,
+      "train_binary_label_counts": {
+        "0": 18184,
+        "1": 6641
+      },
+      "test_binary_label_counts": {
+        "1": 1966,
+        "0": 1966
+      },
+      "train_original_label_counts": {
+        "0": 18184,
+        "4": 1837,
+        "12": 1507,
+        "10": 1281,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 60,
+        "11": 49,
+        "5": 44,
+        "6": 40,
+        "9": 36,
+        "13": 21
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.7441505595116988,
+      "detection_rate": 0.7314343845371313,
+      "false_alarm_rate": 0.24313326551373346,
+      "f1": 0.7408552292632664,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_1",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_1\\loao_run.log"
+    },
+    {
+      "attack_label": 10,
+      "attack_name": "PortScan",
+      "n_clusters": 16,
+      "zero_day_samples": 1280,
+      "benign_sampled": 1280,
+      "train_rows": 25529,
+      "test_rows": 2560,
+      "train_binary_label_counts": {
+        "0": 18181,
+        "1": 7348
+      },
+      "test_binary_label_counts": {
+        "1": 1280,
+        "0": 1280
+      },
+      "train_original_label_counts": {
+        "0": 18181,
+        "1": 1966,
+        "4": 1853,
+        "12": 1507,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 61,
+        "11": 43,
+        "6": 42,
+        "5": 42,
+        "9": 36,
+        "13": 21,
+        "8": 11
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.859765625,
+      "detection_rate": 0.915625,
+      "false_alarm_rate": 0.19609375,
+      "f1": 0.8671846096929338,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_10",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_10\\loao_run.log"
+    },
+    {
+      "attack_label": 11,
+      "attack_name": "SSH-Patator",
+      "n_clusters": 30,
+      "zero_day_samples": 43,
+      "benign_sampled": 43,
+      "train_rows": 26766,
+      "test_rows": 86,
+      "train_binary_label_counts": {
+        "0": 18181,
+        "1": 8585
+      },
+      "test_binary_label_counts": {
+        "1": 43,
+        "0": 43
+      },
+      "train_original_label_counts": {
+        "0": 18181,
+        "1": 1966,
+        "4": 1853,
+        "12": 1507,
+        "10": 1280,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 61,
+        "6": 42,
+        "5": 42,
+        "9": 36,
+        "13": 21,
+        "8": 11
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.9418604651162791,
+      "detection_rate": 1.0,
+      "false_alarm_rate": 0.11627906976744186,
+      "f1": 0.945054945054945,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\loao_run.log"
+    },
+    {
+      "attack_label": 12,
+      "attack_name": "Web Attack Brute Force",
+      "n_clusters": 20,
+      "zero_day_samples": 1507,
+      "benign_sampled": 1507,
+      "train_rows": 25302,
+      "test_rows": 3014,
+      "train_binary_label_counts": {
+        "0": 18181,
+        "1": 7121
+      },
+      "test_binary_label_counts": {
+        "1": 1507,
+        "0": 1507
+      },
+      "train_original_label_counts": {
+        "0": 18181,
+        "1": 1966,
+        "4": 1853,
+        "10": 1280,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 61,
+        "11": 43,
+        "6": 42,
+        "5": 42,
+        "9": 36,
+        "13": 21,
+        "8": 11
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.9230258792302588,
+      "detection_rate": 0.8540145985401459,
+      "false_alarm_rate": 0.007962840079628402,
+      "f1": 0.917320028510335,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_12",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_12\\loao_run.log"
+    },
+    {
+      "attack_label": 13,
+      "attack_name": "Web Attack Sql Injection",
+      "n_clusters": 20,
+      "zero_day_samples": 21,
+      "benign_sampled": 21,
+      "train_rows": 26788,
+      "test_rows": 42,
+      "train_binary_label_counts": {
+        "0": 18181,
+        "1": 8607
+      },
+      "test_binary_label_counts": {
+        "1": 21,
+        "0": 21
+      },
+      "train_original_label_counts": {
+        "0": 18181,
+        "1": 1966,
+        "4": 1853,
+        "12": 1507,
+        "10": 1280,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 61,
+        "11": 43,
+        "6": 42,
+        "5": 42,
+        "9": 36,
+        "8": 11
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.9047619047619048,
+      "detection_rate": 1.0,
+      "false_alarm_rate": 0.19047619047619047,
+      "f1": 0.9130434782608695,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_13",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_13\\loao_run.log"
+    },
+    {
+      "attack_label": 14,
+      "attack_name": "Web Attack XSS",
+      "n_clusters": 9,
+      "zero_day_samples": 652,
+      "benign_sampled": 652,
+      "train_rows": 26157,
+      "test_rows": 1304,
+      "train_binary_label_counts": {
+        "0": 18181,
+        "1": 7976
+      },
+      "test_binary_label_counts": {
+        "1": 652,
+        "0": 652
+      },
+      "train_original_label_counts": {
+        "0": 18181,
+        "1": 1966,
+        "4": 1853,
+        "12": 1507,
+        "10": 1280,
+        "2": 1034,
+        "3": 80,
+        "7": 61,
+        "11": 43,
+        "6": 42,
+        "5": 42,
+        "9": 36,
+        "13": 21,
+        "8": 11
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.9616564417177914,
+      "detection_rate": 0.9279141104294478,
+      "false_alarm_rate": 0.004601226993865031,
+      "f1": 0.9603174603174603,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_14",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_14\\loao_run.log"
+    },
+    {
+      "attack_label": 2,
+      "attack_name": "DDoS",
+      "n_clusters": 43,
+      "zero_day_samples": 1034,
+      "benign_sampled": 1034,
+      "train_rows": 25757,
+      "test_rows": 2068,
+      "train_binary_label_counts": {
+        "0": 18184,
+        "1": 7573
+      },
+      "test_binary_label_counts": {
+        "1": 1034,
+        "0": 1034
+      },
+      "train_original_label_counts": {
+        "0": 18184,
+        "1": 1966,
+        "4": 1837,
+        "12": 1507,
+        "10": 1281,
+        "14": 652,
+        "3": 80,
+        "7": 60,
+        "11": 49,
+        "5": 44,
+        "6": 40,
+        "9": 36,
+        "13": 21
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.8220502901353965,
+      "detection_rate": 0.8268858800773694,
+      "false_alarm_rate": 0.1827852998065764,
+      "f1": 0.8229066410009624,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_2",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_2\\loao_run.log"
+    },
+    {
+      "attack_label": 3,
+      "attack_name": "DoS GoldenEye",
+      "n_clusters": 18,
+      "zero_day_samples": 80,
+      "benign_sampled": 80,
+      "train_rows": 26711,
+      "test_rows": 160,
+      "train_binary_label_counts": {
+        "0": 18184,
+        "1": 8527
+      },
+      "test_binary_label_counts": {
+        "1": 80,
+        "0": 80
+      },
+      "train_original_label_counts": {
+        "0": 18184,
+        "1": 1966,
+        "4": 1837,
+        "12": 1507,
+        "10": 1281,
+        "2": 1034,
+        "14": 652,
+        "7": 60,
+        "11": 49,
+        "5": 44,
+        "6": 40,
+        "9": 36,
+        "13": 21
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.925,
+      "detection_rate": 0.9125,
+      "false_alarm_rate": 0.0625,
+      "f1": 0.9240506329113924,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_3",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_3\\loao_run.log"
+    },
+    {
+      "attack_label": 4,
+      "attack_name": "DoS Hulk",
+      "n_clusters": 27,
+      "zero_day_samples": 1837,
+      "benign_sampled": 1837,
+      "train_rows": 24954,
+      "test_rows": 3674,
+      "train_binary_label_counts": {
+        "0": 18184,
+        "1": 6770
+      },
+      "test_binary_label_counts": {
+        "1": 1837,
+        "0": 1837
+      },
+      "train_original_label_counts": {
+        "0": 18184,
+        "1": 1966,
+        "12": 1507,
+        "10": 1281,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 60,
+        "11": 49,
+        "5": 44,
+        "6": 40,
+        "9": 36,
+        "13": 21
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.851660315732172,
+      "detection_rate": 0.8916712030484486,
+      "false_alarm_rate": 0.1883505715841045,
+      "f1": 0.8573671813661345,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_4",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_4\\loao_run.log"
+    },
+    {
+      "attack_label": 5,
+      "attack_name": "DoS Slowhttptest",
+      "n_clusters": 4,
+      "zero_day_samples": 44,
+      "benign_sampled": 44,
+      "train_rows": 26747,
+      "test_rows": 88,
+      "train_binary_label_counts": {
+        "0": 18184,
+        "1": 8563
+      },
+      "test_binary_label_counts": {
+        "1": 44,
+        "0": 44
+      },
+      "train_original_label_counts": {
+        "0": 18184,
+        "1": 1966,
+        "4": 1837,
+        "12": 1507,
+        "10": 1281,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 60,
+        "11": 49,
+        "6": 40,
+        "9": 36,
+        "13": 21
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.8181818181818182,
+      "detection_rate": 0.8863636363636364,
+      "false_alarm_rate": 0.25,
+      "f1": 0.8297872340425532,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_5",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_5\\loao_run.log"
+    },
+    {
+      "attack_label": 6,
+      "attack_name": "DoS slowloris",
+      "n_clusters": 20,
+      "zero_day_samples": 40,
+      "benign_sampled": 40,
+      "train_rows": 26751,
+      "test_rows": 80,
+      "train_binary_label_counts": {
+        "0": 18184,
+        "1": 8567
+      },
+      "test_binary_label_counts": {
+        "1": 40,
+        "0": 40
+      },
+      "train_original_label_counts": {
+        "0": 18184,
+        "1": 1966,
+        "4": 1837,
+        "12": 1507,
+        "10": 1281,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 60,
+        "11": 49,
+        "5": 44,
+        "9": 36,
+        "13": 21
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.8125,
+      "detection_rate": 0.7,
+      "false_alarm_rate": 0.075,
+      "f1": 0.7887323943661971,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_6",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_6\\loao_run.log"
+    },
+    {
+      "attack_label": 7,
+      "attack_name": "FTP-Patator",
+      "n_clusters": 15,
+      "zero_day_samples": 60,
+      "benign_sampled": 60,
+      "train_rows": 26731,
+      "test_rows": 120,
+      "train_binary_label_counts": {
+        "0": 18184,
+        "1": 8547
+      },
+      "test_binary_label_counts": {
+        "1": 60,
+        "0": 60
+      },
+      "train_original_label_counts": {
+        "0": 18184,
+        "1": 1966,
+        "4": 1837,
+        "12": 1507,
+        "10": 1281,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "11": 49,
+        "5": 44,
+        "6": 40,
+        "9": 36,
+        "13": 21
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.875,
+      "detection_rate": 1.0,
+      "false_alarm_rate": 0.25,
+      "f1": 0.8888888888888888,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\loao_run.log"
+    },
+    {
+      "attack_label": 8,
+      "attack_name": "Heartbleed",
+      "n_clusters": 24,
+      "zero_day_samples": 11,
+      "benign_sampled": 11,
+      "train_rows": 26798,
+      "test_rows": 22,
+      "train_binary_label_counts": {
+        "0": 18181,
+        "1": 8617
+      },
+      "test_binary_label_counts": {
+        "1": 11,
+        "0": 11
+      },
+      "train_original_label_counts": {
+        "0": 18181,
+        "1": 1966,
+        "4": 1853,
+        "12": 1507,
+        "10": 1280,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 61,
+        "11": 43,
+        "6": 42,
+        "5": 42,
+        "9": 36,
+        "13": 21
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 1.0,
+      "detection_rate": 1.0,
+      "false_alarm_rate": 0.0,
+      "f1": 1.0,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_8",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_8\\loao_run.log"
+    },
+    {
+      "attack_label": 9,
+      "attack_name": "Infiltration",
+      "n_clusters": 40,
+      "zero_day_samples": 36,
+      "benign_sampled": 36,
+      "train_rows": 26773,
+      "test_rows": 72,
+      "train_binary_label_counts": {
+        "0": 18181,
+        "1": 8592
+      },
+      "test_binary_label_counts": {
+        "1": 36,
+        "0": 36
+      },
+      "train_original_label_counts": {
+        "0": 18181,
+        "1": 1966,
+        "4": 1853,
+        "12": 1507,
+        "10": 1280,
+        "2": 1034,
+        "14": 652,
+        "3": 80,
+        "7": 61,
+        "11": 43,
+        "6": 42,
+        "5": 42,
+        "13": 21,
+        "8": 11
+      },
+      "zero_day_fully_excluded_from_train": true,
+      "accuracy": 0.7083333333333334,
+      "detection_rate": 0.5555555555555556,
+      "false_alarm_rate": 0.1388888888888889,
+      "f1": 0.6557377049180327,
+      "output_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_9",
+      "log_file": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_9\\loao_run.log"
+    }
+  ],
+  "log_pattern": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_<N>\\loao_run.log",
+  "paper_reference_cicids2017": {
+    "mean_f1": 0.80013,
+    "mean_dr_pct": 75.943,
+    "mean_far_pct": 13.882
+  },
+  "phase": "phase12_anomaly_loao",
+  "timestamp": 1780814748
+}

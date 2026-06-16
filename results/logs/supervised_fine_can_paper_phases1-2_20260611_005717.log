@@ -1,0 +1,38 @@
+[2026-06-11 00:57:17] === sessão iniciada — log: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/results/logs/supervised_fine_can_paper_phases1-2_20260611_005717.log ===
+[2026-06-11 00:57:17] intermediate-dir: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine
+[2026-06-11 00:57:17] protocolo: can_paper | ramo: supervised | perfil: fine
+[2026-06-11 00:57:17] fases: 1-2 (1, 2)
+[2026-06-11 00:57:17] -> [fase 1 - 1/2] Carregamento e pré-processamento ...
+[2026-06-11 00:57:17] >> /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/.venv/bin/python -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/phase_reports --intermediate-dir /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine --input /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/CAN_intrusion_Dataset.csv --no-zscore
+CAN detectado: Z-score adiado para a fase 2 (pós k-means), conforme protocolo Yang et al. (2022).
+Carregando dataset: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/CAN_intrusion_Dataset.csv
+Label
+BENIGN    988871
+RPM       654897
+Gear      597252
+DoS       587521
+Fuzzy     491847
+Name: count, dtype: int64
+Dataset carregado em 2.54s
+Shape original: (3320388, 11)
+Pré-processamento concluído. Shape final: (3320388, 11)
+Z-score adiado (artigo CAN: normalização após amostragem k-means).
+Salvando arquivo parquet...
+Arquivo salvo em: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/01_preprocessed.parquet
+Tempo de salvamento: 1.24s
+Tempo total do pipeline: 3.88s
+Relatorio salvo em: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/phase_reports/phase01_load_preprocess.json
+[2026-06-11 00:57:23] OK fase 1 concluida em 5.4s
+[2026-06-11 00:57:23] -> [fase 2 - 2/2] Amostragem k-means ...
+[2026-06-11 00:57:23] >> /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/.venv/bin/python -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/phase_reports --intermediate-dir /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine --n-clusters 1000 --frac 0.01 --random-state 0 --sample-all-classes --zscore-after-sample
+Z-score aplicado após amostragem k-means (protocolo CAN artigo).
+Label
+0    9895
+4    6549
+3    5971
+1    5875
+2    4906
+Name: count, dtype: int64
+Salvo: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/02_sampled_kmeans.parquet shape=(33196, 11)
+[2026-06-11 00:57:29] OK fase 2 concluida em 6.4s
+[2026-06-11 00:57:29] === sessão concluída ===

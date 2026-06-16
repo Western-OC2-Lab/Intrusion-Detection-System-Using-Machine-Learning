@@ -1,0 +1,59 @@
+﻿========================================================================
+COMPARATIVO MTH-IDS vs artigo (CAN-OTIDS)
+========================================================================
+Supervisionado / Tabela VI / X: data\pipeline_can_merged
+LOAO / Tabela VIII:          C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_fine\anomaly\loao
+
+========================================================================
+TABELA VI — Supervisionado (CAN-OTIDS, multi-class, hold-out 80/20)
+========================================================================
+Modelo                          Acc      F1(w)
+------------------------------------------------------------------------
+XGBoost (base)             0.848413   0.842399
+RandomForest (HPO)         0.850640   0.844908
+DecisionTree (HPO)         0.845072   0.838604
+ExtraTrees (HPO)           0.850780   0.844905
+Stacking meta (RandomForest (HPO))   0.850780   0.844905
+
+Comparação vs artigo (tier multi-class / stacking):
+Métrica            Reprod       Artigo         Diff
+------------------------------------------------------------------------
+Acc              0.850780     0.999990    -0.149210
+F1(w)            0.844905     0.999990    -0.155085
+
+10-fold CV no treino (reprodução):
+  XGBoost (base): 0.8472 ± 0.0073
+  RandomForest (HPO): 0.8469 ± 0.0067
+  DecisionTree (HPO): 0.8413 ± 0.0069
+  ExtraTrees (HPO): 0.8476 ± 0.0070
+  Stacking meta (RandomForest (HPO)): 0.8645 ± 0.0062
+
+========================================================================
+TABELA VIII — Anomaly LOAO (CAN-OTIDS, média sobre ataques concluídos)
+========================================================================
+Ataques concluídos: 3/3
+Métrica            Reprod       Artigo         Diff
+------------------------------------------------------------------------
+F1                0.72914      0.96307     -0.23393
+DR                 0.6705       0.9374      -0.2669
+FAR                0.1274       0.0013      +0.1261
+
+Ataque Nome                         F1       DR      FAR   N test
+------------------------------------------------------------------------
+1      DoS                      0.8582   0.8524   0.1341    10230
+2      Fuzzy                    0.7873   0.7567   0.1656     9338
+3      Impersonation            0.5419   0.4023   0.0824    15848
+
+========================================================================
+TABELA X — Sistema completo no hold-out (CAN-OTIDS)
+========================================================================
+Protocolo: hold-out 80/20 (artigo: 70/30)
+Métrica            Reprod       Artigo         Diff
+------------------------------------------------------------------------
+Acc (%)             74.78        99.99       -25.21
+DR (%)              90.01       100.00        -9.99
+FAR (%)           21.6914       0.0001     +21.6913
+F1                 0.8479       0.9999      -0.1520
+
+Roteamento: {'n_test': 7184, 'n_stacking_normal': 4431, 'n_stacking_attack': 2753, 'anomaly_attack_detected': 1225, 'anomaly_normal_confirmed': 3206}
+CM: data\pipeline_can_merged\figures\fig_multiclass_cm.png | data\pipeline_can_merged\figures\fig_binary_cm.png

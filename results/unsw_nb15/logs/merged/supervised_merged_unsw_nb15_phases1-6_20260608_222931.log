@@ -1,0 +1,7 @@
+[2026-06-08 22:29:31] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_unsw_nb15_phases1-6_20260608_222931.log ===
+[2026-06-08 22:29:31] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-08 22:29:31] protocolo: unsw_nb15 | ramo: supervised | perfil: merged
+[2026-06-08 22:29:31] fases: 1-6 (1, 2, 4, 5, 6)
+[2026-06-08 22:29:31] -> [fase 1 - 1/5] Carregamento e pré-processamento ...
+[2026-06-08 22:29:31] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --input C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\UNSW-NB15_merged.csv
+[2026-06-08 22:29:43] === sessão encerrada com erro: KeyboardInterrupt:  ===

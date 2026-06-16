@@ -1,0 +1,12 @@
+flowchart TB
+    X["Hold-out 20%\n(05_test)"] --> T2["Tier 2: Stacking\nmulti-classe"]
+
+    T2 -->|"pred ≠ BENIGN"| KNOWN["Classe do stacking\n(ataque conhecido)"]
+    T2 -->|"pred = BENIGN"| T3["Tier 3–4: anomaly\nKPCA + CL-k-means + B₁/B₂"]
+
+    T3 -->|"anomaly = ataque"| ZD["Label genérico\nde ataque (99)"]
+    T3 -->|"anomaly = normal"| BEN["BENIGN confirmado"]
+
+    KNOWN --> FINAL["Predição final"]
+    ZD --> FINAL
+    BEN --> FINAL

@@ -1,0 +1,130 @@
+﻿{
+  "intermediate_dir": "data\\pipeline_mth_ids_merged",
+  "anomaly_work_dir": "data\\pipeline_mth_ids_merged\\anomaly\\global",
+  "test_size": 0.2,
+  "random_state": 0,
+  "benign_label": 0,
+  "anomaly_attack_pred_label": 99,
+  "accuracy": 0.9824594140697891,
+  "f1_weighted": 0.9891811777521895,
+  "precision_weighted": 0.9960818764855034,
+  "recall_weighted": 0.9824594140697891,
+  "binary_metrics": {
+    "accuracy": 0.9837656279156559,
+    "detection_rate": 0.9971181556195965,
+    "false_alarm_rate": 0.02262693156732892,
+    "f1": 0.9754722300535664,
+    "confusion_matrix": [
+      [
+        3542,
+        82
+      ],
+      [
+        5,
+        1730
+      ]
+    ]
+  },
+  "confusion_matrix_multiclass": [
+    [
+      3542,
+      5,
+      0,
+      1,
+      0,
+      1,
+      5,
+      70
+    ],
+    [
+      0,
+      393,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      25,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      611,
+      0,
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      6,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      257,
+      1,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      431,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "confusion_matrix_binary": [
+    [
+      3542,
+      82
+    ],
+    [
+      5,
+      1730
+    ]
+  ],
+  "route_stats": {
+    "n_test": 5359,
+    "n_stacking_normal": 3620,
+    "n_stacking_attack": 1739,
+    "anomaly_attack_detected": 73,
+    "anomaly_normal_confirmed": 3547
+  },
+  "figures_dir": "data\\pipeline_mth_ids_merged\\figures",
+  "phase": "phase13_full_system_eval",
+  "timestamp": 1780838802
+}

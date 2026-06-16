@@ -1,0 +1,50 @@
+[2026-06-08 23:03:43] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_unsw_nb15_phases1-6_20260608_230343.log ===
+[2026-06-08 23:03:43] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-08 23:03:43] protocolo: unsw_nb15 | ramo: supervised | perfil: merged
+[2026-06-08 23:03:43] fases: 1-6 (1, 2, 4, 5, 6)
+[2026-06-08 23:03:43] -> [fase 1 - 1/5] Carregamento e pré-processamento ...
+[2026-06-08 23:03:43] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --input C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\UNSW-NB15_merged.csv
+Carregando dataset: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\UNSW-NB15_merged.csv
+Label
+3     2218764
+7      215481
+5       44525
+6       24246
+4       16353
+8       13987
+0        2677
+1        1795
+9        1511
+2         534
+10        174
+Name: count, dtype: int64
+Dataset carregado em 5.93s
+Shape original: (2540047, 44)
+Coluna 'ct_ftp_cmd' convertida para numérico (coerce) e valores não numéricos definidos como NaN
+Pré-processamento concluído. Shape final: (2540047, 44)
+Salvando arquivo parquet...
+Arquivo salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\01_preprocessed.parquet
+Tempo de salvamento: 1.55s
+Tempo total do pipeline: 10.83s
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports\phase01_load_preprocess.json
+[2026-06-08 23:03:55] OK fase 1 concluida em 12.5s
+[2026-06-08 23:03:55] -> [fase 2 - 2/5] Amostragem k-means ...
+[2026-06-08 23:03:55] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --n-clusters 1000 --frac 0.15 --random-state 0 --minority-labels 0,1,2,9,10
+Label
+3     332809
+7      32325
+5       6719
+6       3573
+0       2677
+4       2448
+8       2119
+1       1795
+9       1511
+2        534
+10       174
+Name: count, dtype: int64
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\02_sampled_kmeans.parquet shape=(386684, 44)
+[2026-06-08 23:04:03] OK fase 2 concluida em 7.9s
+[2026-06-08 23:04:03] -> [fase 4 - 3/5] Engenharia de features (IG, FCBF) ...
+[2026-06-08 23:04:03] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --fcbf-k 20 --random-state 0 --test-size 0.2 --fcbf-scope train --scale-mode split --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --optimize-ig
+[2026-06-08 23:04:13] === sessão encerrada com erro: KeyboardInterrupt:  ===

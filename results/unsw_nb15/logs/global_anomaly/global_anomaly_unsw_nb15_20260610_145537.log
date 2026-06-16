@@ -1,0 +1,18 @@
+[2026-06-10 14:55:37] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\global_anomaly_unsw_nb15_20260610_145537.log ===
+[2026-06-10 14:55:37] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-10 14:55:37] work-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global
+[2026-06-10 14:55:37] protocol: unsw_nb15 | fases: 7-11
+[2026-06-10 14:55:37] -> fase 7 (mth_ids_pipeline.phases.phase07_anomaly_datasets) ...
+[2026-06-10 14:55:37] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase07_anomaly_datasets --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global --random-state 0 --mode global --test-size 0.2
+Modo global (Tabela X): treino=(48259, 44), hold-out reservado=12065 linhas (fase 13)
+
+=== LOAO [fase 7 (global binário)] ===
+  treino: rows=48259 labels={'1': 46117, '0': 2142}
+  teste:  rows=0 labels={}
+  zero-day=0 benign_test=0 regra=none_holdout_reserved
+  rótulos originais no treino (pré-binário): {'3': 35495, '7': 3451, '0': 2142, '5': 1808, '1': 1436, '9': 1209, '6': 980, '4': 636, '8': 536, '2': 427, '10': 139}
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global\a01_without_portscan.parquet (48259, 44), C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global\a02_portscan_only.parquet (0, 44)
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports\phase07_anomaly_datasets.json
+[2026-06-10 14:55:39] -> fase 8 (mth_ids_pipeline.phases.phase08_anomaly_features) ...
+[2026-06-10 14:55:39] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase08_anomaly_features --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global --random-state 0 --feature-fit-scope train --fcbf-k 20 --kpca-components 10 --kpca-kernel rbf --ig-cumulative 0.9 --zscore-scope combined --optimize-ig --optimize-kpca
+[2026-06-10 20:53:33] === sessão encerrada com erro: KeyboardInterrupt:  ===

@@ -1,0 +1,8 @@
+﻿Protocolo: paper | ramo: supervised | perfil: merged
+Artefatos: C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged
+=== sess├úo iniciada ÔÇö log: C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\supervised_run.log ===
+intermediate-dir: C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged
+protocolo: paper | ramo: supervised | perfil: merged
+fases: 1-2 (1, 2)
+-> [fase 1 - 1/2] Carregamento e pr├®-processamento ...
+>> C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports --intermediate-dir C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged --input C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CICIDS2017.csv

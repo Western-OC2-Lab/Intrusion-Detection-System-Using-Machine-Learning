@@ -1,0 +1,113 @@
+[2026-06-08 18:43:55] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_can_paper_phases1-6_20260608_184355.log ===
+[2026-06-08 18:43:55] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 18:43:55] protocolo: can_paper | ramo: supervised | perfil: merged
+[2026-06-08 18:43:55] fases: 1-6 (1, 2, 4, 6)
+[2026-06-08 18:43:55] -> [fase 1 - 1/4] Carregamento e pré-processamento ...
+[2026-06-08 18:43:55] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --input C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv --no-zscore
+CAN detectado: Z-score adiado para a fase 2 (pós k-means), conforme protocolo Yang et al. (2022).
+Carregando dataset: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv
+Label
+RPM       4621702
+Gear      4443142
+Fuzzy     3838860
+DoS       3665771
+BENIGN     988871
+Name: count, dtype: int64
+Dataset carregado em 12.47s
+Shape original: (17558346, 11)
+Pré-processamento concluído. Shape final: (17558346, 11)
+Z-score adiado (artigo CAN: normalização após amostragem k-means).
+Salvando arquivo parquet...
+Arquivo salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\01_preprocessed.parquet
+Tempo de salvamento: 4.42s
+Tempo total do pipeline: 16.89s
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports\phase01_load_preprocess.json
+[2026-06-08 18:44:14] OK fase 1 concluida em 18.6s
+[2026-06-08 18:44:14] -> [fase 2 - 2/4] Amostragem k-means ...
+[2026-06-08 18:44:14] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --n-clusters 1000 --frac 0.008 --random-state 0 --sample-all-classes --zscore-after-sample
+Z-score aplicado após amostragem k-means (protocolo CAN artigo).
+Label
+4    36909
+3    35564
+2    30691
+1    29423
+0     7876
+Name: count, dtype: int64
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\02_sampled_kmeans.parquet shape=(140463, 11)
+[2026-06-08 18:44:34] OK fase 2 concluida em 20.1s
+[2026-06-08 18:44:34] -> [fase 4 - 3/4] Engenharia de features (IG, FCBF) ...
+[2026-06-08 18:44:34] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --fcbf-k 20 --random-state 0 --test-size 0.3 --fcbf-scope full --scale-mode phase1 --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --ig-features CAN_ID,DATA_1,DATA_3,DATA_5
+IG fixo (artigo): ['CAN_ID', 'DATA_1', 'DATA_3', 'DATA_5']
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_train_after_fcbf.parquet (98324, 5)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_test_after_fcbf.parquet (42139, 5)
+Preprocessores supervisionados salvos: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\models\supervised\manifest.json
+[2026-06-08 18:44:39] Sem SMOTE: parquets FCBF copiados para caminhos da fase 5 em C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 18:44:39] OK fase 4 concluida em 4.6s
+[2026-06-08 18:44:39] -> [fase 6 - 4/4] Modelos supervisionados + stacking ...
+[2026-06-08 18:44:39] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase06_supervised_models --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --no-plots --cv-folds 10 --meta-learner best-base --random-state 0 --hpo-on-validation
+Fase 6 — treino: 98,324 × 4 features | teste: 42,139 | max_features HPO ≤ 4
+HPO objetivo: acurácia média em 10-fold CV (treino)
+
+============================================================
+[fase 6 — 1/6] XGBoost — HPO
+============================================================
+  [XGBoost] HPO iniciando (20 trials)...
+  [XGBoost] trial 2/20 acc=0.3538 (melhor=0.3538) +12s | total 12s
+  [XGBoost] trial 3/20 acc=0.4785 (melhor=0.4785) +18s | total 29s
+  [XGBoost] trial 4/20 acc=0.4782 (melhor=0.4785) +13s | total 42s
+  [XGBoost] trial 5/20 acc=0.4783 (melhor=0.4785) +20s | total 1m02s
+  [XGBoost] trial 6/20 acc=0.4781 (melhor=0.4785) +16s | total 1m18s
+  [XGBoost] trial 7/20 acc=0.4783 (melhor=0.4785) +25s | total 1m43s
+  [XGBoost] trial 8/20 acc=0.4780 (melhor=0.4785) +18s | total 2m01s
+  [XGBoost] trial 9/20 acc=0.4801 (melhor=0.4801) +3s | total 2m04s
+  [XGBoost] trial 10/20 acc=0.4785 (melhor=0.4801) +8s | total 2m12s
+  [XGBoost] trial 11/20 acc=0.4785 (melhor=0.4801) +10s | total 2m22s
+  [XGBoost] trial 12/20 acc=0.4779 (melhor=0.4801) +11s | total 2m34s
+  [XGBoost] trial 13/20 acc=0.4780 (melhor=0.4801) +14s | total 2m48s
+  [XGBoost] trial 14/20 acc=0.4781 (melhor=0.4801) +15s | total 3m03s
+  [XGBoost] trial 15/20 acc=0.4784 (melhor=0.4801) +19s | total 3m22s
+  [XGBoost] trial 16/20 acc=0.4782 (melhor=0.4801) +15s | total 3m37s
+  [XGBoost] trial 17/20 acc=0.3089 (melhor=0.4801) +8s | total 3m46s
+  [XGBoost] trial 18/20 acc=0.4786 (melhor=0.4801) +5s | total 3m50s
+  [XGBoost] trial 19/20 acc=0.4787 (melhor=0.4801) +9s | total 3m59s
+  [XGBoost] trial 20/20 acc=0.4782 (melhor=0.4801) +21s | total 4m20s
+  [XGBoost] trial 21/20 acc=0.4783 (melhor=0.4801) +14s | total 4m33s
+  [XGBoost] HPO concluído em 4m33s — best: {'learning_rate': np.float64(-0.3998542359484636), 'max_depth': np.float64(7.0), 'n_estimators': np.float64(25.0)}
+  [XGBoost] treinando modelo final no treino completo...
+
+=== XGBoost (base) ===
+Accuracy: 0.4794608320083533
+Precision: 0.5283225330294669
+Recall: 0.4794608320083533
+F1: 0.47513516274822626
+              precision    recall  f1-score   support
+
+           0       0.94      0.68      0.79      2363
+           1       0.62      0.29      0.40      8827
+           2       0.55      0.37      0.44      9207
+           3       0.50      0.46      0.48     10669
+           4       0.38      0.69      0.49     11073
+
+    accuracy                           0.48     42139
+   macro avg       0.60      0.50      0.52     42139
+weighted avg       0.53      0.48      0.48     42139
+
+
+============================================================
+[fase 6 — 2/6] Random Forest — HPO
+============================================================
+  [RandomForest] HPO iniciando (20 trials)...
+  [RandomForest] trial 2/20 acc=0.4777 (melhor=0.4777) +23s | total 23s
+  [RandomForest] trial 3/20 acc=0.4795 (melhor=0.4795) +26s | total 49s
+  [RandomForest] trial 4/20 acc=0.4797 (melhor=0.4797) +12s | total 1m00s
+  [RandomForest] trial 5/20 acc=0.3854 (melhor=0.4797) +10s | total 1m11s
+  [RandomForest] trial 6/20 acc=0.4642 (melhor=0.4797) +20s | total 1m31s
+  [RandomForest] trial 7/20 acc=0.4790 (melhor=0.4797) +53s | total 2m23s
+  [RandomForest] trial 8/20 acc=0.4792 (melhor=0.4797) +29s | total 2m52s
+  [RandomForest] trial 9/20 acc=0.4784 (melhor=0.4797) +10s | total 3m02s
+  [RandomForest] trial 10/20 acc=0.4785 (melhor=0.4797) +27s | total 3m29s
+  [RandomForest] trial 11/20 acc=0.4800 (melhor=0.4800) +12s | total 3m40s
+  [RandomForest] trial 12/20 acc=0.3982 (melhor=0.4800) +11s | total 3m52s
+  [RandomForest] trial 13/20 acc=0.4796 (melhor=0.4800) +48s | total 4m40s
+  [RandomForest] trial 14/20 acc=0.4795 (melhor=0.4800) +51s | total 5m31s
+[2026-06-08 18:55:07] === sessão encerrada com erro: KeyboardInterrupt:  ===

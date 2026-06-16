@@ -1,0 +1,88 @@
+﻿{
+  "run_name": "experiment_runner",
+  "timestamp": 1780805991,
+  "environment": {
+    "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.2.0",
+    "imbalanced-learn": "0.14.1",
+    "hyperopt": "0.2.7",
+    "scikit-optimize": "0.10.2"
+  },
+  "config": {
+    "protocol": "paper",
+    "branch": "anomaly",
+    "random_state": 0,
+    "from_phase": 12,
+    "to_phase": 12,
+    "only_phase": null,
+    "skip_phase6": false,
+    "run_hpo": true,
+    "run_loao": true,
+    "skip_bootstrap": true,
+    "intermediate_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine",
+    "raw_csv": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\CICIDS2017_fine.csv",
+    "report_dir": null,
+    "profile": {
+      "kind": "fine",
+      "raw_csv": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\CICIDS2017_fine.csv",
+      "intermediate_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine",
+      "minority_labels": [
+        1,
+        8,
+        9,
+        12,
+        13,
+        14
+      ],
+      "description": "R\u00f3tulos originais; fase 2 preserva fine equivalentes ao df_minor merged (Bot, Infiltration, WebAttack) + Heartbleed (ultra-raro) + k-means 0,8% em DoS/PortScan/BruteForce/BENIGN (~escala notebook). LOAO nas labels presentes em 02_sampled_kmeans."
+    },
+    "test_size": 0.2,
+    "cv_folds": 10,
+    "hpo_on_validation": true,
+    "smote_strategy": {
+      "2": 1000,
+      "4": 1000
+    },
+    "kmeans_frac": 0.008,
+    "skip_kmeans_sampling": false,
+    "anomaly_benign_target": null,
+    "anomaly_smote_target": null,
+    "biased_mode": "both",
+    "force_biased": true,
+    "optimize_p_star": true,
+    "cl_hpo_metric": "f1",
+    "cl_hpo_n_calls": 15,
+    "cl_kmeans_metrics": [
+      "euclidean",
+      "manhattan",
+      "cosine",
+      "mahalanobis"
+    ],
+    "meta_learner": "best-base",
+    "cl_p_star": 0.933,
+    "optimize_ig": true,
+    "optimize_kpca": true,
+    "ig_cumulative": 0.9,
+    "fcbf_k": 20,
+    "fcbf_scope": "train",
+    "supervised_scale_mode": "split",
+    "feature_fit_scope": "combined",
+    "anomaly_zscore_scope": "combined",
+    "kpca_components": 10,
+    "kpca_kernel": "rbf",
+    "hpo_n_calls": 15,
+    "loao_attack_labels": "8,9",
+    "protocol_description": "Artigo MTH-IDS: sup k-means 0.8% + 80/20 + 10-fold CV + SMOTE notebook; HPO em valida\u00e7\u00e3o; stacking meta best-base; anomaly LOAO fine + BO-GP tier 3\u20134."
+  },
+  "non_deterministic_components": [
+    "Hyperopt fmin (sem random_state expl\u00edcito no notebook)",
+    "KernelPCA (sklearn, sem random_state)",
+    "SMOTE (imbalanced-learn, sem random_state no notebook)",
+    "MiniBatchKMeans no ramo anomaly (sem seed no notebook)",
+    "Amostragem benigna PortScan (random_state=None no notebook)"
+  ]
+}

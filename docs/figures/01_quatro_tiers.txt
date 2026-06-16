@@ -1,0 +1,30 @@
+flowchart TB
+    IN["Fluxo de rede\n(features brutas)"]
+
+    subgraph T1["Tier 1 — Pré-processamento"]
+        Z["Z-score / normalização"]
+    end
+
+    subgraph T2["Tier 2 — Signature-based (supervisionado)"]
+        IG1["IG + FCBF"]
+        BL["DT · RF · ET · XGB"]
+        ST["Stacking meta-learner"]
+    end
+
+    subgraph T3["Tier 3 — Anomaly (não supervisionado)"]
+        IG2["IG + FCBF + KPCA"]
+        CL["CL-k-means"]
+    end
+
+    subgraph T4["Tier 4 — Biased classifiers"]
+        B1["B₁ nos FN"]
+        B2["B₂ nos FP"]
+        P["threshold p*"]
+    end
+
+    IN --> Z
+    Z --> IG1 --> BL --> ST
+    Z --> IG2 --> CL --> B1
+    CL --> B2
+    B1 --> P
+    B2 --> P

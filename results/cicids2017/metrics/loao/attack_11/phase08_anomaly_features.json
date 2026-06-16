@@ -1,0 +1,192 @@
+﻿{
+  "input_without_portscan": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\a01_without_portscan.parquet",
+  "input_portscan": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\a02_portscan_only.parquet",
+  "combined_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\a03_combined_normalized.parquet",
+  "kpca_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\a04_after_kpca.parquet",
+  "test_slice_meta": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\a06_test_slice.json",
+  "artifact_paths": {
+    "scaler": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\fitted_scaler.joblib",
+    "ig_features": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\fitted_ig_features.txt",
+    "fcbf": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\fitted_fcbf.joblib",
+    "kpca": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\fitted_kpca.joblib",
+    "partition": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_11\\a06_test_slice.json"
+  },
+  "protocol": "combined_combined",
+  "feature_fit_scope": "combined",
+  "zscore_scope": "combined",
+  "fcbf_k": 20,
+  "kpca_components": 20,
+  "kpca_kernel": "sigmoid",
+  "ig_cumulative": 0.8719249392852553,
+  "optimize_ig": true,
+  "optimize_kpca": true,
+  "zero_day_samples": 43,
+  "benign_sample_n": 43,
+  "benign_available": 18181,
+  "benign_pairing_rule": "paper_table_ix_1_to_1",
+  "random_state": 0,
+  "train_shape": {
+    "rows": 26766,
+    "cols": 78
+  },
+  "test_shape": {
+    "rows": 86,
+    "cols": 78
+  },
+  "kpca_shape": {
+    "rows": 26852,
+    "cols": 20
+  },
+  "ig_feature_count": 42,
+  "ig_hpo": {
+    "best_alpha": 0.8719249392852553,
+    "best_cv_accuracy": 0.9953298122242676,
+    "trials": [
+      {
+        "alpha": 0.8719249392852553,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.9448370670884951,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.9488042291105996,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.9457030042473964,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.880833472067932,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.8114706951148829,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.786285035897897,
+        "score": 0.9935365369507062
+      },
+      {
+        "alpha": 0.7164467634220585,
+        "score": 0.9948067131122507
+      },
+      {
+        "alpha": 0.7790703254282328,
+        "score": 0.9935365369507062
+      },
+      {
+        "alpha": 0.8385228840231915,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.9899915744124212,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.9112532515913303,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.7448914473236339,
+        "score": 0.9937607103192617
+      },
+      {
+        "alpha": 0.8237604010939761,
+        "score": 0.9953298122242676
+      },
+      {
+        "alpha": 0.7000406150452945,
+        "score": 0.9947320305341465
+      }
+    ]
+  },
+  "kpca_hpo": {
+    "best_n_components": 20,
+    "best_kernel": "sigmoid",
+    "best_cv_accuracy": 0.9943211229658993,
+    "trials": [
+      {
+        "n_components": 14,
+        "kernel": "sigmoid",
+        "score": 0.9931629148705781
+      },
+      {
+        "n_components": 18,
+        "kernel": "sigmoid",
+        "score": 0.9936112964839241
+      },
+      {
+        "n_components": 14,
+        "kernel": "poly",
+        "score": 0.985802849285006
+      },
+      {
+        "n_components": 9,
+        "kernel": "rbf",
+        "score": 0.9842709700731633
+      },
+      {
+        "n_components": 9,
+        "kernel": "poly",
+        "score": 0.9863258995249191
+      },
+      {
+        "n_components": 17,
+        "kernel": "poly",
+        "score": 0.9865127036804864
+      },
+      {
+        "n_components": 11,
+        "kernel": "sigmoid",
+        "score": 0.9927146030409949
+      },
+      {
+        "n_components": 10,
+        "kernel": "poly",
+        "score": 0.9872599482162606
+      },
+      {
+        "n_components": 11,
+        "kernel": "sigmoid",
+        "score": 0.9927146030409949
+      },
+      {
+        "n_components": 7,
+        "kernel": "sigmoid",
+        "score": 0.98841806559269
+      },
+      {
+        "n_components": 20,
+        "kernel": "sigmoid",
+        "score": 0.9943211229658993
+      },
+      {
+        "n_components": 20,
+        "kernel": "rbf",
+        "score": 0.9883807173226538
+      },
+      {
+        "n_components": 19,
+        "kernel": "sigmoid",
+        "score": 0.9935738993652541
+      },
+      {
+        "n_components": 5,
+        "kernel": "poly",
+        "score": 0.9832248905284662
+      },
+      {
+        "n_components": 16,
+        "kernel": "sigmoid",
+        "score": 0.9934244574364752
+      }
+    ]
+  },
+  "fcbf_feature_count": 20,
+  "phase": "phase08_anomaly_features",
+  "timestamp": 1780787856
+}

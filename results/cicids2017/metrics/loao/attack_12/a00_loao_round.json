@@ -1,0 +1,36 @@
+﻿{
+  "zero_day_label": 12,
+  "zero_day_samples": 1507,
+  "train_original_label_counts": {
+    "0": 18181,
+    "1": 1966,
+    "4": 1853,
+    "10": 1280,
+    "2": 1034,
+    "14": 652,
+    "3": 80,
+    "7": 61,
+    "11": 43,
+    "6": 42,
+    "5": 42,
+    "9": 36,
+    "13": 21,
+    "8": 11
+  },
+  "train_attack_labels_present": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14
+  ],
+  "zero_day_fully_excluded_from_train": true
+}

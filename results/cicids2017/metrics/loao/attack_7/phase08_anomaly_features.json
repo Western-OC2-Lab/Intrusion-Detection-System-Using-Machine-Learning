@@ -1,0 +1,192 @@
+﻿{
+  "input_without_portscan": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\a01_without_portscan.parquet",
+  "input_portscan": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\a02_portscan_only.parquet",
+  "combined_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\a03_combined_normalized.parquet",
+  "kpca_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\a04_after_kpca.parquet",
+  "test_slice_meta": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\a06_test_slice.json",
+  "artifact_paths": {
+    "scaler": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\fitted_scaler.joblib",
+    "ig_features": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\fitted_ig_features.txt",
+    "fcbf": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\fitted_fcbf.joblib",
+    "kpca": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\fitted_kpca.joblib",
+    "partition": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_7\\a06_test_slice.json"
+  },
+  "protocol": "combined_combined",
+  "feature_fit_scope": "combined",
+  "zscore_scope": "combined",
+  "fcbf_k": 20,
+  "kpca_components": 18,
+  "kpca_kernel": "sigmoid",
+  "ig_cumulative": 0.8719249392852553,
+  "optimize_ig": true,
+  "optimize_kpca": true,
+  "zero_day_samples": 60,
+  "benign_sample_n": 60,
+  "benign_available": 18184,
+  "benign_pairing_rule": "paper_table_ix_1_to_1",
+  "random_state": 0,
+  "train_shape": {
+    "rows": 26731,
+    "cols": 78
+  },
+  "test_shape": {
+    "rows": 120,
+    "cols": 78
+  },
+  "kpca_shape": {
+    "rows": 26851,
+    "cols": 18
+  },
+  "ig_feature_count": 42,
+  "ig_hpo": {
+    "best_alpha": 0.8719249392852553,
+    "best_cv_accuracy": 0.9949496768286764,
+    "trials": [
+      {
+        "alpha": 0.8719249392852553,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.9448370670884951,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.9488042291105996,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.9457030042473964,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.880833472067932,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.8114706951148829,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.786285035897897,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.7164467634220585,
+        "score": 0.9949122796708603
+      },
+      {
+        "alpha": 0.7790703254282328,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.8385228840231915,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.9355289313448931,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.99,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.9399664234405398,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.942764931555046,
+        "score": 0.9949496768286764
+      },
+      {
+        "alpha": 0.9073008740472444,
+        "score": 0.9949496768286764
+      }
+    ]
+  },
+  "kpca_hpo": {
+    "best_n_components": 18,
+    "best_kernel": "sigmoid",
+    "best_cv_accuracy": 0.9930044160827778,
+    "trials": [
+      {
+        "n_components": 14,
+        "kernel": "sigmoid",
+        "score": 0.99150803311184
+      },
+      {
+        "n_components": 18,
+        "kernel": "sigmoid",
+        "score": 0.9930044160827778
+      },
+      {
+        "n_components": 14,
+        "kernel": "poly",
+        "score": 0.9810333523152757
+      },
+      {
+        "n_components": 9,
+        "kernel": "rbf",
+        "score": 0.9858965287533747
+      },
+      {
+        "n_components": 9,
+        "kernel": "poly",
+        "score": 0.9863828177108729
+      },
+      {
+        "n_components": 17,
+        "kernel": "poly",
+        "score": 0.9814821811476218
+      },
+      {
+        "n_components": 11,
+        "kernel": "sigmoid",
+        "score": 0.9910965104780951
+      },
+      {
+        "n_components": 10,
+        "kernel": "poly",
+        "score": 0.9832404211682311
+      },
+      {
+        "n_components": 11,
+        "kernel": "sigmoid",
+        "score": 0.9910965104780951
+      },
+      {
+        "n_components": 7,
+        "kernel": "sigmoid",
+        "score": 0.9876173856121074
+      },
+      {
+        "n_components": 20,
+        "kernel": "sigmoid",
+        "score": 0.992480660003466
+      },
+      {
+        "n_components": 17,
+        "kernel": "sigmoid",
+        "score": 0.9921065835015505
+      },
+      {
+        "n_components": 5,
+        "kernel": "poly",
+        "score": 0.9793124324865904
+      },
+      {
+        "n_components": 20,
+        "kernel": "rbf",
+        "score": 0.988964172965586
+      },
+      {
+        "n_components": 5,
+        "kernel": "rbf",
+        "score": 0.9807713413390534
+      }
+    ]
+  },
+  "fcbf_feature_count": 18,
+  "phase": "phase08_anomaly_features",
+  "timestamp": 1780764353
+}

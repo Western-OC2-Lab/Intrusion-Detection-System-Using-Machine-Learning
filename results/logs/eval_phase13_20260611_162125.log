@@ -1,0 +1,21 @@
+[2026-06-11 16:21:25] === sessão iniciada — log: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/results/logs/eval_phase13_20260611_162125.log ===
+[2026-06-11 16:21:25] /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/.venv/bin/python -m mth_ids_pipeline.phases.phase13_full_system_eval
+[2026-06-11 16:21:25] >> /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/.venv/bin/python -m mth_ids_pipeline.phases.phase13_full_system_eval
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/mth_ids_pipeline/phases/phase13_full_system_eval.py", line 165, in <module>
+    main()
+  File "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/mth_ids_pipeline/phases/phase13_full_system_eval.py", line 105, in main
+    result = run_full_system_inference(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/mth_ids_pipeline/core/inference.py", line 108, in run_full_system_inference
+    supervised = load_supervised_bundle(intermediate_dir)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/mth_ids_pipeline/io/model_io.py", line 243, in load_supervised_bundle
+    raise FileNotFoundError(
+FileNotFoundError: Manifest supervisionado não encontrado: /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_mth_ids/models/supervised/manifest.json
+Execute as fases 4 e 6 antes da fase 13.
+Avaliação end-to-end: supervised=/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_mth_ids | anomaly=/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_mth_ids/anomaly
+Hold-out: test_size=0.2, random_state=0
+[2026-06-11 16:21:26] === sessão encerrada com erro: CalledProcessError: Command '['/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/.venv/bin/python', '-m', 'mth_ids_pipeline.phases.phase13_full_system_eval']' returned non-zero exit status 1. ===

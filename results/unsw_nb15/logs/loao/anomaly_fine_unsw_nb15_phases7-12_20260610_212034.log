@@ -1,0 +1,172 @@
+[2026-06-10 21:20:34] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\anomaly_fine_unsw_nb15_phases7-12_20260610_212034.log ===
+[2026-06-10 21:20:34] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine
+[2026-06-10 21:20:34] protocolo: unsw_nb15 | ramo: anomaly | perfil: fine
+[2026-06-10 21:20:34] fases: 7-12 (12)
+[2026-06-10 21:20:34] LOAO: fases 7–11 globais omitidas; a fase 12 executa 7–11 por ataque em anomaly/loao/attack_<N>/
+[2026-06-10 21:20:34] >>> Fase 12 — LOAO (leave-one-attack-out; pode levar muitas horas)
+[2026-06-10 21:20:34] -> [fase 12 - 1/1] LOAO (orquestração) ...
+[2026-06-10 21:20:34] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase12_anomaly_loao --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine --random-state 0 --hpo-n-calls 15 --hpo-metric f1 --biased-mode both --feature-fit-scope combined --zscore-scope combined --fcbf-k 20 --kpca-components 10 --kpca-kernel rbf --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --kpca-hpo-calls 15 --metrics euclidean,manhattan,cosine,mahalanobis --optimize-ig --optimize-kpca --force-biased --optimize-p-star
+
+######################################################################
+LOAO — 10 ataque(s) nesta execução × 5 subfases (7->8->9->10->11) -> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao
+Log por ataque: results/logs/loao/attack_<N>.log (cópia local em attack_<N>/loao_run.log)
+  - [ 1] Bot
+  - [ 2] DDoS
+  - [ 3] DoS GoldenEye
+  - [ 4] DoS Hulk
+  - [ 5] DoS Slowhttptest
+  - [ 6] DoS slowloris
+  - [ 7] FTP-Patator
+  - [ 8] Heartbleed
+  - [ 9] Infiltration
+  - [10] PortScan
+######################################################################
+
+=== sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\loao_run.log ===
+intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine
+amostra: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\02_sampled_kmeans.parquet
+output-root: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao
+[LOAO 1/10] zero-day: Bot (Label=1) | decorrido global 0.0s
+  -> [fase 7 - 1/5] Partição binária LOAO ...
+>> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase07_anomaly_datasets --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1 --attack-label 1
+
+=== LOAO [fase 7 (split binário)] ===
+  treino: rows=25147 labels={'1': 22470, '0': 2677}
+  teste:  rows=1795 labels={'1': 1795}
+  zero-day=1795 benign_test=0 regra=fase7_zero_day_only
+  rótulos originais no treino (pré-binário): {'3': 17745, '0': 2677, '7': 1718, '9': 1511, '2': 534, '5': 368, '6': 180, '10': 174, '4': 128, '8': 112}
+  zero-day label=1 excluído_do_treino=True
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\a01_without_portscan.parquet (25147, 44), C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\a02_portscan_only.parquet (1795, 44)
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports\phase07_anomaly_datasets.json
+  OK fase 7 concluida em 4.0s
+  -> [fase 8 - 2/5] Features (Z-score, IG, FCBF, KPCA) ...
+>> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase08_anomaly_features --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1 --random-state 0 --feature-fit-scope combined --zscore-scope combined --fcbf-k 20 --kpca-components 10 --kpca-kernel rbf --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --kpca-hpo-calls 15 --optimize-ig --optimize-kpca
+[1/5] [####----------------] Dados carregados (fase 7) (+0.3s)
+
+=== LOAO [fase 8 (pré-normalização)] ===
+  treino: rows=25147 labels={'1': 22470, '0': 2677}
+  teste:  rows=3590 labels={'1': 1795, '0': 1795}
+  zero-day=1795 benign_test=1795 regra=paper_table_ix_1_to_1
+  rótulos originais no treino (pré-binário): {'3': 17745, '0': 2677, '7': 1718, '9': 1511, '2': 534, '5': 368, '6': 180, '10': 174, '4': 128, '8': 112}
+  zero-day label=1 excluído_do_treino=True
+Partição LOAO: treino=(25147, 44), teste=(3590, 44)
+features=43
+[2/5] [########------------] Partição treino/teste (+0.3s)
+BO-GP IG (treino LOAO): alpha=0.9448, CV acc=0.9536
+  [PCA] --optimize-kpca ignorado: KPCA foi substituido por PCA linear.
+  [PCA fit treino] shape=(28737, 20), n_components=10
+  [PCA transform combinado] shape=(28737, 10)
+[3/5] [############--------] Z-score (combined) + IG + FCBF + PCA (combinado) (+1068.0s)
+[4/5] [################----] Artefatos e parquets salvos (+1068.1s)
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\a03_combined_normalized.parquet shape=(28737, 44)
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\a04_after_kpca.parquet shape=(28737, 11)
+Meta/partição: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\a06_test_slice.json
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports\phase08_anomaly_features.json
+[5/5] [####################] Relatorio JSON (+1068.1s)
+  OK fase 8 concluida em 17m52s
+  -> [fase 9 - 3/5] SMOTE + CL-k-means inicial ...
+>> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase09_anomaly_cluster --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1 --random-state 0
+Partição KPCA: treino=(25147, 10) labels={'1': 22470, '0': 2677} | teste=(3590, 10) labels={'1': 1795, '0': 1795}
+Salvo treino pós-SMOTE: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\a05_train_after_smote.parquet
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1795
+           1       0.50      1.00      0.67      1795
+
+    accuracy                           0.50      3590
+   macro avg       0.25      0.50      0.33      3590
+weighted avg       0.25      0.50      0.33      3590
+
+Accuracy: 0.5
+CM:
+ [[   0 1795]
+ [   0 1795]]
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports\phase09_anomaly_cluster.json
+  OK fase 9 concluida em 8.0s
+  -> [fase 10 - 4/5] BO-GP n_clusters ...
+>> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase10_anomaly_cluster_hpo --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1 --random-state 0 --n-calls 15 --hpo-metric f1 --metrics euclidean,manhattan,cosine,mahalanobis
+Partição KPCA: treino=(25147, 10) labels={'1': 22470, '0': 2677} | teste=(3590, 10) labels={'1': 1795, '0': 1795}
+Baseline CL-k-means (n=8, metric=euclidean): f1=0.6667
+  trial n=30, metric=mahalanobis: f1=0.2656
+  trial n=43, metric=mahalanobis: f1=0.3314
+  trial n=32, metric=manhattan: f1=0.2677
+  trial n=16, metric=euclidean: f1=0.6426
+  trial n=15, metric=manhattan: f1=0.6004
+  trial n=41, metric=manhattan: f1=0.2531
+  trial n=21, metric=mahalanobis: f1=0.2687
+  trial n=18, metric=cosine: f1=0.2384
+  trial n=20, metric=mahalanobis: f1=0.5497
+  trial n=9, metric=mahalanobis: f1=0.5721
+  trial n=2, metric=euclidean: f1=0.6667
+  trial n=5, metric=euclidean: f1=0.6667
+  trial n=2, metric=manhattan: f1=0.6667
+  trial n=50, metric=cosine: f1=0.2980
+  trial n=2, metric=mahalanobis: f1=0.6667
+Melhor n_clusters=2, metric=mahalanobis, f1=0.6667
+Avaliação final n=2, metric=mahalanobis: f1=0.6667
+Partição LOAO (fase 10): treino=(25147, 10) labels={'1': 22470, '0': 2677} | teste=(3590, 10) labels={'1': 1795, '0': 1795}
+Relatório salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports\phase10_anomaly_cluster_hpo.json
+  OK fase 10 concluida em 15.1s
+  -> [fase 11 - 5/5] Biased B1/B2 ...
+>> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase11_anomaly_biased --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1 --random-state 0 --biased-mode both --force-biased --optimize-p-star --p-star-n-calls 15
+k automático da fase 10: 2
+metric automática da fase 10: mahalanobis
+Biased learners: família de 'RandomForest (HPO)'
+Partição KPCA: treino=(25147, 10) labels={'1': 22470, '0': 2677} | teste=(3590, 10) labels={'1': 1795, '0': 1795}
+Partição LOAO (fase 11): treino=(25147, 10) labels={'1': 22470, '0': 2677} | teste=(3590, 10) labels={'1': 1795, '0': 1795}
+CL-k-means (n=2, metric=mahalanobis): accuracy=0.5000
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1795
+           1       0.50      1.00      0.67      1795
+
+    accuracy                           0.50      3590
+   macro avg       0.25      0.50      0.33      3590
+weighted avg       0.25      0.50      0.33      3590
+
+DR=1.0000 FAR=1.0000 F1=0.6667
+
+Modo biased selecionado: both
+BO-GP p*: melhor=0.7905, F1=0.6667
+
+MTH-IDS anomaly (biased mode=both, p*=0.790493862930259):
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00      1795
+           1       0.50      1.00      0.67      1795
+
+    accuracy                           0.50      3590
+   macro avg       0.25      0.50      0.33      3590
+weighted avg       0.25      0.50      0.33      3590
+
+Acc=0.5000 DR=1.0000 FAR=1.0000 F1=0.6667
+CM:
+ [[   0 1795]
+ [   0 1795]]
+Relatório salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\reports\phase11_anomaly_biased.json
+Modelos anomaly salvos em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\models\anomaly
+  OK fase 11 concluida em 5.9s
+Resultado - DR=1.0000, FAR=1.0000, F1=0.6667 | rodada 18m25s | restam 9 nesta execucao
+[LOAO 1/10] Bot - DR=1.0000, FAR=1.0000, F1=0.6667 | log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_1\loao_run.log
+=== sessão concluída ===
+  log centralizado: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\loao\attack_1.log
+=== sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_2\loao_run.log ===
+intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine
+amostra: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\02_sampled_kmeans.parquet
+output-root: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao
+[LOAO 2/10] zero-day: DDoS (Label=2) | decorrido global 18m25s
+  -> [fase 7 - 1/5] Partição binária LOAO ...
+>> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase07_anomaly_datasets --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_2\reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_2 --attack-label 2
+
+=== LOAO [fase 7 (split binário)] ===
+  treino: rows=26408 labels={'1': 23731, '0': 2677}
+  teste:  rows=534 labels={'1': 534}
+  zero-day=534 benign_test=0 regra=fase7_zero_day_only
+  rótulos originais no treino (pré-binário): {'3': 17745, '0': 2677, '1': 1795, '7': 1718, '9': 1511, '5': 368, '6': 180, '10': 174, '4': 128, '8': 112}
+  zero-day label=2 excluído_do_treino=True
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_2\a01_without_portscan.parquet (26408, 44), C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_2\a02_portscan_only.parquet (534, 44)
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_2\reports\phase07_anomaly_datasets.json
+  OK fase 7 concluida em 2.4s
+  -> [fase 8 - 2/5] Features (Z-score, IG, FCBF, KPCA) ...
+>> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase08_anomaly_features --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_2\reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_fine\anomaly\loao\attack_2 --random-state 0 --feature-fit-scope combined --zscore-scope combined --fcbf-k 20 --kpca-components 10 --kpca-kernel rbf --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --kpca-hpo-calls 15 --optimize-ig --optimize-kpca
+[2026-06-10 21:45:13] === sessão encerrada com erro: KeyboardInterrupt:  ===

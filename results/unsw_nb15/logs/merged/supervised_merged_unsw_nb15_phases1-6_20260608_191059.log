@@ -1,0 +1,55 @@
+[2026-06-08 19:10:59] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_unsw_nb15_phases1-6_20260608_191059.log ===
+[2026-06-08 19:10:59] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-08 19:10:59] protocolo: unsw_nb15 | ramo: supervised | perfil: merged
+[2026-06-08 19:10:59] fases: 1-6 (1, 2, 4, 5, 6)
+[2026-06-08 19:10:59] -> [fase 1 - 1/5] Carregamento e pré-processamento ...
+[2026-06-08 19:10:59] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --input C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\UNSW-NB15_merged.csv
+Carregando dataset: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\UNSW-NB15_merged.csv
+Removendo colunas não numéricas...
+Label
+3     2218764
+7      215481
+5       44525
+6       24246
+4       16353
+8       13987
+0        2677
+1        1795
+9        1511
+2         534
+10        174
+Name: count, dtype: int64
+Dataset carregado em 18.15s
+Shape final: (2540047, 44)
+Salvando arquivo parquet...
+Arquivo salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\01_preprocessed.parquet
+Tempo de salvamento: 3.14s
+Tempo total do pipeline: 21.30s
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports\phase01_load_preprocess.json
+[2026-06-08 19:11:23] OK fase 1 concluida em 24.1s
+[2026-06-08 19:11:23] -> [fase 2 - 2/5] Amostragem k-means ...
+[2026-06-08 19:11:23] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --n-clusters 1000 --frac 0.1 --random-state 0 --minority-labels 0,1,3,4,5,6,7,8,9
+Label
+3     2218764
+7      215481
+5       44525
+6       24246
+4       16353
+8       13987
+0        2677
+1        1795
+9        1511
+2          51
+10         13
+Name: count, dtype: int64
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\02_sampled_kmeans.parquet shape=(2539403, 44)
+[2026-06-08 19:11:35] OK fase 2 concluida em 11.8s
+[2026-06-08 19:11:35] -> [fase 4 - 3/5] Engenharia de features (IG, FCBF) ...
+[2026-06-08 19:11:35] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --fcbf-k 20 --random-state 0 --test-size 0.2 --fcbf-scope train --scale-mode split --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --optimize-ig
+usage: python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering
+       [-h] [--intermediate-dir INTERMEDIATE_DIR] [--report-dir REPORT_DIR]
+       [--fcbf-k FCBF_K] [--random-state RANDOM_STATE] [--test-size TEST_SIZE]
+       [--fcbf-scope {train,full}] [--scale-mode {phase1,split}]
+       [--ig-cumulative IG_CUMULATIVE] [--ig-features IG_FEATURES]
+python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering: error: unrecognized arguments: --cv-folds 10 --ig-hpo-calls 15 --optimize-ig
+[2026-06-08 19:11:38] === sessão encerrada com erro: CalledProcessError: Command '['C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\venv\\Scripts\\python.exe', '-m', 'mth_ids_pipeline.phases.phase04_feature_engineering', '--report-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_merged\\phase_reports', '--intermediate-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_merged', '--fcbf-k', '20', '--random-state', '0', '--test-size', '0.2', '--fcbf-scope', 'train', '--scale-mode', 'split', '--ig-cumulative', '0.9', '--cv-folds', '10', '--ig-hpo-calls', '15', '--optimize-ig']' returned non-zero exit status 2. ===

@@ -1,0 +1,193 @@
+﻿{
+  "work_dir": "data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_12",
+  "train_rows": 36362,
+  "test_rows": 3014,
+  "train_label_counts": {
+    "0": 18181,
+    "1": 18181
+  },
+  "test_label_counts": {
+    "1": 1507,
+    "0": 1507
+  },
+  "n_clusters": 20,
+  "n_clusters_source": "phase10",
+  "p_star": 0.9136902168046985,
+  "p_star_optimized": true,
+  "p_star_hpo_trials": [
+    {
+      "trial": 0,
+      "p_star": 0.790493862930259,
+      "score": 0.9076163610719323,
+      "loss": 0.09238363892806767
+    },
+    {
+      "trial": 1,
+      "p_star": 0.9136902168046985,
+      "score": 0.917320028510335,
+      "loss": 0.082679971489665
+    },
+    {
+      "trial": 2,
+      "p_star": 0.9203933526351509,
+      "score": 0.917320028510335,
+      "loss": 0.082679971489665
+    },
+    {
+      "trial": 3,
+      "p_star": 0.9151533520042215,
+      "score": 0.917320028510335,
+      "loss": 0.082679971489665
+    },
+    {
+      "trial": 4,
+      "p_star": 0.8055462114251265,
+      "score": 0.9076163610719323,
+      "loss": 0.09238363892806767
+    },
+    {
+      "trial": 5,
+      "p_star": 0.688347036573423,
+      "score": 0.893491124260355,
+      "loss": 0.10650887573964496
+    },
+    {
+      "trial": 6,
+      "p_star": 0.6457919572067914,
+      "score": 0.8939845145920191,
+      "loss": 0.10601548540798089
+    },
+    {
+      "trial": 7,
+      "p_star": 0.5277893588855471,
+      "score": 0.8958519844822441,
+      "loss": 0.10414801551775588
+    },
+    {
+      "trial": 8,
+      "p_star": 0.6336015843442555,
+      "score": 0.8939845145920191,
+      "loss": 0.10601548540798089
+    },
+    {
+      "trial": 9,
+      "p_star": 0.7340559074874615,
+      "score": 0.8926108374384236,
+      "loss": 0.10738916256157638
+    },
+    {
+      "trial": 10,
+      "p_star": 0.99,
+      "score": 0.917320028510335,
+      "loss": 0.082679971489665
+    },
+    {
+      "trial": 11,
+      "p_star": 0.962545265843795,
+      "score": 0.917320028510335,
+      "loss": 0.082679971489665
+    },
+    {
+      "trial": 12,
+      "p_star": 0.8664310529099333,
+      "score": 0.9166666666666666,
+      "loss": 0.08333333333333337
+    },
+    {
+      "trial": 13,
+      "p_star": 0.9899996907239867,
+      "score": 0.917320028510335,
+      "loss": 0.082679971489665
+    },
+    {
+      "trial": 14,
+      "p_star": 0.5000686254213598,
+      "score": 0.8958519844822441,
+      "loss": 0.10414801551775588
+    },
+    {
+      "trial": 15,
+      "p_star": 0.886353289545394,
+      "score": 0.9166666666666666,
+      "loss": 0.08333333333333337
+    },
+    {
+      "trial": 16,
+      "p_star": 0.9522551801064117,
+      "score": 0.917320028510335,
+      "loss": 0.082679971489665
+    },
+    {
+      "trial": 17,
+      "p_star": 0.5772043416636448,
+      "score": 0.8958519844822441,
+      "loss": 0.10414801551775588
+    },
+    {
+      "trial": 18,
+      "p_star": 0.9787814230580659,
+      "score": 0.917320028510335,
+      "loss": 0.082679971489665
+    },
+    {
+      "trial": 19,
+      "p_star": 0.8407455585611077,
+      "score": 0.9166666666666666,
+      "loss": 0.08333333333333337
+    }
+  ],
+  "force_biased": true,
+  "metric": "mahalanobis",
+  "metric_source": "phase10",
+  "random_state": 0,
+  "smote_target": null,
+  "did_smote": true,
+  "biased_mode_requested": "both",
+  "biased_mode_applied": "both",
+  "supervised_model_for_biased": "XGBoost (base)",
+  "mode_selection": {
+    "forced": true,
+    "selected_mode": "both"
+  },
+  "cl_kmeans": {
+    "accuracy": 0.8842070338420703,
+    "detection_rate": 0.9960185799601858,
+    "false_alarm_rate": 0.2276045122760451,
+    "f1": 0.8958519844822441,
+    "confusion_matrix": [
+      [
+        1164,
+        343
+      ],
+      [
+        6,
+        1501
+      ]
+    ]
+  },
+  "mth_ids_anomaly": {
+    "accuracy": 0.9230258792302588,
+    "detection_rate": 0.8540145985401459,
+    "false_alarm_rate": 0.007962840079628402,
+    "f1": 0.917320028510335,
+    "confusion_matrix": [
+      [
+        1495,
+        12
+      ],
+      [
+        220,
+        1287
+      ]
+    ]
+  },
+  "biased_training": {
+    "fn": 2090,
+    "fp": 4266,
+    "b1_train": 4180,
+    "b2_train": 8532
+  },
+  "saved_model_path": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\artifacts\\models\\CICIDS2017_MTHIDS_Anomaly_loao_attack_12.joblib",
+  "phase": "phase11_anomaly_biased",
+  "timestamp": 1780799028
+}

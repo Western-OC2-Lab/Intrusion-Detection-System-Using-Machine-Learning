@@ -1,0 +1,122 @@
+[2026-06-11 00:55:54] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\global_anomaly_can_intrusion_20260611_005554.log ===
+[2026-06-11 00:55:54] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-11 00:55:54] work-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global
+[2026-06-11 00:55:54] protocol: can_intrusion | fases: 7-11
+[2026-06-11 00:55:54] -> fase 7 (mth_ids_pipeline.phases.phase07_anomaly_datasets) ...
+[2026-06-11 00:55:54] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase07_anomaly_datasets --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global --random-state 0 --mode global --test-size 0.2
+Modo global (Tabela X): treino=(26564, 11), hold-out reservado=6641 linhas (fase 13)
+
+=== LOAO [fase 7 (global binário)] ===
+  treino: rows=26564 labels={'1': 18655, '0': 7909}
+  teste:  rows=0 labels={}
+  zero-day=0 benign_test=0 regra=none_holdout_reserved
+  benign_label=0
+  rótulos originais no treino (pré-binário): {'0': 7909, '4': 5239, '3': 4778, '1': 4701, '2': 3937}
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global\a01_without_portscan.parquet (26564, 11), C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global\a02_portscan_only.parquet (0, 11)
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports\phase07_anomaly_datasets.json
+[2026-06-11 00:55:56] -> fase 8 (mth_ids_pipeline.phases.phase08_anomaly_features) ...
+[2026-06-11 00:55:56] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase08_anomaly_features --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global --random-state 0 --feature-fit-scope train --fcbf-k 20 --kpca-components 10 --kpca-kernel rbf --ig-cumulative 0.9 --zscore-scope combined --optimize-kpca
+[1/6] [###-----------------] Dados carregados (fase 7) (+0.1s)
+
+=== LOAO [fase 8 (global — pré-normalização)] ===
+  treino: rows=26564 labels={'1': 18655, '0': 7909}
+  teste:  rows=0 labels={}
+  zero-day=0 benign_test=0 regra=none_holdout_reserved
+  benign_label=0
+  rótulos originais no treino (pré-binário): {'0': 7909, '4': 5239, '3': 4778, '1': 4701, '2': 3937}
+Partição global (Tabela X): treino=(26564, 11), teste interno vazio (hold-out na fase 13)
+features=10
+[2/6] [######--------------] Partição treino/teste (+0.1s)
+  [Z-score (fit treino)] shape=(26564, 10)
+  [IG 90% (8 feats)] shape=(26564, 8)
+  [FCBF k=20] shape=(26564, 8)
+  [Tabela X] teste interno vazio — transform teste omitido (hold-out na fase 13)
+[3/6] [##########----------] Z-score + IG + FCBF (fit treino, transform teste) (+2.0s)
+  [PCA] --optimize-kpca ignorado: KPCA foi substituido por PCA linear.
+  [PCA fit treino] shape=(26564, 8), n_components=8
+  [PCA transform treino] shape=(26564, 8)
+[4/6] [#############-------] PCA (fit treino, transform teste) (+2.1s)
+[5/6] [################----] Artefatos e parquets salvos (+2.1s)
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global\a03_combined_normalized.parquet shape=(26564, 11)
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global\a04_after_kpca.parquet shape=(26564, 11)
+Meta/partição: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global\a06_test_slice.json
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports\phase08_anomaly_features.json
+[6/6] [####################] Relatorio JSON (+2.1s)
+[2026-06-11 00:56:00] -> fase 9 (mth_ids_pipeline.phases.phase09_anomaly_cluster) ...
+[2026-06-11 00:56:00] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase09_anomaly_cluster --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global --random-state 0 --n-clusters 8 --no-smote
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\phases\phase09_anomaly_cluster.py", line 111, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\phases\phase09_anomaly_cluster.py", line 79, in main
+    pred, acc = cl_kmeans(
+                ~~~~~~~~~^
+        X_train, X_test, y_train, y_test,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        n_clusters=args.n_clusters,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        random_state=args.random_state,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\core\clustering.py", line 375, in cl_kmeans
+    res = cl_kmeans_fit_predict(
+        X_train,
+    ...<6 lines>...
+        metric=metric,
+    )
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\core\clustering.py", line 315, in cl_kmeans_fit_predict
+    train_labels, test_labels, model = _fit_predict_clusters(
+                                       ~~~~~~~~~~~~~~~~~~~~~^
+        X_train,
+        ^^^^^^^^
+    ...<4 lines>...
+        metric=metric,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\core\clustering.py", line 239, in _fit_predict_clusters
+    train_labels = km.fit_predict(X_train)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\sklearn\cluster\_kmeans.py", line 1070, in fit_predict
+    return self.fit(X, sample_weight=sample_weight).labels_
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\sklearn\base.py", line 1336, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\sklearn\cluster\_kmeans.py", line 2080, in fit
+    X = validate_data(
+        self,
+    ...<4 lines>...
+        accept_large_sparse=False,
+    )
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\sklearn\utils\validation.py", line 2902, in validate_data
+    out = check_array(X, input_name="X", **check_params)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\sklearn\utils\validation.py", line 1074, in check_array
+    _assert_all_finite(
+    ~~~~~~~~~~~~~~~~~~^
+        array,
+        ^^^^^^
+    ...<2 lines>...
+        allow_nan=ensure_all_finite == "allow-nan",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\sklearn\utils\validation.py", line 133, in _assert_all_finite
+    _assert_all_finite_element_wise(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<4 lines>...
+        input_name=input_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\sklearn\utils\validation.py", line 182, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains NaN.
+MiniBatchKMeans does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values
+Modo global (Tabela X): validação interna 20% do treino para fases 9–11 (hold-out 20% reservado à fase 13).
+Partição KPCA: treino=(21251, 10) labels={'1': 14924, '0': 6327} | validação interna=(5313, 10) labels={'1': 3731, '0': 1582}
+Salvo treino pós-SMOTE: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\anomaly\global\a05_train_after_smote.parquet
+[2026-06-11 00:56:02] === sessão encerrada com erro: CalledProcessError: Command '['C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\venv\\Scripts\\python.exe', '-m', 'mth_ids_pipeline.phases.phase09_anomaly_cluster', '--intermediate-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_can_intrusion_merged', '--report-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_can_intrusion_merged\\phase_reports', '--work-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_can_intrusion_merged\\anomaly\\global', '--random-state', '0', '--n-clusters', '8', '--no-smote']' returned non-zero exit status 1. ===

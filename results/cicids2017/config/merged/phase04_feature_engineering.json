@@ -1,0 +1,79 @@
+﻿{
+  "ig_feature_count": 36,
+  "ig_cumulative": 0.786285035897897,
+  "post_fcbf_feature_count": 20,
+  "test_size": 0.2,
+  "fcbf_scope": "train",
+  "scale_mode": "split",
+  "optimize_ig": true,
+  "train_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\04_train_after_fcbf.parquet",
+  "test_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\04_test_after_fcbf.parquet",
+  "ig_hpo": {
+    "best_alpha": 0.786285035897897,
+    "best_cv_accuracy": 0.9946806811137963,
+    "trials": [
+      {
+        "alpha": 0.8719249392852553,
+        "score": 0.9945407557406621
+      },
+      {
+        "alpha": 0.9448370670884951,
+        "score": 0.9941674690592766
+      },
+      {
+        "alpha": 0.9488042291105996,
+        "score": 0.9941674690592766
+      },
+      {
+        "alpha": 0.9457030042473964,
+        "score": 0.9941674690592766
+      },
+      {
+        "alpha": 0.880833472067932,
+        "score": 0.9945407557406621
+      },
+      {
+        "alpha": 0.8114706951148829,
+        "score": 0.9945407557406621
+      },
+      {
+        "alpha": 0.786285035897897,
+        "score": 0.9946806811137963
+      },
+      {
+        "alpha": 0.7164467634220585,
+        "score": 0.9943074161971293
+      },
+      {
+        "alpha": 0.7790703254282328,
+        "score": 0.9946340393227515
+      },
+      {
+        "alpha": 0.8385228840231915,
+        "score": 0.9945407557406621
+      },
+      {
+        "alpha": 0.9355289313448931,
+        "score": 0.9941674690592766
+      },
+      {
+        "alpha": 0.9402532167161256,
+        "score": 0.9941674690592766
+      },
+      {
+        "alpha": 0.9399664234405398,
+        "score": 0.9941674690592766
+      },
+      {
+        "alpha": 0.7929119863498337,
+        "score": 0.9946806811137963
+      },
+      {
+        "alpha": 0.9312400929237552,
+        "score": 0.9941674690592766
+      }
+    ]
+  },
+  "phase": "phase04_feature_engineering",
+  "timestamp": 1780832099
+}

@@ -1,0 +1,12 @@
+[2026-06-10 12:01:33] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_unsw_nb15_phases4-4_20260610_120133.log ===
+[2026-06-10 12:01:33] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-10 12:01:33] protocolo: unsw_nb15 | ramo: supervised | perfil: merged
+[2026-06-10 12:01:33] fases: 4-4 (4)
+[2026-06-10 12:01:33] -> [fase 4 - 1/1] Engenharia de features (IG, FCBF) ...
+[2026-06-10 12:01:33] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --fcbf-k 20 --random-state 0 --test-size 0.2 --fcbf-scope train --scale-mode split --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --optimize-ig
+BO-GP IG: alpha=0.9448, CV acc=0.7987
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\04_train_after_fcbf.parquet (28882, 21)
+Salvo: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\04_test_after_fcbf.parquet (7221, 21)
+Preprocessores supervisionados salvos: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\models\supervised\manifest.json
+[2026-06-10 12:08:10] OK fase 4 concluida em 6m37s
+[2026-06-10 12:08:10] === sessão concluída ===

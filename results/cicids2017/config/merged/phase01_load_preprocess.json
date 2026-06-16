@@ -1,0 +1,22 @@
+﻿{
+  "shape": {
+    "rows": 2830743,
+    "cols": 79
+  },
+  "label_col": "Label",
+  "label_value_counts": {
+    "BENIGN": 2273097,
+    "DoS": 380699,
+    "PortScan": 158930,
+    "BruteForce": 13835,
+    "WebAttack": 2180,
+    "Bot": 1966,
+    "Infiltration": 36
+  },
+  "input": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\CICIDS2017.csv",
+  "output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\01_preprocessed.parquet",
+  "feature_count": 78,
+  "duration_s": 22.9111,
+  "phase": "phase01_load_preprocess",
+  "timestamp": 1780831214
+}

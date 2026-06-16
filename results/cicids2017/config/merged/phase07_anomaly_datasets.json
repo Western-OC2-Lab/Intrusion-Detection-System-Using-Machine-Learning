@@ -1,0 +1,56 @@
+﻿{
+  "input": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\02_sampled_kmeans.parquet",
+  "mode": "global",
+  "test_size": 0.2,
+  "random_state": 0,
+  "without_portscan_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\a01_without_portscan.parquet",
+  "portscan_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global\\a02_portscan_only.parquet",
+  "without_portscan": {
+    "shape": {
+      "rows": 21432,
+      "cols": 79
+    },
+    "label_col": "Label",
+    "label_value_counts": {
+      "0": 14493,
+      "1": 6939
+    }
+  },
+  "holdout_rows": 5359,
+  "protocol": "global_table_x",
+  "n_train_rows": 21432,
+  "n_holdout_rows": 5359,
+  "holdout_reserved_for_phase13": true,
+  "train_original_label_counts": {
+    "0": 14493,
+    "3": 2462,
+    "6": 1744,
+    "1": 1573,
+    "5": 1033,
+    "2": 98,
+    "4": 29
+  },
+  "train_binary_label_counts": {
+    "0": 14493,
+    "1": 6939
+  },
+  "holdout_label_counts": {
+    "0": 3624,
+    "3": 616,
+    "6": 436,
+    "1": 393,
+    "5": 258,
+    "2": 25,
+    "4": 7
+  },
+  "train_attack_labels_present": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "phase": "phase07_anomaly_datasets",
+  "timestamp": 1780833493
+}

@@ -1,0 +1,27 @@
+﻿{
+  "input": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_1\\a04_after_kpca.parquet",
+  "train_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_1\\a05_train_after_smote.parquet",
+  "test_slice_meta": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_1\\a06_test_slice.json",
+  "n_clusters": 8,
+  "random_state": 0,
+  "smote_target": 18184,
+  "smote_target_resolved": 18184,
+  "did_smote": true,
+  "train_counts_before": {
+    "0": 18184,
+    "1": 6641
+  },
+  "train_counts_after": {
+    "0": 18184,
+    "1": 18184
+  },
+  "test_label_counts": {
+    "1": 1966,
+    "0": 1966
+  },
+  "train_rows": 36368,
+  "test_rows": 3932,
+  "accuracy": 0.48677517802644965,
+  "phase": "phase09_anomaly_cluster",
+  "timestamp": 1780710782
+}

@@ -1,0 +1,46 @@
+[2026-06-11 00:34:54] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_fine_can_paper_phases1-2_20260611_003454.log ===
+[2026-06-11 00:34:54] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_fine
+[2026-06-11 00:34:54] protocolo: can_paper | ramo: supervised | perfil: fine
+[2026-06-11 00:34:54] fases: 1-2 (1, 2)
+[2026-06-11 00:34:54] -> [fase 1 - 1/2] Carregamento e pré-processamento ...
+[2026-06-11 00:34:54] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_fine\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_fine --input C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv --no-zscore
+CAN detectado: Z-score adiado para a fase 2 (pós k-means), conforme protocolo Yang et al. (2022).
+Carregando dataset: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv
+Label
+BENIGN    988871
+RPM       654897
+Gear      597252
+DoS       587521
+Fuzzy     491847
+Name: count, dtype: int64
+Dataset carregado em 3.24s
+Shape original: (3320388, 11)
+Pré-processamento concluído. Shape final: (3320388, 11)
+Z-score adiado (artigo CAN: normalização após amostragem k-means).
+Salvando arquivo parquet...
+Arquivo salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_fine\01_preprocessed.parquet
+Tempo de salvamento: 1.18s
+Tempo total do pipeline: 4.51s
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_fine\phase_reports\phase01_load_preprocess.json
+[2026-06-11 00:35:01] OK fase 1 concluida em 7.0s
+[2026-06-11 00:35:01] -> [fase 2 - 2/2] Amostragem k-means ...
+[2026-06-11 00:35:01] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_fine\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_fine --n-clusters 1000 --frac 0.01 --random-state 0 --sample-all-classes --zscore-after-sample
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\phases\phase02_sample_kmeans.py", line 193, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\phases\phase02_sample_kmeans.py", line 114, in main
+    sampled = _sample_kmeans(
+        df,
+    ...<3 lines>...
+        minority_labels=minority_labels,
+    )
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\core\clustering.py", line 48, in sample_kmeans
+    original_labels = sorted(df[label_col].unique(), key=lambda x: int(str(x)))
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\core\clustering.py", line 48, in <lambda>
+    original_labels = sorted(df[label_col].unique(), key=lambda x: int(str(x)))
+                                                                   ~~~^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'DoS'
+[2026-06-11 00:35:05] === sessão encerrada com erro: CalledProcessError: Command '['C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\venv\\Scripts\\python.exe', '-m', 'mth_ids_pipeline.phases.phase02_sample_kmeans', '--report-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_can_intrusion_fine\\phase_reports', '--intermediate-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_can_intrusion_fine', '--n-clusters', '1000', '--frac', '0.01', '--random-state', '0', '--sample-all-classes', '--zscore-after-sample']' returned non-zero exit status 1. ===

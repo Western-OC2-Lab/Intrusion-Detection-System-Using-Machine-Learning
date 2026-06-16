@@ -1,0 +1,162 @@
+﻿{
+  "work_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_14",
+  "train_rows": 36362,
+  "test_rows": 1304,
+  "train_label_counts": {
+    "0": 18181,
+    "1": 18181
+  },
+  "test_label_counts": {
+    "1": 652,
+    "0": 652
+  },
+  "n_clusters": 9,
+  "n_clusters_source": "phase10",
+  "p_star": 0.99,
+  "p_star_optimized": true,
+  "p_star_hpo_trials": [
+    {
+      "trial": 0,
+      "p_star": 0.790493862930259,
+      "score": 0.9438893159108378,
+      "loss": 0.0561106840891622
+    },
+    {
+      "trial": 1,
+      "p_star": 0.9136902168046985,
+      "score": 0.9587955625990491,
+      "loss": 0.04120443740095092
+    },
+    {
+      "trial": 2,
+      "p_star": 0.9203933526351509,
+      "score": 0.9587955625990491,
+      "loss": 0.04120443740095092
+    },
+    {
+      "trial": 3,
+      "p_star": 0.9151533520042215,
+      "score": 0.9587955625990491,
+      "loss": 0.04120443740095092
+    },
+    {
+      "trial": 4,
+      "p_star": 0.8055462114251265,
+      "score": 0.9438893159108378,
+      "loss": 0.0561106840891622
+    },
+    {
+      "trial": 5,
+      "p_star": 0.688347036573423,
+      "score": 0.9446153846153846,
+      "loss": 0.055384615384615365
+    },
+    {
+      "trial": 6,
+      "p_star": 0.6457919572067914,
+      "score": 0.9446153846153846,
+      "loss": 0.055384615384615365
+    },
+    {
+      "trial": 7,
+      "p_star": 0.5277893588855471,
+      "score": 0.937984496124031,
+      "loss": 0.06201550387596899
+    },
+    {
+      "trial": 8,
+      "p_star": 0.6336015843442555,
+      "score": 0.9446153846153846,
+      "loss": 0.055384615384615365
+    },
+    {
+      "trial": 9,
+      "p_star": 0.7340559074874615,
+      "score": 0.9438893159108378,
+      "loss": 0.0561106840891622
+    },
+    {
+      "trial": 10,
+      "p_star": 0.99,
+      "score": 0.9603174603174603,
+      "loss": 0.03968253968253965
+    },
+    {
+      "trial": 11,
+      "p_star": 0.9711177533175046,
+      "score": 0.9603174603174603,
+      "loss": 0.03968253968253965
+    },
+    {
+      "trial": 12,
+      "p_star": 0.8678241756758756,
+      "score": 0.9587955625990491,
+      "loss": 0.04120443740095092
+    },
+    {
+      "trial": 13,
+      "p_star": 0.8852402854006141,
+      "score": 0.9587955625990491,
+      "loss": 0.04120443740095092
+    },
+    {
+      "trial": 14,
+      "p_star": 0.5775275411879363,
+      "score": 0.9405405405405406,
+      "loss": 0.05945945945945941
+    }
+  ],
+  "force_biased": true,
+  "metric": "mahalanobis",
+  "metric_source": "phase10",
+  "random_state": 0,
+  "smote_target": null,
+  "did_smote": true,
+  "biased_mode_requested": "both",
+  "biased_mode_applied": "both",
+  "supervised_model_for_biased": "XGBoost (base)",
+  "mode_selection": {
+    "forced": true,
+    "selected_mode": "both"
+  },
+  "cl_kmeans": {
+    "accuracy": 0.9386503067484663,
+    "detection_rate": 0.9279141104294478,
+    "false_alarm_rate": 0.05061349693251534,
+    "f1": 0.937984496124031,
+    "confusion_matrix": [
+      [
+        619,
+        33
+      ],
+      [
+        47,
+        605
+      ]
+    ]
+  },
+  "mth_ids_anomaly": {
+    "accuracy": 0.9616564417177914,
+    "detection_rate": 0.9279141104294478,
+    "false_alarm_rate": 0.004601226993865031,
+    "f1": 0.9603174603174603,
+    "confusion_matrix": [
+      [
+        649,
+        3
+      ],
+      [
+        47,
+        605
+      ]
+    ]
+  },
+  "biased_training": {
+    "fn": 11340,
+    "fp": 935,
+    "b1_train": 22680,
+    "b2_train": 1870
+  },
+  "phase": "phase11_anomaly_biased",
+  "timestamp": 1780805849
+}

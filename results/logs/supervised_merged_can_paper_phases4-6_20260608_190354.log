@@ -1,0 +1,23 @@
+[2026-06-08 19:03:54] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_can_paper_phases4-6_20260608_190354.log ===
+[2026-06-08 19:03:54] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 19:03:54] protocolo: can_paper | ramo: supervised | perfil: merged
+[2026-06-08 19:03:54] fases: 4-6 (4, 6)
+[2026-06-08 19:03:54] -> [fase 4 - 1/2] Engenharia de features (IG, FCBF) ...
+[2026-06-08 19:03:54] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --fcbf-k 20 --random-state 0 --test-size 0.3 --fcbf-scope full --scale-mode phase1 --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15
+IG dinâmico (α=90%): ['DATA_1', 'DATA_4', 'DATA_0', 'DATA_2', 'CAN_ID', 'DATA_5', 'DATA_3', 'DATA_7']
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_train_after_fcbf.parquet (122903, 9)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_test_after_fcbf.parquet (52673, 9)
+Preprocessores supervisionados salvos: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\models\supervised\manifest.json
+[2026-06-08 19:05:24] Sem SMOTE: parquets FCBF copiados para caminhos da fase 5 em C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 19:05:24] OK fase 4 concluida em 1m29s
+[2026-06-08 19:05:24] -> [fase 6 - 2/2] Modelos supervisionados + stacking ...
+[2026-06-08 19:05:24] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase06_supervised_models --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --no-plots --cv-folds 10 --meta-learner best-base --random-state 0 --hpo-on-validation
+Fase 6 — treino: 122,903 × 8 features | teste: 52,673 | max_features HPO ≤ 8
+HPO objetivo: acurácia média em 10-fold CV (treino)
+
+============================================================
+[fase 6 — 1/6] XGBoost — HPO
+============================================================
+  [XGBoost] HPO iniciando (20 trials)...
+  [XGBoost] trial 2/20 acc=0.4245 (melhor=0.4245) +1m11s | total 1m11s
+[2026-06-08 19:07:32] === sessão encerrada com erro: KeyboardInterrupt:  ===

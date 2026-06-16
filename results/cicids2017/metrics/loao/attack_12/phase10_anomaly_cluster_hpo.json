@@ -1,0 +1,172 @@
+﻿{
+  "work_dir": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_fine\\anomaly\\loao\\attack_12",
+  "train_rows": 36362,
+  "test_rows": 3014,
+  "train_label_counts": {
+    "0": 18181,
+    "1": 18181
+  },
+  "test_label_counts": {
+    "1": 1507,
+    "0": 1507
+  },
+  "baseline_clusters": 8,
+  "baseline_metric": "euclidean",
+  "baseline_score": 0.8587437334119729,
+  "best_n_clusters": 20,
+  "best_metric": "mahalanobis",
+  "best_score": 0.8958519844822441,
+  "best_accuracy": 0.8958519844822441,
+  "best_f1": 0.8958519844822441,
+  "best_config": {
+    "n_clusters": 20,
+    "metric": "mahalanobis",
+    "score": 0.8958519844822441,
+    "objective_metric": "f1"
+  },
+  "hpo_trials": [
+    {
+      "trial": 0,
+      "n_clusters": 30,
+      "metric": "mahalanobis",
+      "score": 0.8776009791921665,
+      "accuracy": 0.8776009791921665,
+      "loss": 0.12239902080783349
+    },
+    {
+      "trial": 1,
+      "n_clusters": 43,
+      "metric": "mahalanobis",
+      "score": 0.8863425209043048,
+      "accuracy": 0.8863425209043048,
+      "loss": 0.11365747909569524
+    },
+    {
+      "trial": 2,
+      "n_clusters": 32,
+      "metric": "manhattan",
+      "score": 0.8708671241422333,
+      "accuracy": 0.8708671241422333,
+      "loss": 0.12913287585776667
+    },
+    {
+      "trial": 3,
+      "n_clusters": 16,
+      "metric": "euclidean",
+      "score": 0.8639517345399699,
+      "accuracy": 0.8639517345399699,
+      "loss": 0.13604826546003013
+    },
+    {
+      "trial": 4,
+      "n_clusters": 15,
+      "metric": "manhattan",
+      "score": 0.8708036622583927,
+      "accuracy": 0.8708036622583927,
+      "loss": 0.12919633774160733
+    },
+    {
+      "trial": 5,
+      "n_clusters": 41,
+      "metric": "manhattan",
+      "score": 0.8720743828150048,
+      "accuracy": 0.8720743828150048,
+      "loss": 0.12792561718499518
+    },
+    {
+      "trial": 6,
+      "n_clusters": 21,
+      "metric": "mahalanobis",
+      "score": 0.8657799274486094,
+      "accuracy": 0.8657799274486094,
+      "loss": 0.13422007255139057
+    },
+    {
+      "trial": 7,
+      "n_clusters": 18,
+      "metric": "cosine",
+      "score": 0.8342048600430637,
+      "accuracy": 0.8342048600430637,
+      "loss": 0.1657951399569363
+    },
+    {
+      "trial": 8,
+      "n_clusters": 20,
+      "metric": "mahalanobis",
+      "score": 0.8958519844822441,
+      "accuracy": 0.8958519844822441,
+      "loss": 0.10414801551775588
+    },
+    {
+      "trial": 9,
+      "n_clusters": 9,
+      "metric": "mahalanobis",
+      "score": 0.8571428571428571,
+      "accuracy": 0.8571428571428571,
+      "loss": 0.1428571428571429
+    },
+    {
+      "trial": 10,
+      "n_clusters": 50,
+      "metric": "euclidean",
+      "score": 0.8785228377065112,
+      "accuracy": 0.8785228377065112,
+      "loss": 0.12147716229348882
+    },
+    {
+      "trial": 11,
+      "n_clusters": 50,
+      "metric": "cosine",
+      "score": 0.8568732305756527,
+      "accuracy": 0.8568732305756527,
+      "loss": 0.14312676942434732
+    },
+    {
+      "trial": 12,
+      "n_clusters": 50,
+      "metric": "mahalanobis",
+      "score": 0.8730769230769231,
+      "accuracy": 0.8730769230769231,
+      "loss": 0.12692307692307692
+    },
+    {
+      "trial": 13,
+      "n_clusters": 2,
+      "metric": "cosine",
+      "score": 0.1493570722057369,
+      "accuracy": 0.1493570722057369,
+      "loss": 0.8506429277942631
+    },
+    {
+      "trial": 14,
+      "n_clusters": 33,
+      "metric": "cosine",
+      "score": 0.889717303510407,
+      "accuracy": 0.889717303510407,
+      "loss": 0.11028269648959299
+    }
+  ],
+  "final_score": 0.8958519844822441,
+  "n_calls": 15,
+  "search_space": {
+    "n_clusters": [
+      2,
+      50
+    ],
+    "metric": [
+      "euclidean",
+      "manhattan",
+      "cosine",
+      "mahalanobis"
+    ]
+  },
+  "optimizer": "BO-GP (skopt gp_minimize)",
+  "objective": "f1 on LOAO test split",
+  "hpo_metric": "f1",
+  "random_state": 0,
+  "smote_target": null,
+  "did_smote": true,
+  "reproducible": true,
+  "phase": "phase10_anomaly_cluster_hpo",
+  "timestamp": 1780791983
+}

@@ -1,0 +1,89 @@
+[2026-06-10 21:16:35] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\global_anomaly_unsw_nb15_20260610_211635.log ===
+[2026-06-10 21:16:35] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-10 21:16:35] work-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global
+[2026-06-10 21:16:35] protocol: unsw_nb15 | fases: 9-11
+[2026-06-10 21:16:35] -> fase 9 (mth_ids_pipeline.phases.phase09_anomaly_cluster) ...
+[2026-06-10 21:16:35] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase09_anomaly_cluster --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global --random-state 0 --n-clusters 8
+Modo global (Tabela X): validação interna 20% do treino para fases 9–11 (hold-out 20% reservado à fase 13).
+Partição KPCA: treino=(38607, 10) labels={'1': 36893, '0': 1714} | validação interna=(9652, 10) labels={'1': 9224, '0': 428}
+Salvo treino pós-SMOTE: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global\a05_train_after_smote.parquet
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       428
+           1       0.96      1.00      0.98      9224
+
+    accuracy                           0.96      9652
+   macro avg       0.48      0.50      0.49      9652
+weighted avg       0.91      0.96      0.93      9652
+
+Accuracy: 0.9556568586821385
+CM:
+ [[   0  428]
+ [   0 9224]]
+Relatorio salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports\phase09_anomaly_cluster.json
+[2026-06-10 21:16:45] -> fase 10 (mth_ids_pipeline.phases.phase10_anomaly_cluster_hpo) ...
+[2026-06-10 21:16:45] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase10_anomaly_cluster_hpo --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global --random-state 0 --n-calls 15 --hpo-metric f1 --metrics euclidean,manhattan,cosine,mahalanobis
+Modo global (Tabela X): validação interna 20% do treino para fases 9–11 (hold-out 20% reservado à fase 13).
+Partição KPCA: treino=(38607, 10) labels={'1': 36893, '0': 1714} | validação interna=(9652, 10) labels={'1': 9224, '0': 428}
+Baseline CL-k-means (n=8, metric=euclidean): f1=0.9773
+  trial n=30, metric=mahalanobis: f1=0.9773
+  trial n=43, metric=mahalanobis: f1=0.9773
+  trial n=32, metric=manhattan: f1=0.9773
+  trial n=16, metric=euclidean: f1=0.9773
+  trial n=15, metric=manhattan: f1=0.9773
+  trial n=41, metric=manhattan: f1=0.9773
+  trial n=21, metric=mahalanobis: f1=0.9773
+  trial n=18, metric=cosine: f1=0.9773
+  trial n=20, metric=mahalanobis: f1=0.9773
+  trial n=9, metric=mahalanobis: f1=0.9773
+  trial n=50, metric=euclidean: f1=0.9773
+  trial n=50, metric=cosine: f1=0.9773
+  trial n=2, metric=cosine: f1=0.9773
+  trial n=2, metric=euclidean: f1=0.9773
+  trial n=41, metric=manhattan: f1=0.9773
+Melhor n_clusters=20, metric=mahalanobis, f1=0.9773
+Avaliação final n=20, metric=mahalanobis: f1=0.9773
+Partição LOAO (fase 10): treino=(38607, 10) labels={'1': 36893, '0': 1714} | teste=(9652, 10) labels={'1': 9224, '0': 428}
+Relatório salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports\phase10_anomaly_cluster_hpo.json
+[2026-06-10 21:17:11] -> fase 11 (mth_ids_pipeline.phases.phase11_anomaly_biased) ...
+[2026-06-10 21:17:11] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase11_anomaly_biased --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --work-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global --random-state 0 --p-star 0.933 --biased-mode both --force-biased --optimize-p-star --p-star-n-calls 15
+k automático da fase 10: 20
+metric automática da fase 10: mahalanobis
+Biased learners: família de 'RandomForest (HPO)'
+Modo global (Tabela X): validação interna 20% do treino para fases 9–11 (hold-out 20% reservado à fase 13).
+Partição KPCA: treino=(38607, 10) labels={'1': 36893, '0': 1714} | validação interna=(9652, 10) labels={'1': 9224, '0': 428}
+Partição LOAO (fase 11): treino=(38607, 10) labels={'1': 36893, '0': 1714} | teste=(9652, 10) labels={'1': 9224, '0': 428}
+CL-k-means (n=20, metric=mahalanobis): accuracy=0.9557
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       428
+           1       0.96      1.00      0.98      9224
+
+    accuracy                           0.96      9652
+   macro avg       0.48      0.50      0.49      9652
+weighted avg       0.91      0.96      0.93      9652
+
+DR=1.0000 FAR=1.0000 F1=0.9773
+
+Modo biased selecionado: both
+BO-GP p*: melhor=0.6458, F1=0.9773
+
+MTH-IDS anomaly (biased mode=both, p*=0.6457919572067914):
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       428
+           1       0.96      1.00      0.98      9224
+
+    accuracy                           0.96      9652
+   macro avg       0.48      0.50      0.49      9652
+weighted avg       0.91      0.96      0.93      9652
+
+Acc=0.9557 DR=1.0000 FAR=1.0000 F1=0.9773
+CM:
+ [[   0  428]
+ [   0 9224]]
+Relatório salvo em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports\phase11_anomaly_biased.json
+Persistência global: CL-k-means no treino completo (38607, 10)
+Persistência global: B1/B2 re-treinados no treino completo
+Modelos anomaly salvos em: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\anomaly\global\models\anomaly
+[2026-06-10 21:17:38] === sessão concluída ===

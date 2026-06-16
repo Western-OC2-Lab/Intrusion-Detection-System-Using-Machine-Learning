@@ -1,0 +1,160 @@
+﻿[2026-06-08 02:45:25] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\results\logs\global_anomaly_paper_20260608_024525.log ===
+[2026-06-08 02:45:25] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged
+[2026-06-08 02:45:25] work-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global
+[2026-06-08 02:45:25] protocol: paper | fases: 7-11
+[2026-06-08 02:45:25] -> fase 7 (mth_ids_pipeline.phases.phase07_anomaly_datasets) ...
+[2026-06-08 02:45:25] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase07_anomaly_datasets --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global --random-state 0 --mode global --test-size 0.2
+Modo global (Tabela X): treino=(21432, 79), hold-out reservado=5359 linhas (fase 13)
+
+=== LOAO [fase 7 (global binário)] ===
+  treino: rows=21432 labels={'0': 14493, '1': 6939}
+  teste:  rows=0 labels={}
+  zero-day=0 benign_test=0 regra=none_holdout_reserved
+  rótulos originais no treino (pré-binário): {'0': 14493, '3': 2462, '6': 1744, '1': 1573, '5': 1033, '2': 98, '4': 29}
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global\a01_without_portscan.parquet (21432, 79), C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global\a02_portscan_only.parquet (0, 79)
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports\phase07_anomaly_datasets.json
+[2026-06-08 02:45:27] -> fase 8 (mth_ids_pipeline.phases.phase08_anomaly_features) ...
+[2026-06-08 02:45:27] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase08_anomaly_features --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global --random-state 0 --feature-fit-scope train --fcbf-k 20 --kpca-components 10 --kpca-kernel rbf --ig-cumulative 0.9 --zscore-scope combined --optimize-ig --optimize-kpca
+[1/6] [###-----------------] Dados carregados (fase 7) (+0.1s)
+
+=== LOAO [fase 8 (global — pré-normalização)] ===
+  treino: rows=21432 labels={'0': 14493, '1': 6939}
+  teste:  rows=0 labels={}
+  zero-day=0 benign_test=0 regra=none_holdout_reserved
+  rótulos originais no treino (pré-binário): {'0': 14493, '3': 2462, '6': 1744, '1': 1573, '5': 1033, '2': 98, '4': 29}
+Partição global (Tabela X): treino=(21432, 79), teste interno vazio (hold-out na fase 13)
+features=78
+[2/6] [######--------------] Partição treino/teste (+0.1s)
+  [Z-score (fit treino)] shape=(21432, 78)
+  [IG 90% (44 feats)] shape=(21432, 44)
+  [FCBF k=20] shape=(21432, 20)
+  [Tabela X] teste interno vazio — transform teste omitido (hold-out na fase 13)
+[3/6] [##########----------] Z-score + IG + FCBF (fit treino, transform teste) (+26.8s)
+  [KPCA fit treino] shape=(21432, 20), n_components=20
+  [KPCA transform treino] shape=(21432, 20)
+[4/6] [#############-------] KPCA (fit treino, transform teste) (+2064.6s)
+[5/6] [################----] Artefatos e parquets salvos (+2064.8s)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global\a03_combined_normalized.parquet shape=(21432, 79)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global\a04_after_kpca.parquet shape=(21432, 21)
+Meta/partição: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global\a06_test_slice.json
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports\phase08_anomaly_features.json
+[6/6] [####################] Relatorio JSON (+2064.8s)
+[2026-06-08 03:19:54] -> fase 9 (mth_ids_pipeline.phases.phase09_anomaly_cluster) ...
+[2026-06-08 03:19:54] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase09_anomaly_cluster --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global --random-state 0 --n-clusters 8
+Modo global (Tabela X): validação interna 20% do treino para fases 9–11 (hold-out 20% reservado à fase 13).
+Partição KPCA: treino=(17145, 20) labels={'0': 11594, '1': 5551} | validação interna=(4287, 20) labels={'0': 2899, '1': 1388}
+SMOTE notebook: classe 1 -> 11594 (alvo = n benignos no treino)
+Salvo treino pós-SMOTE: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global\a05_train_after_smote.parquet
+              precision    recall  f1-score   support
+
+           0       0.79      0.82      0.81      2899
+           1       0.60      0.55      0.57      1388
+
+    accuracy                           0.74      4287
+   macro avg       0.70      0.69      0.69      4287
+weighted avg       0.73      0.74      0.73      4287
+
+Accuracy: 0.735246092838815
+CM:
+ [[2385  514]
+ [ 621  767]]
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports\phase09_anomaly_cluster.json
+[2026-06-08 03:19:58] -> fase 10 (mth_ids_pipeline.phases.phase10_anomaly_cluster_hpo) ...
+[2026-06-08 03:19:58] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase10_anomaly_cluster_hpo --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global --random-state 0 --n-calls 15 --hpo-metric f1 --metrics euclidean,manhattan,cosine,mahalanobis
+Modo global (Tabela X): validação interna 20% do treino para fases 9–11 (hold-out 20% reservado à fase 13).
+Partição KPCA: treino=(17145, 20) labels={'0': 11594, '1': 5551} | validação interna=(4287, 20) labels={'0': 2899, '1': 1388}
+SMOTE notebook: classe 1 -> 11594 (alvo = n benignos no treino)
+Baseline CL-k-means (n=8, metric=euclidean): f1=0.5747
+  trial n=30, metric=mahalanobis: f1=0.7613
+  trial n=43, metric=mahalanobis: f1=0.7626
+  trial n=32, metric=manhattan: f1=0.7672
+  trial n=16, metric=euclidean: f1=0.7167
+  trial n=15, metric=manhattan: f1=0.7704
+  trial n=41, metric=manhattan: f1=0.7649
+  trial n=21, metric=mahalanobis: f1=0.7398
+  trial n=18, metric=cosine: f1=0.7034
+  trial n=20, metric=mahalanobis: f1=0.7447
+  trial n=9, metric=mahalanobis: f1=0.5958
+  trial n=2, metric=manhattan: f1=0.3172
+  trial n=50, metric=euclidean: f1=0.8093
+  trial n=50, metric=manhattan: f1=0.8096
+  trial n=50, metric=cosine: f1=0.7827
+  trial n=50, metric=mahalanobis: f1=0.7883
+Melhor n_clusters=50, metric=manhattan, f1=0.8096
+Avaliação final n=50, metric=manhattan: f1=0.8096
+Partição LOAO (fase 10): treino=(23188, 20) labels={'0': 11594, '1': 11594} | teste=(4287, 20) labels={'0': 2899, '1': 1388}
+Relatório salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports\phase10_anomaly_cluster_hpo.json
+[2026-06-08 03:20:16] -> fase 11 (mth_ids_pipeline.phases.phase11_anomaly_biased) ...
+[2026-06-08 03:20:16] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase11_anomaly_biased --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global --random-state 0 --p-star 0.933 --biased-mode both --force-biased --optimize-p-star --p-star-n-calls 15
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\phases\phase11_anomaly_biased.py", line 354, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\phases\phase11_anomaly_biased.py", line 208, in main
+    b1, b2, biased_stats = train_biased_pair(
+                           ~~~~~~~~~~~~~~~~~^
+        X_train,
+        ^^^^^^^^
+    ...<4 lines>...
+        mode=effective_mode,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\core\biased_classifiers.py", line 213, in train_biased_pair
+    b1.fit(X_train[idx1], y_train[idx1])
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Lib\site-packages\xgboost\core.py", line 751, in inner_f
+    return func(**kwargs)
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Lib\site-packages\xgboost\sklearn.py", line 1806, in fit
+    self._Booster = train(
+                    ~~~~~^
+        params,
+        ^^^^^^^
+    ...<9 lines>...
+        callbacks=self.callbacks,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Lib\site-packages\xgboost\core.py", line 751, in inner_f
+    return func(**kwargs)
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Lib\site-packages\xgboost\training.py", line 200, in train
+    bst.update(dtrain, iteration=i, fobj=obj)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Lib\site-packages\xgboost\core.py", line 2390, in update
+    _check_call(
+    ~~~~~~~~~~~^
+        _LIB.XGBoosterUpdateOneIter(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            self.handle, ctypes.c_int(iteration), dtrain.handle
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+  File "C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Lib\site-packages\xgboost\core.py", line 324, in _check_call
+    raise XGBoostError(py_str(_LIB.XGBGetLastError()))
+xgboost.core.XGBoostError: value 0 for Parameter num_class should be greater equal to 1
+num_class: Number of output class in the multi-class classification.
+k automático da fase 10: 50
+metric automática da fase 10: manhattan
+Biased learners: família de 'XGBoost (base)'
+Modo global (Tabela X): validação interna 20% do treino para fases 9–11 (hold-out 20% reservado à fase 13).
+Partição KPCA: treino=(17145, 20) labels={'0': 11594, '1': 5551} | validação interna=(4287, 20) labels={'0': 2899, '1': 1388}
+SMOTE notebook: classe 1 -> 11594 (alvo = n benignos no treino)
+Partição LOAO (fase 11): treino=(23188, 20) labels={'0': 11594, '1': 11594} | teste=(4287, 20) labels={'0': 2899, '1': 1388}
+CL-k-means (n=50, metric=manhattan): accuracy=0.8654
+              precision    recall  f1-score   support
+
+           0       0.94      0.86      0.90      2899
+           1       0.75      0.88      0.81      1388
+
+    accuracy                           0.87      4287
+   macro avg       0.84      0.87      0.85      4287
+weighted avg       0.88      0.87      0.87      4287
+
+DR=0.8840 FAR=0.1435 F1=0.8096
+
+Modo biased selecionado: both
+[2026-06-08 03:20:23] === sessão encerrada com erro: CalledProcessError: Command '['C:\\Users\\Araújo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\.venv\\Scripts\\python.exe', '-m', 'mth_ids_pipeline.phases.phase11_anomaly_biased', '--intermediate-dir', 'C:\\Users\\Araújo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged', '--report-dir', 'C:\\Users\\Araújo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\phase_reports', '--work-dir', 'C:\\Users\\Araújo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\anomaly\\global', '--random-state', '0', '--p-star', '0.933', '--biased-mode', 'both', '--force-biased', '--optimize-p-star', '--p-star-n-calls', '15']' returned non-zero exit status 1. ===

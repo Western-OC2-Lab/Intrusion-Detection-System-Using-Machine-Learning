@@ -1,0 +1,37 @@
+﻿[
+  {
+    "model": "XGBoost (base)",
+    "accuracy": 0.9960813584623996,
+    "precision": 0.9961218770680635,
+    "recall": 0.9960813584623996,
+    "f1_weighted": 0.9960915447238297
+  },
+  {
+    "model": "RandomForest (HPO)",
+    "accuracy": 0.9953349505504758,
+    "precision": 0.9953631599743749,
+    "recall": 0.9953349505504758,
+    "f1_weighted": 0.995339798402901
+  },
+  {
+    "model": "DecisionTree (HPO)",
+    "accuracy": 0.9912297070348945,
+    "precision": 0.9912253344778601,
+    "recall": 0.9912297070348945,
+    "f1_weighted": 0.9912094836309248
+  },
+  {
+    "model": "ExtraTrees (HPO)",
+    "accuracy": 0.9958947564844187,
+    "precision": 0.9958988828766986,
+    "recall": 0.9958947564844187,
+    "f1_weighted": 0.9958882528100035
+  },
+  {
+    "model": "Stacking meta (XGBoost (base))",
+    "accuracy": 0.9955215525284568,
+    "precision": 0.9955309063692457,
+    "recall": 0.9955215525284568,
+    "f1_weighted": 0.9955158779651083
+  }
+]

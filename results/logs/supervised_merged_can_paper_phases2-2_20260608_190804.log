@@ -1,0 +1,17 @@
+[2026-06-08 19:08:04] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_can_paper_phases2-2_20260608_190804.log ===
+[2026-06-08 19:08:04] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 19:08:04] protocolo: can_paper | ramo: supervised | perfil: merged
+[2026-06-08 19:08:04] fases: 2-2 (2)
+[2026-06-08 19:08:04] -> [fase 2 - 1/1] Amostragem k-means ...
+[2026-06-08 19:08:04] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --n-clusters 1000 --frac 0.01 --random-state 0 --sample-all-classes --zscore-after-sample
+Z-score aplicado após amostragem k-means (protocolo CAN artigo).
+Label
+4    46151
+3    44458
+2    38440
+1    36723
+0     9804
+Name: count, dtype: int64
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\02_sampled_kmeans.parquet shape=(175576, 11)
+[2026-06-08 19:09:57] OK fase 2 concluida em 1m52s
+[2026-06-08 19:09:57] === sessão concluída ===

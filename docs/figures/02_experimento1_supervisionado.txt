@@ -1,0 +1,8 @@
+flowchart LR
+    A["Amostra k-means\n(fase 2)"] --> B["Split 80/20"]
+    B --> C["IG + FCBF\n(fase 4)"]
+    C --> D["SMOTE*\n(fase 5)"]
+    D --> E["4 base learners\n+ stacking\n(fase 6)"]
+    E --> F["Predição\nmulti-classe"]
+
+    style D fill:#eee

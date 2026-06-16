@@ -1,0 +1,188 @@
+{
+  "merged_dir": "data/pipeline_can_intrusion_merged",
+  "loao_root": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/anomaly/loao",
+  "dataset": "can",
+  "table_vii": {
+    "dataset": "can",
+    "table": "VI",
+    "paper_model": "MTH-IDS (Multi-Class Model)",
+    "repro_model": "Stacking meta (RandomForest (HPO))",
+    "accuracy": {
+      "reproduced": 0.9997991766241591,
+      "reference": 0.9999899999999999,
+      "delta": -0.00019082337584086506
+    },
+    "f1_weighted": {
+      "reproduced": 0.9997991735769856,
+      "reference": 0.99999,
+      "delta": -0.0001908264230144896
+    }
+  },
+  "table_ix": {
+    "dataset": "can",
+    "table": "VIII",
+    "attacks_done": 4,
+    "attacks_planned": 3,
+    "per_attack": [
+      {
+        "attack_label": 1,
+        "attack_name": "Bot",
+        "n_clusters": 2,
+        "zero_day_samples": 5875,
+        "benign_sampled": 5875,
+        "train_rows": 27321,
+        "test_rows": 11750,
+        "train_binary_label_counts": {
+          "1": 17426,
+          "0": 9895
+        },
+        "test_binary_label_counts": {
+          "1": 5875,
+          "0": 5875
+        },
+        "train_original_label_counts": {
+          "0": 9895,
+          "4": 6549,
+          "3": 5971,
+          "2": 4906
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.7008510638297872,
+        "detection_rate": 1.0,
+        "false_alarm_rate": 0.5982978723404255,
+        "f1": 0.769734687192925,
+        "output_dir": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/anomaly/loao/attack_1",
+        "log_file": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/results/logs/loao/attack_1.log"
+      },
+      {
+        "attack_label": 2,
+        "attack_name": "BruteForce",
+        "n_clusters": 2,
+        "zero_day_samples": 4906,
+        "benign_sampled": 4906,
+        "train_rows": 28290,
+        "test_rows": 9812,
+        "train_binary_label_counts": {
+          "1": 18395,
+          "0": 9895
+        },
+        "test_binary_label_counts": {
+          "1": 4906,
+          "0": 4906
+        },
+        "train_original_label_counts": {
+          "0": 9895,
+          "4": 6549,
+          "3": 5971,
+          "1": 5875
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.5,
+        "detection_rate": 1.0,
+        "false_alarm_rate": 1.0,
+        "f1": 0.6666666666666666,
+        "output_dir": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/anomaly/loao/attack_2",
+        "log_file": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/results/logs/loao/attack_2.log"
+      },
+      {
+        "attack_label": 3,
+        "attack_name": "DoS",
+        "n_clusters": 20,
+        "zero_day_samples": 5971,
+        "benign_sampled": 5971,
+        "train_rows": 27225,
+        "test_rows": 11942,
+        "train_binary_label_counts": {
+          "1": 17330,
+          "0": 9895
+        },
+        "test_binary_label_counts": {
+          "1": 5971,
+          "0": 5971
+        },
+        "train_original_label_counts": {
+          "0": 9895,
+          "4": 6549,
+          "1": 5875,
+          "2": 4906
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9749623178697036,
+        "detection_rate": 1.0,
+        "false_alarm_rate": 0.050075364260592864,
+        "f1": 0.9755738910219753,
+        "output_dir": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/anomaly/loao/attack_3",
+        "log_file": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/results/logs/loao/attack_3.log"
+      },
+      {
+        "attack_label": 4,
+        "attack_name": "Infiltration",
+        "n_clusters": 41,
+        "zero_day_samples": 6549,
+        "benign_sampled": 6549,
+        "train_rows": 26647,
+        "test_rows": 13098,
+        "train_binary_label_counts": {
+          "1": 16752,
+          "0": 9895
+        },
+        "test_binary_label_counts": {
+          "1": 6549,
+          "0": 6549
+        },
+        "train_original_label_counts": {
+          "0": 9895,
+          "3": 5971,
+          "1": 5875,
+          "2": 4906
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9814475492441594,
+        "detection_rate": 1.0,
+        "false_alarm_rate": 0.03710490151168117,
+        "f1": 0.9817854733528222,
+        "output_dir": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/anomaly/loao/attack_4",
+        "log_file": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/results/logs/loao/attack_4.log"
+      }
+    ],
+    "mean_f1": {
+      "reproduced": 0.8484401795585973,
+      "reference": 0.96307,
+      "delta": -0.11462982044140269
+    },
+    "mean_dr": {
+      "reproduced": 1.0,
+      "reference": 0.9373999999999999,
+      "delta": 0.0626000000000001
+    },
+    "mean_far": {
+      "reproduced": 0.4213695345281749,
+      "reference": 0.00128,
+      "delta": 0.4200895345281749
+    }
+  },
+  "table_x": {
+    "dataset": "can",
+    "protocol": "hold-out 80/20 (artigo: 70/30)",
+    "accuracy_pct": {
+      "reproduced": 98.88543026408274,
+      "reference": 99.99,
+      "delta": -1.1045697359172522
+    },
+    "detection_rate_pct": {
+      "reproduced": 99.9856938483548,
+      "reference": 100.0,
+      "delta": -0.014306151645200771
+    },
+    "false_alarm_rate_pct": {
+      "reproduced": 3.7049511620074096,
+      "reference": 5e-05,
+      "delta": 3.7049011620074097
+    },
+    "f1": {
+      "reproduced": 0.9921215132372773,
+      "reference": 0.9999,
+      "delta": -0.007778486762722747
+    }
+  }
+}

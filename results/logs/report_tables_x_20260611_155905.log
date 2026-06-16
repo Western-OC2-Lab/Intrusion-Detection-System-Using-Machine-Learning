@@ -1,0 +1,4 @@
+Tabela X: relatório não encontrado em data/pipeline_can_intrusion_merged/phase_reports/phase13_full_system_eval.json
+Execute:
+  python -m mth_ids_pipeline.run_global_anomaly --protocol can
+  python -m mth_ids_pipeline.run_eval --intermediate-dir data/pipeline_can_intrusion_merged --work-dir data/pipeline_can_intrusion_merged/anomaly/global

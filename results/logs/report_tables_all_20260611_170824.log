@@ -1,0 +1,64 @@
+========================================================================
+COMPARATIVO MTH-IDS (UNSW-NB15)
+========================================================================
+Supervisionado / Tabela Supervisionado / X: data\pipeline_unsw_nb15_merged
+LOAO / Tabela LOAO:          data\pipeline_unsw_nb15_fine\anomaly\loao
+
+========================================================================
+TABELA Supervisionado — Supervisionado (UNSW-NB15, multi-class, hold-out 80/20)
+========================================================================
+Modelo                          Acc      F1(w)
+------------------------------------------------------------------------
+XGBoost (base)             0.911479   0.911305
+RandomForest (HPO)         0.916784   0.915532
+DecisionTree (HPO)         0.912308   0.909636
+ExtraTrees (HPO)           0.913303   0.911551
+Stacking meta (RandomForest (HPO))   0.909739   0.908447
+
+Métricas do stacking (sem referência do artigo para UNSW-NB15):
+  Acc:   0.909739
+  F1(w): 0.908447
+
+10-fold CV no treino (reprodução):
+  XGBoost (base): 0.9066 ± 0.0025
+  RandomForest (HPO): 0.9085 ± 0.0029
+  DecisionTree (HPO): 0.9031 ± 0.0030
+  ExtraTrees (HPO): 0.9067 ± 0.0037
+  Stacking meta (RandomForest (HPO)): 0.9302 ± 0.0024
+
+========================================================================
+TABELA LOAO — Anomaly LOAO (UNSW-NB15, média sobre ataques concluídos)
+========================================================================
+Ataques concluídos: 10/9
+Métrica            Reprod
+------------------------------------------------------------------------
+F1                0.95661
+DR                 0.9893
+FAR                0.0953
+
+Ataque Nome                         F1       DR      FAR   N test
+------------------------------------------------------------------------
+0      Analysis                 0.9885   0.9970   0.0202     5354
+1      Backdoors                0.7316   0.9911   0.7181     3590
+10     Worms                    0.9625   0.9598   0.0345      348
+2      Backdoor                 0.9834   0.9963   0.0300     1068
+4      DoS                      0.9647   0.9609   0.0312      256
+5      Exploits                 0.9865   0.9918   0.0190      736
+6      Fuzzers                  0.9836   1.0000   0.0333      360
+7      Generic                  0.9896   0.9977   0.0186     3436
+8      Reconnaissance           0.9868   1.0000   0.0268      224
+9      Shellcode                0.9889   0.9987   0.0212     3022
+
+========================================================================
+TABELA X — Sistema completo no hold-out (UNSW-NB15)
+========================================================================
+Protocolo: hold-out 80/20 (artigo: 70/30)
+Métrica            Reprod
+------------------------------------------------------------------------
+Acc (%)             18.11
+DR (%)             100.00
+FAR (%)          100.0000
+F1                 0.4183
+
+Roteamento: {'n_test': 12065, 'n_stacking_normal': 8849, 'n_stacking_attack': 3216, 'anomaly_attack_detected': 8849, 'anomaly_normal_confirmed': 0}
+CM: data\pipeline_unsw_nb15_merged\figures\fig_multiclass_cm.png | data\pipeline_unsw_nb15_merged\figures\fig_binary_cm.png

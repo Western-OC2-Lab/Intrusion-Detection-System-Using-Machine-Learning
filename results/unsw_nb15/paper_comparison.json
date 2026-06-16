@@ -1,0 +1,410 @@
+{
+  "merged_dir": "data\\pipeline_unsw_nb15_merged",
+  "loao_root": "data\\pipeline_unsw_nb15_fine\\anomaly\\loao",
+  "dataset": "unsw_nb15",
+  "table_vii": {
+    "dataset": "unsw_nb15",
+    "table": "Supervisionado",
+    "paper_model": "MTH-IDS (Multi-Class Model)",
+    "repro_model": "Stacking meta (RandomForest (HPO))",
+    "accuracy": {
+      "reproduced": 0.9097389142146706
+    },
+    "f1_weighted": {
+      "reproduced": 0.9084467518093455
+    }
+  },
+  "table_ix": {
+    "dataset": "unsw_nb15",
+    "table": "LOAO",
+    "attacks_done": 10,
+    "attacks_planned": 9,
+    "per_attack": [
+      {
+        "attack_label": 0,
+        "attack_name": "Analysis",
+        "n_clusters": 41,
+        "zero_day_samples": 2677,
+        "benign_sampled": 2677,
+        "train_rows": 24265,
+        "test_rows": 5354,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 6520
+        },
+        "test_binary_label_counts": {
+          "1": 2677,
+          "0": 2677
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "1": 1795,
+          "7": 1718,
+          "9": 1511,
+          "2": 534,
+          "5": 368,
+          "6": 180,
+          "10": 174,
+          "4": 128,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9884198729921554,
+        "detection_rate": 0.9970115801270079,
+        "false_alarm_rate": 0.020171834142697048,
+        "f1": 0.9885185185185185,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_0",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_0.log"
+      },
+      {
+        "attack_label": 1,
+        "attack_name": "Backdoors",
+        "n_clusters": 40,
+        "zero_day_samples": 1795,
+        "benign_sampled": 1795,
+        "train_rows": 25147,
+        "test_rows": 3590,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 7402
+        },
+        "test_binary_label_counts": {
+          "1": 1795,
+          "0": 1795
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "7": 1718,
+          "9": 1511,
+          "2": 534,
+          "5": 368,
+          "6": 180,
+          "10": 174,
+          "4": 128,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.6364902506963789,
+        "detection_rate": 0.9910863509749304,
+        "false_alarm_rate": 0.7181058495821727,
+        "f1": 0.7316471314003702,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_1",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_1.log"
+      },
+      {
+        "attack_label": 10,
+        "attack_name": "Worms",
+        "n_clusters": 32,
+        "zero_day_samples": 174,
+        "benign_sampled": 174,
+        "train_rows": 26768,
+        "test_rows": 348,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 9023
+        },
+        "test_binary_label_counts": {
+          "1": 174,
+          "0": 174
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "1": 1795,
+          "7": 1718,
+          "9": 1511,
+          "2": 534,
+          "5": 368,
+          "6": 180,
+          "4": 128,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9626436781609196,
+        "detection_rate": 0.9597701149425287,
+        "false_alarm_rate": 0.034482758620689655,
+        "f1": 0.962536023054755,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_10",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_10.log"
+      },
+      {
+        "attack_label": 2,
+        "attack_name": "Backdoor",
+        "n_clusters": 32,
+        "zero_day_samples": 534,
+        "benign_sampled": 534,
+        "train_rows": 26408,
+        "test_rows": 1068,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 8663
+        },
+        "test_binary_label_counts": {
+          "1": 534,
+          "0": 534
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "1": 1795,
+          "7": 1718,
+          "9": 1511,
+          "5": 368,
+          "6": 180,
+          "10": 174,
+          "4": 128,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9831460674157303,
+        "detection_rate": 0.9962546816479401,
+        "false_alarm_rate": 0.0299625468164794,
+        "f1": 0.9833641404805915,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_2",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_2.log"
+      },
+      {
+        "attack_label": 4,
+        "attack_name": "DoS",
+        "n_clusters": 43,
+        "zero_day_samples": 128,
+        "benign_sampled": 128,
+        "train_rows": 26814,
+        "test_rows": 256,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 9069
+        },
+        "test_binary_label_counts": {
+          "1": 128,
+          "0": 128
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "1": 1795,
+          "7": 1718,
+          "9": 1511,
+          "2": 534,
+          "5": 368,
+          "6": 180,
+          "10": 174,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.96484375,
+        "detection_rate": 0.9609375,
+        "false_alarm_rate": 0.03125,
+        "f1": 0.9647058823529412,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_4",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_4.log"
+      },
+      {
+        "attack_label": 5,
+        "attack_name": "Exploits",
+        "n_clusters": 49,
+        "zero_day_samples": 368,
+        "benign_sampled": 368,
+        "train_rows": 26574,
+        "test_rows": 736,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 8829
+        },
+        "test_binary_label_counts": {
+          "1": 368,
+          "0": 368
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "1": 1795,
+          "7": 1718,
+          "9": 1511,
+          "2": 534,
+          "6": 180,
+          "10": 174,
+          "4": 128,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9864130434782609,
+        "detection_rate": 0.9918478260869565,
+        "false_alarm_rate": 0.019021739130434784,
+        "f1": 0.9864864864864865,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_5",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_5.log"
+      },
+      {
+        "attack_label": 6,
+        "attack_name": "Fuzzers",
+        "n_clusters": 47,
+        "zero_day_samples": 180,
+        "benign_sampled": 180,
+        "train_rows": 26762,
+        "test_rows": 360,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 9017
+        },
+        "test_binary_label_counts": {
+          "1": 180,
+          "0": 180
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "1": 1795,
+          "7": 1718,
+          "9": 1511,
+          "2": 534,
+          "5": 368,
+          "10": 174,
+          "4": 128,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9833333333333333,
+        "detection_rate": 1.0,
+        "false_alarm_rate": 0.03333333333333333,
+        "f1": 0.9836065573770492,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_6",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_6.log"
+      },
+      {
+        "attack_label": 7,
+        "attack_name": "Generic",
+        "n_clusters": 32,
+        "zero_day_samples": 1718,
+        "benign_sampled": 1718,
+        "train_rows": 25224,
+        "test_rows": 3436,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 7479
+        },
+        "test_binary_label_counts": {
+          "1": 1718,
+          "0": 1718
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "1": 1795,
+          "9": 1511,
+          "2": 534,
+          "5": 368,
+          "6": 180,
+          "10": 174,
+          "4": 128,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.989522700814901,
+        "detection_rate": 0.9976717112922002,
+        "false_alarm_rate": 0.018626309662398137,
+        "f1": 0.9896073903002309,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_7",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_7.log"
+      },
+      {
+        "attack_label": 8,
+        "attack_name": "Reconnaissance",
+        "n_clusters": 19,
+        "zero_day_samples": 112,
+        "benign_sampled": 112,
+        "train_rows": 26830,
+        "test_rows": 224,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 9085
+        },
+        "test_binary_label_counts": {
+          "1": 112,
+          "0": 112
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "1": 1795,
+          "7": 1718,
+          "9": 1511,
+          "2": 534,
+          "5": 368,
+          "6": 180,
+          "10": 174,
+          "4": 128
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9866071428571429,
+        "detection_rate": 1.0,
+        "false_alarm_rate": 0.026785714285714284,
+        "f1": 0.986784140969163,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_8",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_8.log"
+      },
+      {
+        "attack_label": 9,
+        "attack_name": "Shellcode",
+        "n_clusters": 23,
+        "zero_day_samples": 1511,
+        "benign_sampled": 1511,
+        "train_rows": 25431,
+        "test_rows": 3022,
+        "train_binary_label_counts": {
+          "0": 17745,
+          "1": 7686
+        },
+        "test_binary_label_counts": {
+          "1": 1511,
+          "0": 1511
+        },
+        "train_original_label_counts": {
+          "3": 17745,
+          "0": 2677,
+          "1": 1795,
+          "7": 1718,
+          "2": 534,
+          "5": 368,
+          "6": 180,
+          "10": 174,
+          "4": 128,
+          "8": 112
+        },
+        "zero_day_fully_excluded_from_train": true,
+        "accuracy": 0.9887491727332892,
+        "detection_rate": 0.99867637326274,
+        "false_alarm_rate": 0.021178027796161483,
+        "f1": 0.9888597640891219,
+        "output_dir": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_fine\\anomaly\\loao\\attack_9",
+        "log_file": "C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\results\\logs\\loao\\attack_9.log"
+      }
+    ],
+    "mean_f1": {
+      "reproduced": 0.9566116035029228
+    },
+    "mean_dr": {
+      "reproduced": 0.9893256138334303
+    },
+    "mean_far": {
+      "reproduced": 0.09529181133700808
+    }
+  },
+  "table_x": {
+    "dataset": "unsw_nb15",
+    "protocol": "hold-out 80/20 (artigo: 70/30)",
+    "accuracy_pct": {
+      "reproduced": 90.21135515955243
+    },
+    "detection_rate_pct": {
+      "reproduced": 99.96866186148543
+    },
+    "false_alarm_rate_pct": {
+      "reproduced": 1.9720531890917288
+    },
+    "f1": {
+      "reproduced": 0.9731543624161074
+    }
+  }
+}

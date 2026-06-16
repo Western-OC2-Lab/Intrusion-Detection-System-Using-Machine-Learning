@@ -1,0 +1,106 @@
+[2026-06-08 19:50:17] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_unsw_nb15_phases1-6_20260608_195017.log ===
+[2026-06-08 19:50:17] intermediate-dir: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged
+[2026-06-08 19:50:17] protocolo: unsw_nb15 | ramo: supervised | perfil: merged
+[2026-06-08 19:50:17] fases: 1-6 (1, 2, 4, 5, 6)
+[2026-06-08 19:50:17] -> [fase 1 - 1/5] Carregamento e pré-processamento ...
+[2026-06-08 19:50:17] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged\phase_reports --intermediate-dir C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_unsw_nb15_merged --input C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\UNSW-NB15_merged.csv
+Traceback (most recent call last):
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\fastparquet\writer.py", line 579, in write_column
+    data = data.astype("int64")
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\core\generic.py", line 6541, in astype
+    new_data = self._mgr.astype(dtype=dtype, errors=errors)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\core\internals\managers.py", line 614, in astype
+    return self.apply("astype", dtype=dtype, errors=errors)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\core\internals\managers.py", line 445, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\core\internals\blocks.py", line 607, in astype
+    new_values = astype_array_safe(values, dtype, errors=errors)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\core\dtypes\astype.py", line 240, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\core\dtypes\astype.py", line 185, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\core\dtypes\astype.py", line 134, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: ' '
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\phases\phase01_load_preprocess.py", line 79, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\mth_ids_pipeline\phases\phase01_load_preprocess.py", line 56, in main
+    df.to_parquet(out, index=False)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\core\frame.py", line 3135, in to_parquet
+    return to_parquet(
+        self,
+    ...<7 lines>...
+        **kwargs,
+    )
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\io\parquet.py", line 490, in to_parquet
+    impl.write(
+    ~~~~~~~~~~^
+        df,
+        ^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\pandas\io\parquet.py", line 342, in write
+    self.api.write(
+    ~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\fastparquet\writer.py", line 1340, in write
+    write_simple(filename, data, fmd,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                 row_group_offsets=row_group_offsets,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 compression=compression, open_with=open_with,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 has_nulls=None, append=False, stats=stats)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\fastparquet\writer.py", line 1001, in write_simple
+    write_to_file(f)
+    ~~~~~~~~~~~~~^^^
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\fastparquet\writer.py", line 985, in write_to_file
+    rg = make_row_group(f, row_group, fmd.schema,
+                        compression=compression, stats=stats)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\fastparquet\writer.py", line 802, in make_row_group
+    chunk = write_column(f, coldata, column,
+                         compression=comp, stats=st)
+  File "C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Lib\site-packages\fastparquet\writer.py", line 586, in write_column
+    raise ValueError('Error converting column "%s" to primitive '
+                     'type %s. Original error: '
+                     '%s' % (data.name, t, e))
+ValueError: Error converting column "ct_ftp_cmd" to primitive type INT64. Original error: invalid literal for int() with base 10: ' '
+Carregando dataset: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\data\UNSW-NB15_merged.csv
+Label
+3     2218764
+7      215481
+5       44525
+6       24246
+4       16353
+8       13987
+0        2677
+1        1795
+9        1511
+2         534
+10        174
+Name: count, dtype: int64
+Dataset carregado em 6.48s
+Shape original: (2540047, 44)
+Pré-processamento concluído. Shape final: (2540047, 44)
+Salvando arquivo parquet...
+[2026-06-08 19:50:29] === sessão encerrada com erro: CalledProcessError: Command '['C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\venv\\Scripts\\python.exe', '-m', 'mth_ids_pipeline.phases.phase01_load_preprocess', '--report-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_merged\\phase_reports', '--intermediate-dir', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_unsw_nb15_merged', '--input', 'C:\\Users\\labou\\projects\\Intrusion-Detection-System-Using-Machine-Learning\\data\\UNSW-NB15_merged.csv']' returned non-zero exit status 1. ===

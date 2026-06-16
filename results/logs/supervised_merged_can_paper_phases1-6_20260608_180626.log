@@ -1,0 +1,96 @@
+[2026-06-08 18:06:26] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_can_paper_phases1-6_20260608_180626.log ===
+[2026-06-08 18:06:26] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 18:06:26] protocolo: can_paper | ramo: supervised | perfil: merged
+[2026-06-08 18:06:26] fases: 1-6 (1, 2, 4, 6)
+[2026-06-08 18:06:26] -> [fase 1 - 1/4] Carregamento e pré-processamento ...
+[2026-06-08 18:06:26] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --input C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv --no-zscore
+Carregando dataset: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv
+Label
+RPM       4621702
+Gear      4443142
+Fuzzy     3838860
+DoS       3665771
+BENIGN     988871
+Name: count, dtype: int64
+Dataset carregado em 12.06s
+Shape original: (17558346, 11)
+Pré-processamento concluído. Shape final: (17558346, 11)
+Z-score adiado (artigo CAN: normalização após amostragem k-means).
+Salvando arquivo parquet...
+Arquivo salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\01_preprocessed.parquet
+Tempo de salvamento: 4.47s
+Tempo total do pipeline: 16.54s
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports\phase01_load_preprocess.json
+[2026-06-08 18:06:45] OK fase 1 concluida em 18.3s
+[2026-06-08 18:06:45] -> [fase 2 - 2/4] Amostragem k-means ...
+[2026-06-08 18:06:45] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --n-clusters 1000 --frac 0.008 --random-state 0 --sample-all-classes --zscore-after-sample
+Z-score aplicado após amostragem k-means (protocolo CAN artigo).
+Label
+4    36909
+3    35564
+2    30691
+1    29423
+0     7876
+Name: count, dtype: int64
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\02_sampled_kmeans.parquet shape=(140463, 11)
+[2026-06-08 18:07:11] OK fase 2 concluida em 26.0s
+[2026-06-08 18:07:11] -> [fase 4 - 3/4] Engenharia de features (IG, FCBF) ...
+[2026-06-08 18:07:11] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --fcbf-k 20 --random-state 0 --test-size 0.3 --fcbf-scope train --scale-mode phase1 --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --ig-features CAN_ID,DATA_1,DATA_3,DATA_5
+IG fixo (artigo): ['CAN_ID', 'DATA_1', 'DATA_3', 'DATA_5']
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_train_after_fcbf.parquet (98324, 5)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_test_after_fcbf.parquet (42139, 5)
+Preprocessores supervisionados salvos: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\models\supervised\manifest.json
+[2026-06-08 18:07:15] Sem SMOTE: parquets FCBF copiados para caminhos da fase 5 em C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 18:07:15] OK fase 4 concluida em 3.9s
+[2026-06-08 18:07:15] -> [fase 6 - 4/4] Modelos supervisionados + stacking ...
+[2026-06-08 18:07:15] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase06_supervised_models --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --no-plots --cv-folds 10 --meta-learner best-base --random-state 0 --hpo-on-validation
+Fase 6 — treino: 98,324 × 4 features | teste: 42,139
+HPO objetivo: acurácia média em 10-fold CV (treino)
+
+============================================================
+[fase 6 — 1/6] XGBoost — HPO
+============================================================
+  [XGBoost] HPO iniciando (20 trials)...
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+  [XGBoost] trial 2/20 acc=0.3538 (melhor=0.3538) +16s | total 16s
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\queues.py:120: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  return _ForkingPickler.loads(res)
+  [XGBoost] trial 3/20 acc=0.4785 (melhor=0.4785) +20s | total 36s
+  [XGBoost] trial 4/20 acc=0.4782 (melhor=0.4785) +12s | total 48s
+  [XGBoost] trial 5/20 acc=0.4783 (melhor=0.4785) +19s | total 1m07s
+  [XGBoost] trial 6/20 acc=0.4781 (melhor=0.4785) +14s | total 1m21s
+  [XGBoost] trial 7/20 acc=0.4783 (melhor=0.4785) +27s | total 1m48s
+  [XGBoost] trial 8/20 acc=0.4780 (melhor=0.4785) +21s | total 2m09s
+  [XGBoost] trial 9/20 acc=0.4801 (melhor=0.4801) +3s | total 2m13s
+  [XGBoost] trial 10/20 acc=0.4785 (melhor=0.4801) +10s | total 2m23s
+  [XGBoost] trial 11/20 acc=0.4785 (melhor=0.4801) +10s | total 2m33s
+  [XGBoost] trial 12/20 acc=0.4779 (melhor=0.4801) +11s | total 2m44s
+  [XGBoost] trial 13/20 acc=0.4780 (melhor=0.4801) +14s | total 2m58s
+  [XGBoost] trial 14/20 acc=0.4781 (melhor=0.4801) +16s | total 3m14s
+  [XGBoost] trial 15/20 acc=0.4784 (melhor=0.4801) +21s | total 3m35s
+  [XGBoost] trial 16/20 acc=0.4782 (melhor=0.4801) +17s | total 3m52s
+  [XGBoost] trial 17/20 acc=0.3089 (melhor=0.4801) +8s | total 4m00s
+  [XGBoost] trial 18/20 acc=0.4786 (melhor=0.4801) +4s | total 4m04s
+  [XGBoost] trial 19/20 acc=0.4787 (melhor=0.4801) +8s | total 4m12s
+[2026-06-08 18:11:43] === sessão encerrada com erro: KeyboardInterrupt:  ===

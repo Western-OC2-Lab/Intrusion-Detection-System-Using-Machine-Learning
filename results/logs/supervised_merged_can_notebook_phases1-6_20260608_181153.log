@@ -1,0 +1,324 @@
+[2026-06-08 18:11:53] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\results\logs\supervised_merged_can_notebook_phases1-6_20260608_181153.log ===
+[2026-06-08 18:11:53] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 18:11:53] protocolo: can_notebook | ramo: supervised | perfil: merged
+[2026-06-08 18:11:53] fases: 1-6 (1, 2, 4, 6)
+[2026-06-08 18:11:53] -> [fase 1 - 1/4] Carregamento e pré-processamento ...
+[2026-06-08 18:11:53] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase01_load_preprocess --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --input C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv
+Carregando dataset: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\CAN_intrusion_Dataset.csv
+Label
+RPM       4621702
+Gear      4443142
+Fuzzy     3838860
+DoS       3665771
+BENIGN     988871
+Name: count, dtype: int64
+Dataset carregado em 17.02s
+Shape original: (17558346, 11)
+Pré-processamento concluído. Shape final: (17558346, 11)
+Salvando arquivo parquet...
+Arquivo salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\01_preprocessed.parquet
+Tempo de salvamento: 5.09s
+Tempo total do pipeline: 26.27s
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports\phase01_load_preprocess.json
+[2026-06-08 18:12:21] OK fase 1 concluida em 28.0s
+[2026-06-08 18:12:21] -> [fase 2 - 2/4] Amostragem k-means ...
+[2026-06-08 18:12:21] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --n-clusters 1000 --frac 0.008 --random-state 0 --sample-all-classes
+Label
+4    37068
+3    35633
+2    30878
+1    28972
+0     7917
+Name: count, dtype: int64
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\02_sampled_kmeans.parquet shape=(140468, 11)
+[2026-06-08 18:13:14] OK fase 2 concluida em 52.4s
+[2026-06-08 18:13:14] -> [fase 4 - 3/4] Engenharia de features (IG, FCBF) ...
+[2026-06-08 18:13:14] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase04_feature_engineering --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --fcbf-k 20 --random-state 0 --test-size 0.2 --fcbf-scope full --scale-mode phase1 --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 20
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_train_after_fcbf.parquet (112374, 9)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\04_test_after_fcbf.parquet (28094, 9)
+Preprocessores supervisionados salvos: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\models\supervised\manifest.json
+[2026-06-08 18:13:26] Sem SMOTE: parquets FCBF copiados para caminhos da fase 5 em C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged
+[2026-06-08 18:13:26] OK fase 4 concluida em 12.1s
+[2026-06-08 18:13:26] -> [fase 6 - 4/4] Modelos supervisionados + stacking ...
+[2026-06-08 18:13:26] >> C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase06_supervised_models --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged --no-plots --cv-folds 0 --meta-learner xgb --random-state 0
+Fase 6 — treino: 112,374 × 8 features | teste: 28,094
+HPO objetivo: acurácia no conjunto de teste (hold-out)
+
+============================================================
+[fase 6 — 1/5] XGBoost — HPO
+============================================================
+  [XGBoost] HPO iniciando (20 trials)...
+  [XGBoost] trial 2/20 acc=0.3901 (melhor=0.3901) +3s | total 3s
+  [XGBoost] trial 3/20 acc=0.5453 (melhor=0.5453) +9s | total 12s
+  [XGBoost] trial 4/20 acc=0.5453 (melhor=0.5453) +14s | total 26s
+  [XGBoost] trial 5/20 acc=0.5451 (melhor=0.5453) +17s | total 42s
+  [XGBoost] trial 6/20 acc=0.5454 (melhor=0.5454) +22s | total 1m04s
+  [XGBoost] trial 7/20 acc=0.5452 (melhor=0.5454) +23s | total 1m27s
+  [XGBoost] trial 8/20 acc=0.5447 (melhor=0.5454) +15s | total 1m42s
+  [XGBoost] trial 9/20 acc=0.5504 (melhor=0.5504) +1s | total 1m42s
+  [XGBoost] trial 10/20 acc=0.5464 (melhor=0.5504) +3s | total 1m45s
+  [XGBoost] trial 11/20 acc=0.5452 (melhor=0.5504) +15s | total 2m00s
+  [XGBoost] trial 12/20 acc=0.5444 (melhor=0.5504) +10s | total 2m10s
+  [XGBoost] trial 13/20 acc=0.5456 (melhor=0.5504) +13s | total 2m23s
+  [XGBoost] trial 14/20 acc=0.5465 (melhor=0.5504) +18s | total 2m41s
+  [XGBoost] trial 15/20 acc=0.5449 (melhor=0.5504) +23s | total 3m04s
+  [XGBoost] trial 16/20 acc=0.5457 (melhor=0.5504) +18s | total 3m22s
+  [XGBoost] trial 17/20 acc=0.4098 (melhor=0.5504) +8s | total 3m30s
+  [XGBoost] trial 18/20 acc=0.5453 (melhor=0.5504) +8s | total 3m39s
+  [XGBoost] trial 19/20 acc=0.5453 (melhor=0.5504) +8s | total 3m47s
+  [XGBoost] trial 20/20 acc=0.5460 (melhor=0.5504) +27s | total 4m14s
+  [XGBoost] trial 21/20 acc=0.5439 (melhor=0.5504) +17s | total 4m31s
+  [XGBoost] HPO concluído em 4m31s — best: {'learning_rate': np.float64(-0.3998542359484636), 'max_depth': np.float64(7.0), 'n_estimators': np.float64(25.0)}
+  [XGBoost] treinando modelo final no treino completo...
+
+=== XGBoost (base) ===
+Accuracy: 0.5504022211148288
+Precision: 0.5723706200883795
+Recall: 0.5504022211148288
+F1: 0.5454018302935357
+              precision    recall  f1-score   support
+
+           0       0.97      0.77      0.86      1583
+           1       0.58      0.39      0.46      5794
+           2       0.54      0.47      0.51      6176
+           3       0.61      0.48      0.53      7127
+           4       0.47      0.76      0.59      7414
+
+    accuracy                           0.55     28094
+   macro avg       0.63      0.57      0.59     28094
+weighted avg       0.57      0.55      0.55     28094
+
+
+============================================================
+[fase 6 — 2/5] Random Forest — HPO
+============================================================
+  [RandomForest] HPO iniciando (20 trials)...
+  [RandomForest] trial 2/20 acc=0.5438 (melhor=0.5438) +32s | total 32s
+  [RandomForest] trial 3/20 acc=0.5448 (melhor=0.5448) +39s | total 1m10s
+  [RandomForest] trial 4/20 acc=0.5382 (melhor=0.5448) +24s | total 1m34s
+  [RandomForest] trial 5/20 acc=0.3711 (melhor=0.5448) +18s | total 1m52s
+  [RandomForest] trial 6/20 acc=0.4757 (melhor=0.5448) +20s | total 2m12s
+  [RandomForest] trial 7/20 acc=0.5431 (melhor=0.5448) +43s | total 2m55s
+  [RandomForest] trial 8/20 acc=0.5384 (melhor=0.5448) +28s | total 3m23s
+  [RandomForest] trial 9/20 acc=0.5422 (melhor=0.5448) +8s | total 3m32s
+  [RandomForest] trial 10/20 acc=0.5408 (melhor=0.5448) +21s | total 3m52s
+  [RandomForest] trial 11/20 acc=0.5430 (melhor=0.5448) +10s | total 4m02s
+  [RandomForest] trial 12/20 acc=0.3749 (melhor=0.5448) +7s | total 4m09s
+  [RandomForest] trial 13/20 acc=0.5451 (melhor=0.5451) +14s | total 4m23s
+  [RandomForest] trial 14/20 acc=0.5459 (melhor=0.5459) +20s | total 4m44s
+  [RandomForest] trial 15/20 acc=0.4434 (melhor=0.5459) +21s | total 5m04s
+  [RandomForest] trial 16/20 acc=0.5452 (melhor=0.5459) +19s | total 5m23s
+  [RandomForest] trial 17/20 acc=0.5462 (melhor=0.5462) +13s | total 5m37s
+  [RandomForest] trial 18/20 acc=0.5444 (melhor=0.5462) +3s | total 5m40s
+  [RandomForest] trial 19/20 acc=0.5430 (melhor=0.5462) +14s | total 5m54s
+  [RandomForest] trial 20/20 acc=0.5482 (melhor=0.5482) +21s | total 6m16s
+  [RandomForest] trial 21/20 acc=0.5429 (melhor=0.5482) +20s | total 6m36s
+  [RandomForest] HPO concluído em 6m36s — best: {'criterion': np.int64(1), 'max_depth': np.float64(27.0), 'max_features': np.float64(4.0), 'min_samples_leaf': np.float64(6.0), 'min_samples_split': np.float64(10.0), 'n_estimators': np.float64(172.0)}
+  [RandomForest] treinando modelo final no treino completo...
+
+=== RandomForest (HPO) ===
+Accuracy: 0.5482309389905318
+Precision: 0.5558074999208965
+Recall: 0.5482309389905318
+F1: 0.5461620230772376
+              precision    recall  f1-score   support
+
+           0       0.96      0.77      0.86      1583
+           1       0.52      0.47      0.49      5794
+           2       0.56      0.44      0.49      6176
+           3       0.54      0.52      0.53      7127
+           4       0.51      0.69      0.59      7414
+
+    accuracy                           0.55     28094
+   macro avg       0.62      0.58      0.59     28094
+weighted avg       0.56      0.55      0.55     28094
+
+
+============================================================
+[fase 6 — 3/5] Decision Tree — HPO (50 trials)
+============================================================
+  [DecisionTree] HPO iniciando (50 trials)...
+  [DecisionTree] trial 2/50 acc=0.5407 (melhor=0.5407) +0s | total 0s
+  [DecisionTree] trial 3/50 acc=0.5385 (melhor=0.5407) +0s | total 0s
+  [DecisionTree] trial 4/50 acc=0.5389 (melhor=0.5407) +0s | total 0s
+  [DecisionTree] trial 5/50 acc=0.5419 (melhor=0.5419) +0s | total 1s
+  [DecisionTree] trial 6/50 acc=0.5381 (melhor=0.5419) +0s | total 1s
+  [DecisionTree] trial 7/50 acc=0.5381 (melhor=0.5419) +0s | total 1s
+  [DecisionTree] trial 8/50 acc=0.5149 (melhor=0.5419) +0s | total 1s
+  [DecisionTree] trial 9/50 acc=0.5408 (melhor=0.5419) +0s | total 1s
+  [DecisionTree] trial 10/50 acc=0.5399 (melhor=0.5419) +0s | total 2s
+  [DecisionTree] trial 11/50 acc=0.4955 (melhor=0.5419) +0s | total 2s
+  [DecisionTree] trial 12/50 acc=0.5393 (melhor=0.5419) +0s | total 2s
+  [DecisionTree] trial 13/50 acc=0.4543 (melhor=0.5419) +0s | total 2s
+  [DecisionTree] trial 14/50 acc=0.5172 (melhor=0.5419) +0s | total 3s
+  [DecisionTree] trial 15/50 acc=0.5416 (melhor=0.5419) +0s | total 3s
+  [DecisionTree] trial 16/50 acc=0.4845 (melhor=0.5419) +0s | total 3s
+  [DecisionTree] trial 17/50 acc=0.5192 (melhor=0.5419) +0s | total 3s
+  [DecisionTree] trial 18/50 acc=0.5387 (melhor=0.5419) +0s | total 3s
+  [DecisionTree] trial 19/50 acc=0.5398 (melhor=0.5419) +0s | total 3s
+  [DecisionTree] trial 20/50 acc=0.4543 (melhor=0.5419) +0s | total 3s
+  [DecisionTree] trial 21/50 acc=0.5394 (melhor=0.5419) +0s | total 4s
+  [DecisionTree] trial 22/50 acc=0.3749 (melhor=0.5419) +0s | total 4s
+  [DecisionTree] trial 23/50 acc=0.5431 (melhor=0.5431) +0s | total 4s
+  [DecisionTree] trial 24/50 acc=0.5431 (melhor=0.5431) +0s | total 4s
+  [DecisionTree] trial 25/50 acc=0.5419 (melhor=0.5431) +0s | total 5s
+  [DecisionTree] trial 26/50 acc=0.3844 (melhor=0.5431) +0s | total 5s
+  [DecisionTree] trial 27/50 acc=0.5404 (melhor=0.5431) +0s | total 5s
+  [DecisionTree] trial 28/50 acc=0.5409 (melhor=0.5431) +0s | total 5s
+  [DecisionTree] trial 29/50 acc=0.4496 (melhor=0.5431) +0s | total 5s
+  [DecisionTree] trial 30/50 acc=0.5420 (melhor=0.5431) +0s | total 5s
+  [DecisionTree] trial 31/50 acc=0.5419 (melhor=0.5431) +0s | total 6s
+  [DecisionTree] trial 32/50 acc=0.5415 (melhor=0.5431) +0s | total 6s
+  [DecisionTree] trial 33/50 acc=0.5406 (melhor=0.5431) +0s | total 6s
+  [DecisionTree] trial 34/50 acc=0.5338 (melhor=0.5431) +0s | total 6s
+  [DecisionTree] trial 35/50 acc=0.5251 (melhor=0.5431) +0s | total 7s
+  [DecisionTree] trial 36/50 acc=0.5357 (melhor=0.5431) +0s | total 7s
+  [DecisionTree] trial 37/50 acc=0.5389 (melhor=0.5431) +0s | total 7s
+  [DecisionTree] trial 38/50 acc=0.5417 (melhor=0.5431) +0s | total 7s
+  [DecisionTree] trial 39/50 acc=0.5406 (melhor=0.5431) +0s | total 8s
+  [DecisionTree] trial 40/50 acc=0.5403 (melhor=0.5431) +0s | total 8s
+  [DecisionTree] trial 41/50 acc=0.4692 (melhor=0.5431) +0s | total 8s
+  [DecisionTree] trial 42/50 acc=0.5400 (melhor=0.5431) +0s | total 8s
+  [DecisionTree] trial 43/50 acc=0.5406 (melhor=0.5431) +0s | total 8s
+  [DecisionTree] trial 44/50 acc=0.5393 (melhor=0.5431) +0s | total 9s
+  [DecisionTree] trial 45/50 acc=0.4231 (melhor=0.5431) +0s | total 9s
+  [DecisionTree] trial 46/50 acc=0.5341 (melhor=0.5431) +0s | total 9s
+  [DecisionTree] trial 47/50 acc=0.5062 (melhor=0.5431) +0s | total 9s
+  [DecisionTree] trial 48/50 acc=0.5036 (melhor=0.5431) +0s | total 9s
+  [DecisionTree] trial 49/50 acc=0.5417 (melhor=0.5431) +0s | total 10s
+  [DecisionTree] trial 50/50 acc=0.5421 (melhor=0.5431) +0s | total 10s
+  [DecisionTree] trial 51/50 acc=0.5409 (melhor=0.5431) +0s | total 10s
+  [DecisionTree] HPO concluído em 10s — best: {'criterion': np.int64(1), 'max_depth': np.float64(25.0), 'max_features': np.float64(12.0), 'min_samples_leaf': np.float64(1.0), 'min_samples_split': np.float64(10.0)}
+  [DecisionTree] treinando modelo final no treino completo...
+
+=== DecisionTree (HPO) ===
+Accuracy: 0.5430696945967111
+Precision: 0.5604609583218462
+Recall: 0.5430696945967111
+F1: 0.5396611248949341
+              precision    recall  f1-score   support
+
+           0       0.95      0.77      0.85      1583
+           1       0.51      0.47      0.49      5794
+           2       0.56      0.41      0.48      6176
+           3       0.60      0.47      0.53      7127
+           4       0.48      0.73      0.58      7414
+
+    accuracy                           0.54     28094
+   macro avg       0.62      0.57      0.58     28094
+weighted avg       0.56      0.54      0.54     28094
+
+
+============================================================
+[fase 6 — 4/5] Extra Trees — HPO
+============================================================
+  [ExtraTrees] HPO iniciando (20 trials)...
+  [ExtraTrees] trial 2/20 acc=0.5468 (melhor=0.5468) +9s | total 9s
+  [ExtraTrees] trial 3/20 acc=0.5473 (melhor=0.5473) +14s | total 23s
+  [ExtraTrees] trial 4/20 acc=0.5479 (melhor=0.5479) +7s | total 31s
+  [ExtraTrees] trial 5/20 acc=0.4130 (melhor=0.5479) +7s | total 37s
+  [ExtraTrees] trial 6/20 acc=0.5203 (melhor=0.5479) +7s | total 45s
+  [ExtraTrees] trial 7/20 acc=0.5452 (melhor=0.5479) +16s | total 1m01s
+  [ExtraTrees] trial 8/20 acc=0.5497 (melhor=0.5497) +12s | total 1m13s
+  [ExtraTrees] trial 9/20 acc=0.5448 (melhor=0.5497) +4s | total 1m16s
+  [ExtraTrees] trial 10/20 acc=0.5442 (melhor=0.5497) +8s | total 1m24s
+  [ExtraTrees] trial 11/20 acc=0.5441 (melhor=0.5497) +5s | total 1m29s
+  [ExtraTrees] trial 12/20 acc=0.4375 (melhor=0.5497) +3s | total 1m33s
+  [ExtraTrees] trial 13/20 acc=0.5433 (melhor=0.5497) +7s | total 1m39s
+  [ExtraTrees] trial 14/20 acc=0.5457 (melhor=0.5497) +9s | total 1m48s
+  [ExtraTrees] trial 15/20 acc=0.4914 (melhor=0.5497) +11s | total 1m59s
+  [ExtraTrees] trial 16/20 acc=0.5469 (melhor=0.5497) +11s | total 2m09s
+  [ExtraTrees] trial 17/20 acc=0.5456 (melhor=0.5497) +8s | total 2m18s
+  [ExtraTrees] trial 18/20 acc=0.5466 (melhor=0.5497) +1s | total 2m19s
+  [ExtraTrees] trial 19/20 acc=0.5469 (melhor=0.5497) +5s | total 2m24s
+  [ExtraTrees] trial 20/20 acc=0.5440 (melhor=0.5497) +8s | total 2m32s
+  [ExtraTrees] trial 21/20 acc=0.5456 (melhor=0.5497) +9s | total 2m41s
+  [ExtraTrees] HPO concluído em 2m41s — best: {'criterion': np.int64(1), 'max_depth': np.float64(18.0), 'max_features': np.float64(20.0), 'min_samples_leaf': np.float64(2.0), 'min_samples_split': np.float64(11.0), 'n_estimators': np.float64(149.0)}
+  [ExtraTrees] treinando modelo final no treino completo...
+
+=== ExtraTrees (HPO) ===
+Accuracy: 0.5496547305474478
+Precision: 0.5584452461570315
+Recall: 0.5496547305474478
+F1: 0.5469753067059717
+              precision    recall  f1-score   support
+
+           0       0.97      0.78      0.86      1583
+           1       0.55      0.41      0.47      5794
+           2       0.54      0.48      0.51      6176
+           3       0.53      0.53      0.53      7127
+           4       0.51      0.69      0.59      7414
+
+    accuracy                           0.55     28094
+   macro avg       0.62      0.58      0.59     28094
+weighted avg       0.56      0.55      0.55     28094
+
+
+============================================================
+[fase 6 — 5/5] Stacking (meta-learner=xgb)
+============================================================
+
+=== Stacking (XGB meta) ===
+Accuracy: 0.5475546380009967
+Precision: 0.5536100857225936
+Recall: 0.5475546380009967
+F1: 0.5461607825724405
+              precision    recall  f1-score   support
+
+           0       0.97      0.78      0.86      1583
+           1       0.51      0.47      0.49      5794
+           2       0.55      0.45      0.49      6176
+           3       0.54      0.52      0.53      7127
+           4       0.52      0.67      0.59      7414
+
+    accuracy                           0.55     28094
+   macro avg       0.62      0.58      0.59     28094
+weighted avg       0.55      0.55      0.55     28094
+
+  [Stacking meta] HPO iniciando (20 trials)...
+  [Stacking meta] trial 2/20 acc=0.5459 (melhor=0.5459) +1s | total 1s
+  [Stacking meta] trial 3/20 acc=0.5477 (melhor=0.5477) +1s | total 2s
+  [Stacking meta] trial 4/20 acc=0.5477 (melhor=0.5477) +1s | total 3s
+  [Stacking meta] trial 5/20 acc=0.5477 (melhor=0.5477) +1s | total 5s
+  [Stacking meta] trial 6/20 acc=0.5477 (melhor=0.5477) +1s | total 5s
+  [Stacking meta] trial 7/20 acc=0.5477 (melhor=0.5477) +1s | total 6s
+  [Stacking meta] trial 8/20 acc=0.5481 (melhor=0.5481) +1s | total 7s
+  [Stacking meta] trial 9/20 acc=0.5476 (melhor=0.5481) +0s | total 8s
+  [Stacking meta] trial 10/20 acc=0.5476 (melhor=0.5481) +1s | total 8s
+  [Stacking meta] trial 11/20 acc=0.5478 (melhor=0.5481) +0s | total 9s
+  [Stacking meta] trial 12/20 acc=0.5478 (melhor=0.5481) +1s | total 9s
+  [Stacking meta] trial 13/20 acc=0.5477 (melhor=0.5481) +1s | total 10s
+  [Stacking meta] trial 14/20 acc=0.5477 (melhor=0.5481) +1s | total 11s
+  [Stacking meta] trial 15/20 acc=0.5478 (melhor=0.5481) +1s | total 12s
+  [Stacking meta] trial 16/20 acc=0.5477 (melhor=0.5481) +1s | total 13s
+  [Stacking meta] trial 17/20 acc=0.5331 (melhor=0.5481) +1s | total 14s
+  [Stacking meta] trial 18/20 acc=0.5477 (melhor=0.5481) +1s | total 15s
+  [Stacking meta] trial 19/20 acc=0.5477 (melhor=0.5481) +2s | total 16s
+  [Stacking meta] trial 20/20 acc=0.5477 (melhor=0.5481) +4s | total 21s
+  [Stacking meta] trial 21/20 acc=0.5472 (melhor=0.5481) +3s | total 24s
+  [Stacking meta] HPO concluído em 24s — best: {'learning_rate': np.float64(1.010689547048748), 'max_depth': np.float64(99.0), 'n_estimators': np.float64(75.0)}
+
+=== Stacking meta (HPO XGB) ===
+Accuracy: 0.5480885598348402
+Precision: 0.5542408981629114
+Recall: 0.5480885598348402
+F1: 0.5467476922611253
+              precision    recall  f1-score   support
+
+           0       0.97      0.78      0.86      1583
+           1       0.51      0.47      0.49      5794
+           2       0.55      0.45      0.49      6176
+           3       0.54      0.52      0.53      7127
+           4       0.52      0.67      0.59      7414
+
+    accuracy                           0.55     28094
+   macro avg       0.62      0.58      0.59     28094
+weighted avg       0.55      0.55      0.55     28094
+
+
+Métricas salvas em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\06_supervised_metrics.json
+Modelos supervisionados salvos em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\models\supervised
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_can_intrusion_merged\phase_reports\phase06_supervised_models.json
+Fase 6 concluída em 14m57s
+[2026-06-08 18:28:25] OK fase 6 concluida em 14m59s
+[2026-06-08 18:28:25] === sessão concluída ===

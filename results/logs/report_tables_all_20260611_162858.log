@@ -1,0 +1,60 @@
+========================================================================
+COMPARATIVO MTH-IDS vs artigo (CAN-intrusion)
+========================================================================
+Supervisionado / Tabela VI / X: data/pipeline_can_intrusion_merged
+LOAO / Tabela VIII:          /home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_can_intrusion_fine/anomaly/loao
+
+========================================================================
+TABELA VI — Supervisionado (CAN-intrusion, multi-class, hold-out 80/20)
+========================================================================
+Modelo                          Acc      F1(w)
+------------------------------------------------------------------------
+XGBoost (base)             0.999197   0.999197
+RandomForest (HPO)         0.999799   0.999799
+DecisionTree (HPO)         0.999297   0.999297
+ExtraTrees (HPO)           0.999699   0.999699
+Stacking meta (RandomForest (HPO))   0.999799   0.999799
+
+Comparação vs artigo (tier multi-class / stacking):
+Métrica            Reprod       Artigo         Diff
+------------------------------------------------------------------------
+Acc              0.999799     0.999990    -0.000191
+F1(w)            0.999799     0.999990    -0.000191
+
+10-fold CV no treino (reprodução):
+  XGBoost (base): 0.9996 ± 0.0004
+  RandomForest (HPO): 0.9997 ± 0.0004
+  DecisionTree (HPO): 0.9990 ± 0.0009
+  ExtraTrees (HPO): 0.9998 ± 0.0002
+  Stacking meta (RandomForest (HPO)): 1.0000 ± 0.0000
+
+========================================================================
+TABELA VIII — Anomaly LOAO (CAN-intrusion, média sobre ataques concluídos)
+========================================================================
+Ataques concluídos: 4/3
+Métrica            Reprod       Artigo         Diff
+------------------------------------------------------------------------
+F1                0.84844      0.96307     -0.11463
+DR                 1.0000       0.9374      +0.0626
+FAR                0.4214       0.0013      +0.4201
+
+Ataque Nome                         F1       DR      FAR   N test
+------------------------------------------------------------------------
+1      Bot                      0.7697   1.0000   0.5983    11750
+2      BruteForce               0.6667   1.0000   1.0000     9812
+3      DoS                      0.9756   1.0000   0.0501    11942
+4      Infiltration             0.9818   1.0000   0.0371    13098
+
+========================================================================
+TABELA X — Sistema completo no hold-out (CAN-intrusion)
+========================================================================
+Protocolo: hold-out 80/20 (artigo: 70/30)
+Métrica            Reprod       Artigo         Diff
+------------------------------------------------------------------------
+Acc (%)             98.89        99.99        -1.10
+DR (%)              99.99       100.00        -0.01
+FAR (%)            3.7050       0.0001      +3.7049
+F1                 0.9921       0.9999      -0.0078
+
+Roteamento: {'n_test': 9959, 'n_stacking_normal': 2969, 'n_stacking_attack': 6990, 'anomaly_attack_detected': 109, 'anomaly_normal_confirmed': 2860}
+CM: data/pipeline_can_intrusion_merged/figures/fig_multiclass_cm.png | data/pipeline_can_intrusion_merged/figures/fig_binary_cm.png

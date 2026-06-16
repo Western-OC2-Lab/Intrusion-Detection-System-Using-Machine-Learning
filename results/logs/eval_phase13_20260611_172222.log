@@ -1,0 +1,32 @@
+[2026-06-11 17:22:22] === sessão iniciada — log: C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\results\logs\eval_phase13_20260611_172222.log ===
+[2026-06-11 17:22:22] C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase13_full_system_eval --intermediate-dir data\pipeline_unsw_nb15_merged --work-dir data\pipeline_unsw_nb15_merged\anomaly\global
+[2026-06-11 17:22:22] >> C:\Users\labou\projects\Intrusion-Detection-System-Using-Machine-Learning\venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase13_full_system_eval --intermediate-dir data\pipeline_unsw_nb15_merged --work-dir data\pipeline_unsw_nb15_merged\anomaly\global
+Avaliação end-to-end: supervised=data\pipeline_unsw_nb15_merged | anomaly=data\pipeline_unsw_nb15_merged\anomaly\global
+Hold-out: test_size=0.2, random_state=0
+  [PCA transform inferência] shape=(8849, 10)
+
+=== MTH-IDS end-to-end (hold-out) ===
+Accuracy: 0.902114
+F1 (weighted): 0.906932
+DR: 0.999687  FAR: 0.019721  F1 (binário): 0.973154
+Roteamento: {'n_test': 12065, 'n_stacking_normal': 8849, 'n_stacking_attack': 3216, 'anomaly_attack_detected': 149, 'anomaly_normal_confirmed': 8700}
+CM multi-classe:
+[[ 362   43   96    0   23    7    1    0    2    0    0    1]
+ [ 203   83   17    0   17   25    2    2    1    5    3    1]
+ [  35    6   61    0    0    2    1    0    0    1    0    1]
+ [  12    0    0 8699    1    2   66    0    2    0    0   92]
+ [  95   19   11    0    8   18    2    2    1    1    1    1]
+ [ 111   36   20    0   11  242    7    2    8    7    4    4]
+ [  19    0    8    1    1    5  160    0    3    2    0   46]
+ [   8    4    0    0    3    7    3  837    0    0    1    0]
+ [  14    2    0    0    1   10    0    0  107    0    0    0]
+ [   0    0    1    0    0    3    0    0    0  295    2    1]
+ [   0    0    0    0    0    3    0    0    0    0   30    2]
+ [   0    0    0    0    0    0    0    0    0    0    0    0]]
+CM binária:
+[[8699  175]
+ [   1 3190]]
+Relatório salvo em: data\pipeline_unsw_nb15_merged\phase_reports\phase13_full_system_eval.json
+Figura salva: data\pipeline_unsw_nb15_merged\figures\fig_multiclass_cm.png
+Figura salva: data\pipeline_unsw_nb15_merged\figures\fig_binary_cm.png
+[2026-06-11 17:22:31] === sessão concluída ===

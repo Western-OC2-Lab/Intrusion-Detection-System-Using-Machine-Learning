@@ -1,0 +1,6 @@
+{
+  "merged_dir": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_mth_ids_merged",
+  "loao_root": "/home/pedro_campelo/projects/cin/ataqueDeteccaoDeIntrusao/Intrusion-Detection-System-Using-Machine-Learning/data/pipeline_mth_ids_fine/anomaly/loao",
+  "dataset": "cicids2017",
+  "table_ix": null
+}

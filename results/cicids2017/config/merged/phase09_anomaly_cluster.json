@@ -1,0 +1,27 @@
+﻿{
+  "input": "data\\pipeline_mth_ids_merged\\anomaly\\global\\a04_after_kpca.parquet",
+  "train_output": "data\\pipeline_mth_ids_merged\\anomaly\\global\\a05_train_after_smote.parquet",
+  "test_slice_meta": "data\\pipeline_mth_ids_merged\\anomaly\\global\\a06_test_slice.json",
+  "n_clusters": 8,
+  "random_state": 0,
+  "smote_target": 11594,
+  "smote_target_resolved": 11594,
+  "did_smote": true,
+  "train_counts_before": {
+    "0": 14493,
+    "1": 6939
+  },
+  "train_counts_after": {
+    "0": 11594,
+    "1": 11594
+  },
+  "test_label_counts": {
+    "0": 2899,
+    "1": 1388
+  },
+  "train_rows": 23188,
+  "test_rows": 4287,
+  "accuracy": 0.735246092838815,
+  "phase": "phase09_anomaly_cluster",
+  "timestamp": 1780838139
+}

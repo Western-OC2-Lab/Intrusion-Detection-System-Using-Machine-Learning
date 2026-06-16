@@ -1,0 +1,30 @@
+﻿{
+  "shape": {
+    "rows": 26791,
+    "cols": 79
+  },
+  "label_col": "Label",
+  "label_value_counts": {
+    "0": 18117,
+    "3": 3078,
+    "6": 2180,
+    "1": 1966,
+    "5": 1291,
+    "2": 123,
+    "4": 36
+  },
+  "input": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\01_preprocessed.parquet",
+  "output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\02_sampled_kmeans.parquet",
+  "n_clusters": 1000,
+  "frac": 0.008,
+  "minority_labels": [
+    6,
+    1,
+    4
+  ],
+  "auto_minority": false,
+  "skip_sampling": false,
+  "duration_s": 9.1439,
+  "phase": "phase02_sample_kmeans",
+  "timestamp": 1780831225
+}

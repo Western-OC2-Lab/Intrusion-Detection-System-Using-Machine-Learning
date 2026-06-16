@@ -1,0 +1,21 @@
+﻿Protocolo: paper | ramo: supervised | perfil: merged
+Artefatos: C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged
+=== sess├úo iniciada ÔÇö log: C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\supervised_run.log ===
+intermediate-dir: C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged
+protocolo: paper | ramo: supervised | perfil: merged
+fases: 2-2 (2)
+-> [fase 2 - 1/1] Amostragem k-means ...
+>> C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\.venv\Scripts\python.exe -m mth_ids_pipeline.phases.phase02_sample_kmeans --report-dir C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports --intermediate-dir C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged --n-clusters 1000 --frac 0.008 --random-state 0 --minority-labels 6,1,4
+Label
+0    18179
+3     3032
+6     2180
+1     1966
+5     1299
+2       99
+4       36
+Name: count, dtype: int64
+Salvo: C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\02_sampled_kmeans.parquet shape=(26791, 79)
+OK fase 2 concluida em 20.8s
+=== sess├úo conclu├¡da ===
+Log supervisionado: C:\Users\Ara├║jo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\supervised_run.log

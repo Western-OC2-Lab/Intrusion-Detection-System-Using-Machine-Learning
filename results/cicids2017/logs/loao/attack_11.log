@@ -1,0 +1,125 @@
+﻿[2026-06-06 18:55:57] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\loao_run.log ===
+[2026-06-06 18:55:57] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine
+[2026-06-06 18:55:57] amostra: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\02_sampled_kmeans.parquet
+[2026-06-06 18:55:57] output-root: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao
+[2026-06-06 18:55:57] [LOAO 2/5] zero-day: SSH-Patator (Label=11) | decorrido global 1h27m
+[2026-06-06 18:55:57]   -> [fase 7 - 1/5] Partição binária LOAO ...
+[2026-06-06 18:55:57] >> C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\python.exe -m mth_ids_pipeline.phases.phase07_anomaly_datasets --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11 --attack-label 11
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\a01_without_portscan.parquet (26766, 79), C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\a02_portscan_only.parquet (43, 79)
+
+=== LOAO [fase 7 (split binário)] ===
+  treino: rows=26766 labels={'0': 18181, '1': 8585}
+  teste:  rows=43 labels={'1': 43}
+  zero-day=43 benign_test=0 regra=fase7_zero_day_only
+  rótulos originais no treino (pré-binário): {'0': 18181, '1': 1966, '4': 1853, '12': 1507, '10': 1280, '2': 1034, '14': 652, '3': 80, '7': 61, '6': 42, '5': 42, '9': 36, '13': 21, '8': 11}
+  zero-day label=11 excluído_do_treino=True
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports\phase07_anomaly_datasets.json
+[2026-06-06 18:55:59]   OK fase 7 concluida em 2.1s
+[2026-06-06 18:55:59]   -> [fase 8 - 2/5] Features (Z-score, IG, FCBF, KPCA) ...
+[2026-06-06 18:55:59] >> C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\python.exe -m mth_ids_pipeline.phases.phase08_anomaly_features --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11 --random-state 0 --feature-fit-scope combined --zscore-scope combined --fcbf-k 20 --kpca-components 10 --kpca-kernel rbf --ig-cumulative 0.9 --cv-folds 10 --ig-hpo-calls 15 --kpca-hpo-calls 15 --optimize-ig --optimize-kpca
+[1/5] [####----------------] Dados carregados (fase 7) (+0.1s)
+
+=== LOAO [fase 8 (pré-normalização)] ===
+  treino: rows=26766 labels={'0': 18181, '1': 8585}
+  teste:  rows=86 labels={'1': 43, '0': 43}
+  zero-day=43 benign_test=43 regra=paper_table_ix_1_to_1
+  rótulos originais no treino (pré-binário): {'0': 18181, '1': 1966, '4': 1853, '12': 1507, '10': 1280, '2': 1034, '14': 652, '3': 80, '7': 61, '6': 42, '5': 42, '9': 36, '13': 21, '8': 11}
+  zero-day label=11 excluído_do_treino=True
+Partição LOAO: treino=(26766, 79), teste=(86, 79), features=78
+[2/5] [########------------] Partição treino/teste (+0.1s)
+BO-GP IG (treino LOAO): alpha=0.8719, CV acc=0.9953
+BO-GP KPCA: n=20, kernel=sigmoid, CV acc=0.9943
+  [KPCA fit treino] shape=(26852, 20), n_components=20
+  [KPCA transform combinado] shape=(26852, 20)
+[3/5] [############--------] Z-score (combined) + IG + FCBF + KPCA (combinado) (+4895.2s)
+[4/5] [################----] Artefatos e parquets salvos (+4895.4s)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\a03_combined_normalized.parquet shape=(26852, 79)
+Salvo: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\a04_after_kpca.parquet shape=(26852, 21)
+Meta/partição: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\a06_test_slice.json
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports\phase08_anomaly_features.json
+[5/5] [####################] Relatorio JSON (+4895.4s)
+[2026-06-06 20:17:37]   OK fase 8 concluida em 1h21m
+[2026-06-06 20:17:37]   -> [fase 9 - 3/5] SMOTE + CL-k-means inicial ...
+[2026-06-06 20:17:37] >> C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\python.exe -m mth_ids_pipeline.phases.phase09_anomaly_cluster --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11 --random-state 0
+Partição LOAO (fase 9): treino=(26766, 20) labels={'0': 18181, '1': 8585} | teste=(86, 20) labels={'1': 43, '0': 43}
+SMOTE notebook: classe 1 -> 18181 (alvo = n benignos no treino)
+Salvo treino pós-SMOTE: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\a05_train_after_smote.parquet
+              precision    recall  f1-score   support
+
+           0       0.49      0.95      0.65        43
+           1       0.00      0.00      0.00        43
+
+    accuracy                           0.48        86
+   macro avg       0.24      0.48      0.32        86
+weighted avg       0.24      0.48      0.32        86
+
+Accuracy: 0.47674418604651164
+CM:
+ [[41  2]
+ [43  0]]
+Relatorio salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports\phase09_anomaly_cluster.json
+[2026-06-06 20:17:41]   OK fase 9 concluida em 4.5s
+[2026-06-06 20:17:41]   -> [fase 10 - 4/5] BO-GP n_clusters ...
+[2026-06-06 20:17:41] >> C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\python.exe -m mth_ids_pipeline.phases.phase10_anomaly_cluster_hpo --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11 --random-state 0 --n-calls 15 --hpo-metric f1 --metrics euclidean,manhattan,cosine,mahalanobis
+Partição KPCA: treino=(26766, 20) labels={'0': 18181, '1': 8585} | teste=(86, 20) labels={'1': 43, '0': 43}
+Baseline CL-k-means (n=8, metric=euclidean): f1=0.0000
+  trial n=30, metric=mahalanobis: f1=0.9451
+  trial n=43, metric=mahalanobis: f1=0.6575
+  trial n=32, metric=manhattan: f1=0.6667
+  trial n=16, metric=euclidean: f1=0.8958
+  trial n=15, metric=manhattan: f1=0.9149
+  trial n=41, metric=manhattan: f1=0.6667
+  trial n=21, metric=mahalanobis: f1=0.9247
+  trial n=18, metric=cosine: f1=0.0000
+  trial n=20, metric=mahalanobis: f1=0.5938
+  trial n=9, metric=mahalanobis: f1=0.0000
+  trial n=3, metric=euclidean: f1=0.5352
+  trial n=29, metric=mahalanobis: f1=0.9247
+  trial n=27, metric=mahalanobis: f1=0.9247
+  trial n=50, metric=cosine: f1=0.6761
+  trial n=21, metric=manhattan: f1=0.9451
+Melhor n_clusters=30, metric=mahalanobis, f1=0.9451
+Avaliação final n=30, metric=mahalanobis: f1=0.9451
+Partição LOAO (fase 10): treino=(36362, 20) labels={'0': 18181, '1': 18181} | teste=(86, 20) labels={'1': 43, '0': 43}
+Relatório salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports\phase10_anomaly_cluster_hpo.json
+[2026-06-06 20:18:06]   OK fase 10 concluida em 25.1s
+[2026-06-06 20:18:06]   -> [fase 11 - 5/5] Biased B1/B2 ...
+[2026-06-06 20:18:06] >> C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\python.exe -m mth_ids_pipeline.phases.phase11_anomaly_biased --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11 --random-state 0 --biased-mode both --force-biased --optimize-p-star --p-star-n-calls 15
+k automático da fase 10: 30
+metric automática da fase 10: mahalanobis
+Biased learners: família de 'XGBoost (base)'
+Partição KPCA: treino=(26766, 20) labels={'0': 18181, '1': 8585} | teste=(86, 20) labels={'1': 43, '0': 43}
+Partição LOAO (fase 11): treino=(36362, 20) labels={'0': 18181, '1': 18181} | teste=(86, 20) labels={'1': 43, '0': 43}
+CL-k-means (n=30, metric=mahalanobis): accuracy=0.9419
+              precision    recall  f1-score   support
+
+           0       1.00      0.88      0.94        43
+           1       0.90      1.00      0.95        43
+
+    accuracy                           0.94        86
+   macro avg       0.95      0.94      0.94        86
+weighted avg       0.95      0.94      0.94        86
+
+DR=1.0000 FAR=0.1163 F1=0.9451
+
+Modo biased selecionado: both
+BO-GP p*: melhor=0.5278, F1=0.9451
+
+MTH-IDS anomaly (biased mode=both, p*=0.5277893588855471):
+              precision    recall  f1-score   support
+
+           0       1.00      0.88      0.94        43
+           1       0.90      1.00      0.95        43
+
+    accuracy                           0.94        86
+   macro avg       0.95      0.94      0.94        86
+weighted avg       0.95      0.94      0.94        86
+
+Acc=0.9419 DR=1.0000 FAR=0.1163 F1=0.9451
+CM:
+ [[38  5]
+ [ 0 43]]
+Relatório salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_fine\anomaly\loao\attack_11\reports\phase11_anomaly_biased.json
+[2026-06-06 20:18:12]   OK fase 11 concluida em 6.0s
+[2026-06-06 20:18:12] Resultado - DR=1.0000, FAR=0.1163, F1=0.9451 | rodada 1h22m | restam 3 nesta execucao
+[2026-06-06 20:18:12] === sessão concluída ===

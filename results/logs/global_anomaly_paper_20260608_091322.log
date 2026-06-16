@@ -1,0 +1,47 @@
+﻿[2026-06-08 09:13:22] === sessão iniciada — log: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\results\logs\global_anomaly_paper_20260608_091322.log ===
+[2026-06-08 09:13:22] intermediate-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged
+[2026-06-08 09:13:22] work-dir: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global
+[2026-06-08 09:13:22] protocol: paper | fases: 11-11
+[2026-06-08 09:13:22] -> fase 11 (mth_ids_pipeline.phases.phase11_anomaly_biased) ...
+[2026-06-08 09:13:22] >> C:\Users\Araújo Notebook\AppData\Local\Programs\Python\Python313\python.exe -m mth_ids_pipeline.phases.phase11_anomaly_biased --intermediate-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged --report-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports --work-dir C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global --random-state 0 --p-star 0.933 --biased-mode both --force-biased --optimize-p-star --p-star-n-calls 15
+k automático da fase 10: 50
+metric automática da fase 10: manhattan
+Biased learners: família de 'XGBoost (base)'
+Modo global (Tabela X): validação interna 20% do treino para fases 9–11 (hold-out 20% reservado à fase 13).
+Partição KPCA: treino=(17145, 20) labels={'0': 11594, '1': 5551} | validação interna=(4287, 20) labels={'0': 2899, '1': 1388}
+SMOTE notebook: classe 1 -> 11594 (alvo = n benignos no treino)
+Partição LOAO (fase 11): treino=(23188, 20) labels={'0': 11594, '1': 11594} | teste=(4287, 20) labels={'0': 2899, '1': 1388}
+CL-k-means (n=50, metric=manhattan): accuracy=0.8654
+              precision    recall  f1-score   support
+
+           0       0.94      0.86      0.90      2899
+           1       0.75      0.88      0.81      1388
+
+    accuracy                           0.87      4287
+   macro avg       0.84      0.87      0.85      4287
+weighted avg       0.88      0.87      0.87      4287
+
+DR=0.8840 FAR=0.1435 F1=0.8096
+
+Modo biased selecionado: both
+BO-GP p*: melhor=0.9900, F1=0.9758
+
+MTH-IDS anomaly (biased mode=both, p*=0.99):
+              precision    recall  f1-score   support
+
+           0       0.99      0.98      0.99      2899
+           1       0.96      0.99      0.98      1388
+
+    accuracy                           0.98      4287
+   macro avg       0.98      0.99      0.98      4287
+weighted avg       0.98      0.98      0.98      4287
+
+Acc=0.9841 DR=0.9885 FAR=0.0179 F1=0.9758
+CM:
+ [[2847   52]
+ [  16 1372]]
+Relatório salvo em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\phase_reports\phase11_anomaly_biased.json
+Persistência global: CL-k-means no treino completo (23188, 20)
+Persistência global: B1/B2 re-treinados no treino completo
+Modelos anomaly salvos em: C:\Users\Araújo Notebook\Documents\GitHub\Intrusion-Detection-System-Using-Machine-Learning\data\pipeline_mth_ids_merged\anomaly\global\models\anomaly
+[2026-06-08 09:13:35] === sessão concluída ===

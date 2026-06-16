@@ -1,0 +1,30 @@
+﻿{
+  "train_input": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\04_train_after_fcbf.parquet",
+  "test_input": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\04_test_after_fcbf.parquet",
+  "train_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\05_train_after_smote.parquet",
+  "test_output": "C:\\Users\\Ara\u00fajo Notebook\\Documents\\GitHub\\Intrusion-Detection-System-Using-Machine-Learning\\data\\pipeline_mth_ids_merged\\05_test_unchanged.parquet",
+  "smote_sampling_strategy": {
+    "2": 1000,
+    "4": 1000
+  },
+  "train_counts_before": {
+    "0": 14493,
+    "3": 2462,
+    "6": 1744,
+    "1": 1573,
+    "5": 1033,
+    "2": 98,
+    "4": 29
+  },
+  "train_counts_after": {
+    "0": 14493,
+    "3": 2462,
+    "6": 1744,
+    "1": 1573,
+    "5": 1033,
+    "2": 1000,
+    "4": 1000
+  },
+  "phase": "phase05_smote",
+  "timestamp": 1780832103
+}

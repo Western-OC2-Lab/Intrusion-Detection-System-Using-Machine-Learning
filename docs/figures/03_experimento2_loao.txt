@@ -1,0 +1,15 @@
+flowchart TB
+    subgraph prep["Por ataque (attack_N/)"]
+        S7["Fase 7: split LOAO\n1 ataque = zero-day no teste"]
+        S8["Fase 8: Z-score + IG + FCBF + KPCA"]
+        S9["Fase 9: CL-k-means inicial"]
+        S10["Fase 10: BO-GP k + métrica"]
+        S11["Fase 11: B₁/B₂ + p*"]
+    end
+
+    MET["06_supervised_metrics.json\n(merged)"] -.->|"escolhe família\nRF/XGB/DT/ET"| S11
+
+    S7 --> S8 --> S9 --> S10 --> S11
+    S11 --> OUT["DR / FAR / F1\nzero-day"]
+
+    style MET fill:#f9f9f9
